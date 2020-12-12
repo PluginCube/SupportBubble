@@ -55,13 +55,13 @@ class InstantSupport
     private $path;
 
     /**
-     * Options instance.
+     * Framework instance.
      *
      * @since 1.0.0
      * @access private
      * @var object|null
      */
-    private $options;
+    private $framework;
 
     /**
      * Class constructer.
@@ -83,6 +83,20 @@ class InstantSupport
         $this->path = trailingslashit(str_replace('\\', '/', dirname( __FILE__ )));
         $this->url = site_url(str_replace(str_replace('\\', '/', ABSPATH ), '', $this->path));
 
+        // Load the framework
+        require_once $this->path . '/framework/framework.php';
+
+        // Init the framework
+        $this->framework = new Framework([
+            'id' => '7401',
+            'slug' => 'instant-support',
+            'title' => 'Instant Support',
+            'public_key' => 'pk_677cbbdf1055c4c6bf6a410734760',
+            'icon' => '',
+        ]);
+
+        // Load options config
+        include_once $this->path . '/options.php';
     }
 }
 
