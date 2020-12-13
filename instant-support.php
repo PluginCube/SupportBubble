@@ -83,6 +83,8 @@ class InstantSupport
         $this->path = trailingslashit(str_replace('\\', '/', dirname( __FILE__ )));
         $this->url = site_url(str_replace(str_replace('\\', '/', ABSPATH ), '', $this->path));
 
+        define( 'WP_FS__DEV_MODE', true );
+
         // Load the framework
         require_once $this->path . '/framework/framework.php';
 
@@ -97,6 +99,43 @@ class InstantSupport
 
         // Load options config
         include_once $this->path . '/options.php';
+
+        // Render the view
+        add_action('wp_footer', [$this, 'render']);
+    }
+
+    /**
+     * Render the content
+     * 
+     * @since 1.0.0
+     * @access public
+     * @return void
+     */
+    public function render()
+    {
+        $values = $this->framework->options->get_values();
+
+        extract($values);
+
+        include_once $this->path . '/views/main.php';
+    }
+
+    /**
+     * Get SVG icon from css tag
+     * 
+     * @since 1.0.0
+     * @access public
+     * @return void
+     */
+    public function get_svg_icon($tag)
+    {
+        $name = str_replace('ri-', null, $tag);
+        
+        $path = glob($this->path . "/assets/vendor/remix-icon/icons/**/$name.svg");
+
+        $content =  file_get_contents($path[0]);
+
+        return $content;
     }
 }
 

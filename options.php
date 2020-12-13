@@ -13,7 +13,7 @@ $options = $this->framework->options;
 
 $options->add('section', [
     'id' => 'button',
-    'title' => 'Button Settings',
+    'title' => 'Support Button',
 ]);
 
 $options->add('link', [
@@ -95,7 +95,7 @@ $options->add('field', [
     'default' => 'end',
     'choices' => [
         [
-            'id' => 'center',
+            'id' => 'start',
             'title' => 'Start'
         ],
         [
@@ -110,7 +110,7 @@ $options->add('field', [
 ]);
 
 $options->add('field', [
-    'id' => 'background',
+    'id' => 'bg',
     'type' => 'color',
     'title' => 'Background',
     'section' => 'button',
@@ -152,10 +152,10 @@ $options->add('field', [
     ],
     'default' => [
         [
-            'message' => 'Hey'
+            'message' => 'Hello'
         ],
         [
-            'message' => 'Have a question?'
+            'message' => 'You can use this button to contact us'
         ]
     ],
 ]);
