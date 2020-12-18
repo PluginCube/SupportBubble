@@ -1,0 +1,116 @@
+@import "./vars";
+@import "./loader";
+
+
+#instant-support {
+    position: fixed;
+    z-index: 999;
+    right: 0;
+    bottom: 0;
+    margin: 50px;
+    display: none;
+    animation: instant-support-slide-in-y 1s cubic-bezier(0.42, 0.21, 0.01, 0.8);
+
+    .instant-support-prompts {
+        display: none;
+    }
+
+    .loader {
+        @include loader($size: 5px, $gap: 3px, $duration: 0.5s);
+    }
+
+    .instant-support-button {
+        font-size: 16px;
+        background: var(--instant-support-btn-bg);
+        color: var(--instant-support-btn-text);
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.05);
+        cursor: pointer;
+
+        i {
+            background: rgba(0, 0, 0, 0.1);
+            float: left;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 49px;
+            overflow: hidden;
+        
+            svg {
+                width: 24px;
+                fill: currentColor;
+                animation: instant-support-slide-in-x 1s cubic-bezier(0.53, 0.17, 0, 0.99);
+                // animation-delay: .3s;
+            }
+        }
+
+        
+        span {
+            line-height: 44px;
+            padding: 0px 20px 0px 18px;
+            float: right;
+        }
+    }
+}
+
+@keyframes instant-support-slide-in-out-x {
+    33%   {
+        transform: translateX(40px);
+        opacity: 0;
+    }
+    66%   {
+        transform: translateX(-40px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes instant-support-slide-in-y {
+    0%   {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes instant-support-slide-out-y {
+    0%   {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-40px);
+        opacity: 0;
+    }
+}
+
+@keyframes instant-support-slide-in-x {
+    0%   {
+        transform: translateX(-40px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes instant-support-slide-out-x {
+    0%   {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-40px);
+        opacity: 0;
+    }
+}

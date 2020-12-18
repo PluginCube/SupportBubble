@@ -83,7 +83,7 @@ class InstantSupport
         $this->path = trailingslashit(str_replace('\\', '/', dirname( __FILE__ )));
         $this->url = site_url(str_replace(str_replace('\\', '/', ABSPATH ), '', $this->path));
 
-        define( 'WP_FS__DEV_MODE', true );
+        // define( 'WP_FS__DEV_MODE', true );
 
         // Load the framework
         require_once $this->path . '/framework/framework.php';
@@ -100,7 +100,10 @@ class InstantSupport
         // Load options config
         include_once $this->path . '/options.php';
 
-        // Render the view
+        // Assets
+        add_action('wp_enqueue_scripts', [$this, "styles"]);
+
+        // Render the front-end
         add_action('wp_footer', [$this, 'render']);
     }
 
@@ -133,9 +136,23 @@ class InstantSupport
         
         $path = glob($this->path . "/assets/vendor/remix-icon/icons/**/$name.svg");
 
-        $content =  file_get_contents($path[0]);
+        $content = file_get_contents($path[0]);
 
         return $content;
+    }
+
+
+    /**
+     * Enqueue styles.
+     *
+     * @since 1.0.0
+     * @access public 
+     * @return void
+     */
+    public function styles()
+    {
+        wp_enqueue_style('instant-support', $this->url . "assets/css/main.css");
+        wp_enqueue_script('instant-support', $this->url . "assets/js/main.js", ['jquery']);
     }
 }
 
