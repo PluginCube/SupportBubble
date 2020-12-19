@@ -6,38 +6,31 @@ jQuery(document).ready(function($) {
     let prompts = box.find('.it-prompts');
     let loader = prompts.find('.it-loader');
 
-    // Deley for better UX
+    // Show the box
     setTimeout(() => {
         box.show();
     }, 500);
 
-    // Prompt messages
-    // prompts.children().each(function (i) {
-    //     delay = i == 0 ? 1000 : i * 1250 + 1000;
-        
-    //     loader.show();
+    // show the prompts messages
+    setTimeout(() => {
 
-    //     setTimeout(() => {
-    //         $(this).show();
+        setInterval(() => {
+            prompts.fadeTo(500,1);
 
-    //         loader.hide();
-    //     }, delay)
-    // });
-
-    setInterval(() => {
-        if (data.prompts.length == 0) return;
-
-        loader.show();
-
-        prompts.find('span').text(null);
-
-        setTimeout(() => {
-            loader.hide();
-
-            prompts.find('span').text(data.prompts[0]['message']);
-
-            data.prompts.shift();
-        }, 2500);
-        
-    }, 5000);
+            if (data.prompts.length == 0) return;
+    
+            loader.show();
+    
+            prompts.find('span').text(null);
+    
+            setTimeout(() => {
+                loader.hide();
+    
+                prompts.find('span').text(data.prompts[0]['message']);
+    
+                data.prompts.shift();
+            }, 2500);
+            
+        }, 5000);
+    }, 2000);
 });
