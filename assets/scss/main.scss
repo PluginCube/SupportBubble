@@ -5,53 +5,124 @@
 #instant-support {
     position: fixed;
     z-index: 999;
-    right: 0;
-    bottom: 0;
     margin: 50px;
     display: none;
+    min-width: 220px;
     animation: instant-support-slide-in-y 1s cubic-bezier(0.42, 0.21, 0.01, 0.8);
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
 
-    .instant-support-prompts {
-        display: none;
+    &[data-position=top_right] {
+        right: 0;
+        top: 0;
+    }
+    
+    &[data-position=bottom_right] {
+        right: 0;
+        bottom: 0;
     }
 
-    .loader {
+    &[data-position=top_left] {
+        left: 0;
+        top: 0;
+    }
+
+    &[data-position=bottom_left] {
+        left: 0;
+        bottom: 0;
+    }
+
+    .it-loader {
         @include loader($size: 5px, $gap: 3px, $duration: 0.5s);
     }
 
-    .instant-support-button {
-        font-size: 16px;
+    .it-button {
+        font-size: 15px;
         background: var(--instant-support-btn-bg);
         color: var(--instant-support-btn-text);
-        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
         border-radius: 5px;
         overflow: hidden;
-        box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.05);
         cursor: pointer;
+        float: right;
+        box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
 
         i {
-            background: rgba(0, 0, 0, 0.1);
+            background: rgba(0,0,0,0.085);
             float: left;
-            height: 44px;
+            height: 42px;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 49px;
+            width: 46px;
             overflow: hidden;
-        
+
             svg {
-                width: 24px;
+                width: 20px;
                 fill: currentColor;
                 animation: instant-support-slide-in-x 1s cubic-bezier(0.53, 0.17, 0, 0.99);
-                // animation-delay: .3s;
             }
         }
 
         
         span {
-            line-height: 44px;
+            line-height: 42px;
             padding: 0px 20px 0px 18px;
             float: right;
+        }
+
+        &[data-size=small] {
+            font-size: 14px;
+
+            i {
+                height: 40px;
+                width: 43px;
+
+                svg {
+                    width: 18px;
+                }
+            }
+
+            span {
+                line-height: 40px;
+            }
+        }
+
+        &[data-size=large] {
+            font-size: 15px;
+
+            i {
+                height: 45px;
+                width: 50px;
+
+                svg {
+                    width: 24px;
+                }
+            }
+
+            span {
+                line-height: 45px;
+            }
+        }    
+    }
+
+    .it-prompts {
+        position: absolute;
+        bottom: 60px;
+        right: 0;
+        padding: 12px 20px;
+        font-size: 14px;
+        line-height: 20px;
+        background: #fff;
+        min-width: 65px;
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #555;
+        border-radius: 5px;
+        box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+        
+        .it-loader {
+            color: #dddddd;
         }
     }
 }

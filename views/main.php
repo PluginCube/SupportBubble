@@ -6,25 +6,16 @@
 </style>
 
 
-<div id="instant-support" data-size="<?= $button['size'] ?>" data-position="<?= $button['position'] ?>" data-alignment="<?= $button['alignment'] ?>">
+<div id="instant-support" data-size="<?= $button['size'] ?>" data-position="<?= $button['position'] ?>">
 
 	<!-- Prompt Messages -->
-	<ul class="instant-support-prompts">
-		<?php foreach ($button['messages'] as $item) : ?>
-			<li>
-				<?= $item['message'] ?>
-			</li>
-        <?php endforeach; ?>
-        <li class="instant-support-prompt-placeholder">
-            <i>
-                <div class="loader"></div>
-                <?= $this->get_svg_icon($button['icon']); ?>
-            </i>
-        </li>
-	</ul>
+	<div class="it-prompts">
+        <span></span>
+        <div class="it-loader"></div>
+    </div>
 
 	<!-- Button -->
-    <div class="instant-support-button">
+    <div class="it-button" data-size="<?= $button['size'] ?>" >
             <i>
                 <?= $this->get_svg_icon($button['icon']); ?>
             </i>

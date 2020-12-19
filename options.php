@@ -66,45 +66,23 @@ $options->add('field', [
     'type' => 'select',
     'title' => 'Position',
     'section' => 'button',
-    'default' => 'right',
+    'default' => 'bottom_right',
     'choices' => [
         [
-            'id' => 'top',
-            'title' => 'Top'
+            'id' => 'top_right',
+            'title' => 'Top right'
         ],
         [
-            'id' => 'right',
-            'title' => 'Right'
+            'id' => 'bottom_right',
+            'title' => 'Bottom right'
         ],
         [
-            'id' => 'bottom',
-            'title' => 'Bottom'
+            'id' => 'top_left',
+            'title' => 'Top left'
         ],
         [
-            'id' => 'left',
-            'title' => 'Left'
-        ]
-    ]
-]);
-
-$options->add('field', [
-    'id' => 'alignment',
-    'type' => 'select',
-    'title' => 'Alignment',
-    'section' => 'button',
-    'default' => 'end',
-    'choices' => [
-        [
-            'id' => 'start',
-            'title' => 'Start'
-        ],
-        [
-            'id' => 'center',
-            'title' => 'Center'
-        ],
-        [
-            'id' => 'end',
-            'title' => 'End'
+            'id' => 'bottom_left',
+            'title' => 'Bottom left'
         ]
     ]
 ]);
@@ -114,7 +92,7 @@ $options->add('field', [
     'type' => 'color',
     'title' => 'Background',
     'section' => 'button',
-    'default' => '#3568eb',
+    'default' => '#1778F2',
 ]);
 
 $options->add('field', [
@@ -135,7 +113,7 @@ $options->add('field', [
 
 
 $options->add('field', [
-    'id' => 'messages',
+    'id' => 'prompts',
     'type' => 'repeater',
     'title' => 'Prompt Messages',
     'section' => 'button',

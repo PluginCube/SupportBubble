@@ -101,7 +101,7 @@ class InstantSupport
         include_once $this->path . '/options.php';
 
         // Assets
-        add_action('wp_enqueue_scripts', [$this, "styles"]);
+        add_action('wp_enqueue_scripts', [$this, "assets"]);
 
         // Render the front-end
         add_action('wp_footer', [$this, 'render']);
@@ -143,16 +143,22 @@ class InstantSupport
 
 
     /**
-     * Enqueue styles.
+     * Enqueue assets.
      *
      * @since 1.0.0
      * @access public 
      * @return void
      */
-    public function styles()
+    public function assets()
     {
+        $values = $this->framework->options->get_values();
+
         wp_enqueue_style('instant-support', $this->url . "assets/css/main.css");
         wp_enqueue_script('instant-support', $this->url . "assets/js/main.js", ['jquery']);
+
+        wp_localize_script('instant-support', 'InstantSupport', [
+            'prompts' => $values['button']['prompts']
+        ]);
     }
 }
 
