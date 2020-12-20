@@ -1,23 +1,30 @@
 jQuery(document).ready(function($) {
-    let data = InstantSupport;
+    
+    let data = InstantSupport,
+        box = $('#instant-support'),
+        btn = box.find('.it-button'),
+        prompts = box.find('.it-prompts'),
+        loader = prompts.find('.it-loader');
 
-    let box = $('#instant-support');
-    let btn = box.find('.it-button');
-    let prompts = box.find('.it-prompts');
-    let loader = prompts.find('.it-loader');
-
-    // Show the box
+    
+    /**
+     * Show the box
+     */
     setTimeout(() => {
         box.show();
     }, 500);
 
-    // show the prompts messages
+
+    /**
+     * Prompt messages
+     */
     setTimeout(() => {
-
         setInterval(() => {
-            prompts.fadeTo(500,1);
+            if ( data.prompts.length == 0 ) {
+                return
+            };
 
-            if (data.prompts.length == 0) return;
+            prompts.fadeTo(500,1);
     
             loader.show();
     

@@ -157,7 +157,7 @@ class InstantSupport
         wp_enqueue_script('instant-support', $this->url . "assets/js/main.js", ['jquery']);
 
         wp_localize_script('instant-support', 'InstantSupport', [
-            'prompts' => $values['button']['prompts']
+            'prompts' => $values['prompts']['messages']
         ]);
     }
 }

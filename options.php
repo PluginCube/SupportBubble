@@ -13,7 +13,7 @@ $options = $this->framework->options;
 
 $options->add('section', [
     'id' => 'button',
-    'title' => 'Support Button',
+    'title' => 'Button',
 ]);
 
 $options->add('link', [
@@ -112,11 +112,28 @@ $options->add('field', [
 ]);
 
 
-$options->add('field', [
+
+/**
+ * Section: Prompts
+ */
+
+$options->add('section', [
     'id' => 'prompts',
-    'type' => 'repeater',
     'title' => 'Prompt Messages',
-    'section' => 'button',
+]);
+
+$options->add('link', [
+    'type' => 'section',
+    'title' => 'Prompt Messages',
+    'section' => 'prompts',
+    'icon' => 'ri-message-3-fill',
+]);
+
+$options->add('field', [
+    'id' => 'messages',
+    'type' => 'repeater',
+    'title' => 'Items',
+    'section' => 'prompts',
     'fields' => [
         [
             'id' => 'message',
@@ -137,3 +154,22 @@ $options->add('field', [
         ]
     ],
 ]);
+
+
+
+/**
+ * Section: Menu
+ */
+
+$options->add('section', [
+    'id' => 'menu',
+    'title' => 'Menu',
+]);
+
+$options->add('link', [
+    'type' => 'section',
+    'title' => 'Menu',
+    'section' => 'menu',
+    'icon' => 'ri-layout-right-fill',
+]);
+
