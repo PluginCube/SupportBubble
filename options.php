@@ -98,7 +98,7 @@ $options->add('field', [
 $options->add('field', [
     'id' => 'text_icon_color',
     'type' => 'color',
-    'title' => 'Text & Icon Color',
+    'title' => 'Text Color',
     'section' => 'button',
     'default' => '#ffffff',
 ]);
@@ -119,12 +119,12 @@ $options->add('field', [
 
 $options->add('section', [
     'id' => 'prompts',
-    'title' => 'Prompt Messages',
+    'title' => 'Prompts',
 ]);
 
 $options->add('link', [
     'type' => 'section',
-    'title' => 'Prompt Messages',
+    'title' => 'Prompts',
     'section' => 'prompts',
     'icon' => 'ri-message-3-fill',
 ]);
@@ -173,3 +173,60 @@ $options->add('link', [
     'icon' => 'ri-layout-right-fill',
 ]);
 
+$options->add('field', [
+    'id' => 'items',
+    'type' => 'repeater',
+    'title' => 'Items',
+    'section' => 'menu',
+    'fields' => [
+        [
+            'id' => 'title',
+            'type' => 'text',
+            'title' => 'Title',
+            'default' => 'New Item',
+        ],
+        [
+            'id' => 'subtitle',
+            'type' => 'text',
+            'title' => 'Subtitle',
+            'default' => 'The subtitle goes here',
+        ],
+        [
+            'id' => 'type',
+            'type' => 'select',
+            'title' => 'Type',
+            'default' => 'link',
+            'choices' => [
+                [
+                    'id' => 'link',
+                    'title' => 'Link'
+                ],
+                [
+                    'id' => 'fb_integration',
+                    'title' => 'Integration → Facebook'
+                ]
+            ]
+        ],
+        [
+            'id' => 'url',
+            'type' => 'text',
+            'title' => 'URL',
+            'condition' => ['type', '===', 'link'],
+            'attributes' => [
+                'placeholder' => 'facebook.com',
+            ]
+        ],        
+        [
+            'id' => 'icon',
+            'type' => 'icon',
+            'title' => 'Icon',
+            'default' => 'ri-messenger-fill',
+        ],
+        [
+            'id' => 'color',
+            'type' => 'color',
+            'title' => 'Color',
+            'default' => '#2c01ff',
+        ],
+    ],
+]);

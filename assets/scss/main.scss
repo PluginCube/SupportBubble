@@ -43,7 +43,6 @@
         overflow: hidden;
         cursor: pointer;
         float: right;
-        box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
 
         i {
             background: rgba(0,0,0,0.085);
@@ -106,9 +105,9 @@
 
     .it-prompts {
         position: absolute;
-        bottom: 70px;
+        bottom: 75px;
         right: 0;
-        padding: 10px 18px;
+        padding: 10px 20px;
         font-size: 14px;
         line-height: 21px;
         background: #fff;
@@ -117,11 +116,11 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #555;
-        border-radius: 8px;
-        box-shadow: 0px 0px 20px rgba(0,0,0,0.15);
+        color: #666;
+        border-radius: 5px;
+        box-shadow: 0px 0px 30px rgba(0,0,0,0.15);
         opacity: 0;
-        
+
         &::before {
             content: "";
             position: absolute;
@@ -136,6 +135,70 @@
 
         .it-loader {
             color: #dddddd;
+        }
+    }
+
+    .it-menu-items {
+        box-shadow: 0px 0px 30px rgba(0,0,0,0.15);
+        padding: 15px 0px;
+        width: 300px;
+        background: #fff;
+        position: absolute;
+        bottom: 75px;
+        right: 0;
+        border-radius: 5px;
+        margin: 0;
+        list-style: none;
+        display: none;
+
+        li {
+            float: left;
+            width: 100%;
+            margin: 0;
+            padding: 6px 15px;
+            cursor: pointer;
+            display: none;
+
+            &:hover {
+                background: #f1f1f1;
+            }
+
+            i {
+                width: 42px;
+                height: 42px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #0084FF;
+                color: #fff;
+                border-radius: 50px;
+                float: left;
+                margin-right: 12px;
+
+                svg {
+                    width: 24px;
+                    fill: currentColor;
+                }
+            }
+
+            h4 {
+                float: left;
+                margin: 0px;
+                padding: 0px;
+                width: calc(100% - 60px);
+                font-size: 14px;
+                font-weight: 600;
+                margin-top: 3px;
+                margin-bottom: 0px;
+            }
+
+            span {
+                width: calc(100% - 60px);
+                font-size: 13px;
+                float: left;
+                color: #888;
+                font-weight: normal;
+            }
         }
     }
 }

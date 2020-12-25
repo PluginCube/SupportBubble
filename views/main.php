@@ -16,9 +16,7 @@
 
 	<!-- Button -->
     <div class="it-button" data-size="<?= $button['size'] ?>" >
-            <i>
-                <?= $this->get_svg_icon($button['icon']); ?>
-            </i>
+            <i><?= $this->get_svg_icon($button['icon']) ?></i>
 
         <?php if ($button['text']) : ?>
             <span>
@@ -27,4 +25,14 @@
         <?php endif; ?>
     </div>
 
+    <!-- Menu Items -->
+    <ul class="it-menu-items">
+        <?php foreach ($menu['items'] as $key => $item) : ?>
+            <li data-index="<?= $key ?>">
+                <i><?= $this->get_svg_icon($item['icon']) ?></i>
+                <h4><?= $item['title'] ?></h4>
+                <span><?= $item['subtitle'] ?></span>
+            </li>
+        <?php endforeach; ?>
+    </ul>
 </div>
