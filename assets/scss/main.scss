@@ -10,7 +10,7 @@
     min-width: 220px;
     animation: instant-support-slide-in-y 1s cubic-bezier(0.42, 0.21, 0.01, 0.8);
     font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-
+    
     &[data-position=top_right] {
         right: 0;
         top: 0;
@@ -43,16 +43,22 @@
         overflow: hidden;
         cursor: pointer;
         float: right;
+        height: 42px;
+        line-height: 42px;
 
         i {
-            background: rgba(0,0,0,0.085);
-            float: left;
-            height: 42px;
+            background: rgba(255,255,255,0.15);
+            float: right;
+            height: inherit;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 46px;
+            width: 48px;
             overflow: hidden;
+
+            .it-close {
+                display: none;
+            }
 
             svg {
                 width: 20px;
@@ -63,42 +69,36 @@
 
         
         span {
-            line-height: 42px;
-            padding: 0px 20px 0px 18px;
+            line-height: inherit;
+            padding: 0px 20px;
             float: right;
         }
 
         &[data-size=small] {
             font-size: 14px;
+            height: 40px;
+            line-height: 40px;
 
             i {
-                height: 40px;
-                width: 43px;
+                width: 48px;
 
                 svg {
                     width: 18px;
                 }
             }
-
-            span {
-                line-height: 40px;
-            }
         }
 
         &[data-size=large] {
             font-size: 15px;
+            height: 45px;
+            line-height: 45px;
 
             i {
-                height: 45px;
                 width: 50px;
 
                 svg {
                     width: 24px;
                 }
-            }
-
-            span {
-                line-height: 45px;
             }
         }    
     }
@@ -107,40 +107,28 @@
         position: absolute;
         bottom: 75px;
         right: 0;
-        padding: 10px 20px;
+        padding: 12px 18px;
         font-size: 14px;
-        line-height: 21px;
+        line-height: 20px;
         background: #fff;
         min-width: 65px;
         min-height: 40px;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #666;
+        color: #555;
         border-radius: 5px;
         box-shadow: 0px 0px 30px rgba(0,0,0,0.15);
         opacity: 0;
 
-        &::before {
-            content: "";
-            position: absolute;
-            bottom: -7px;
-            right: 15px;
-            left: auto;
-            border-right: 14px solid transparent;
-            border-top: 14px solid #FFFFFF;
-            border-left: 14px solid transparent;
-            border-bottom: 0px solid transparent;
-        }
-
         .it-loader {
-            color: #dddddd;
+            color: #c0c3c5;
         }
     }
 
     .it-menu-items {
         box-shadow: 0px 0px 30px rgba(0,0,0,0.15);
-        padding: 15px 0px;
+        padding: 10px 0px;
         width: 300px;
         background: #fff;
         position: absolute;
@@ -150,15 +138,19 @@
         margin: 0;
         list-style: none;
         display: none;
+        animation: instant-support-slide-out-x 0.5s cubic-bezier(0.35, 0.32, 0.1, 0.8);
+        
+        &::before {
+            right: 12px !important;
+        }
 
         li {
             float: left;
             width: 100%;
             margin: 0;
-            padding: 6px 15px;
+            padding: 8px 16px;
             cursor: pointer;
-            display: none;
-
+            
             &:hover {
                 background: #f1f1f1;
             }
@@ -173,8 +165,8 @@
                 color: #fff;
                 border-radius: 50px;
                 float: left;
-                margin-right: 12px;
-
+                margin-right: 14px;
+                
                 svg {
                     width: 24px;
                     fill: currentColor;
@@ -187,9 +179,10 @@
                 padding: 0px;
                 width: calc(100% - 60px);
                 font-size: 14px;
-                font-weight: 600;
-                margin-top: 3px;
-                margin-bottom: 0px;
+                font-weight: 400;
+                margin-top: 2px;
+                margin-bottom: 2px;
+                letter-spacing: .1px;
             }
 
             span {
@@ -201,17 +194,55 @@
             }
         }
     }
+
+    .it-menu-items::before, .it-prompts::before {
+        content: "";
+        position: absolute;
+        bottom: -6px;
+        right: 20px;
+        left: auto;
+        border-right: 10px solid transparent;
+        border-top: 10px solid #FFFFFF;
+        border-left: 10px solid transparent;
+        border-bottom: 0px solid transparent;
+    }
+
+    // Events
+    &.it-menu-open {
+        .it-menu-items {
+            animation: instant-support-slide-in-x .5s cubic-bezier(0.35, 0.32, 0.1, 0.8);
+            display: block;
+        }
+
+        .it-prompts {
+            display: none !important;
+        }
+
+        .it-button {
+            .it-close {
+                display: block;
+            }
+
+            .it-icon {
+                display: none;
+            }
+        }
+    }
 }
+
+
 
 @keyframes instant-support-slide-in-out-x {
     33%   {
         transform: translateX(40px);
         opacity: 0;
     }
+    
     66%   {
         transform: translateX(-40px);
         opacity: 0;
     }
+
     100% {
         transform: translateX(0px);
         opacity: 1;
@@ -219,44 +250,48 @@
 }
 
 @keyframes instant-support-slide-in-y {
-    0%   {
+    from   {
         transform: translateY(40px);
         opacity: 0;
     }
-    100% {
+
+    to {
         transform: translateY(0px);
         opacity: 1;
     }
 }
 
 @keyframes instant-support-slide-out-y {
-    0%   {
+    from   {
         transform: translateY(0px);
         opacity: 1;
     }
-    100% {
+
+    to {
         transform: translateY(-40px);
         opacity: 0;
     }
 }
 
 @keyframes instant-support-slide-in-x {
-    0%   {
-        transform: translateX(-40px);
+    from   {
+        transform: translateX(40px);
         opacity: 0;
     }
-    100% {
+
+    to {
         transform: translateX(0px);
         opacity: 1;
     }
 }
 
 @keyframes instant-support-slide-out-x {
-    0%   {
+    from   {
         transform: translateX(0px);
         opacity: 1;
     }
-    100% {
+
+    to {
         transform: translateX(-40px);
         opacity: 0;
     }

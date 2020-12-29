@@ -16,7 +16,15 @@
 
 	<!-- Button -->
     <div class="it-button" data-size="<?= $button['size'] ?>" >
-            <i><?= $this->get_svg_icon($button['icon']) ?></i>
+        <i>
+            <div class="it-close">
+                <?= $this->get_svg_icon('ri-close-fill') ?>
+            </div>
+
+            <div class="it-icon">
+                <?= $this->get_svg_icon($button['icon']) ?>
+            </div>
+        </i>
 
         <?php if ($button['text']) : ?>
             <span>
@@ -35,4 +43,5 @@
             </li>
         <?php endforeach; ?>
     </ul>
+    
 </div>

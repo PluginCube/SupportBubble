@@ -92,7 +92,7 @@ $options->add('field', [
     'type' => 'color',
     'title' => 'Background',
     'section' => 'button',
-    'default' => '#1778F2',
+    'default' => '#0043ff',
 ]);
 
 $options->add('field', [

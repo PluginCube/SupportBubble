@@ -4,6 +4,7 @@ jQuery(document).ready(function($) {
         box = $('#instant-support'),
         btn = box.find('.it-button'),
         prompts = box.find('.it-prompts'),
+        menu = box.find('.it-menu-items'),
         loader = prompts.find('.it-loader');
 
     
@@ -40,4 +41,12 @@ jQuery(document).ready(function($) {
             
         }, 5000);
     }, 2000);
+
+    /**
+     * Main button click event
+     */
+    $('.it-button').on('click', function () {
+        box.toggleClass('it-menu-open')
+        prompts.remove()
+    });
 });
