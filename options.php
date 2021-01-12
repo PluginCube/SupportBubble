@@ -96,7 +96,7 @@ $options->add('field', [
 ]);
 
 $options->add('field', [
-    'id' => 'text_icon_color',
+    'id' => 'color',
     'type' => 'color',
     'title' => 'Text Color',
     'section' => 'button',
@@ -178,6 +178,7 @@ $options->add('field', [
     'type' => 'repeater',
     'title' => 'Items',
     'section' => 'menu',
+    'default' => [],
     'fields' => [
         [
             'id' => 'title',

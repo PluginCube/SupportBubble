@@ -116,11 +116,7 @@ class InstantSupport
      */
     public function render()
     {
-        $values = $this->framework->options->get_values();
-
-        extract($values);
-
-        include_once $this->path . '/views/main.php';
+        echo "<div id='instant-support'></div>";
     }
 
     /**
@@ -141,6 +137,29 @@ class InstantSupport
         return $content;
     }
 
+    /**
+     * Get SVG icon for all fields
+     * 
+     * @since 1.0.0
+     * @access public
+     * @return void
+     */
+    public function convert_icons(&$arr)
+    {
+        foreach ($arr as $section => &$fields) {
+            foreach ($fields as $key => &$value) {
+                if ( is_string($value) ) {
+                    if (strpos($value, 'ri-') !== false) {
+                        $value = $this->get_svg_icon($value);
+                    }
+                } else if ( is_array($value) ) {
+                    $value = $this->convert_icons($value);
+                }
+            }
+        }
+
+        return $arr;
+    }
 
     /**
      * Enqueue assets.
@@ -151,14 +170,12 @@ class InstantSupport
      */
     public function assets()
     {
+
+        wp_enqueue_script('instant-support', $this->url . "app/dist/bundle.js", ['jquery'], $this->version, true);
+
         $values = $this->framework->options->get_values();
 
-        wp_enqueue_style('instant-support', $this->url . "assets/css/main.css");
-        wp_enqueue_script('instant-support', $this->url . "assets/js/main.js", ['jquery']);
-
-        wp_localize_script('instant-support', 'InstantSupport', [
-            'prompts' => $values['prompts']['messages']
-        ]);
+        wp_localize_script('instant-support', 'instant_support', $this->convert_icons($values));
     }
 }
 
