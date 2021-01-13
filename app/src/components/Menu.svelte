@@ -1,17 +1,25 @@
 <script>
     import { fly } from 'svelte/transition'
+    import { menu, showIntegration, integration, showMenu } from "store"
 
-    import { menu } from "store"
-
-    let click = item => {
-
+    let click = (item) => {
+        if (item.type == 'link') {
+            item.url = (item.url.indexOf('://') === -1) ? 'http://' + item.url : item.url;
+            window.open(item.url, "_blank");
+        }
+        
+        else {
+            showMenu.set(false)
+            showIntegration.set(true)
+            integration.set(item)
+        }
     }
 </script>
 
 <style lang="scss">
     ul {
-        box-shadow: 0px 0px 30px rgba(0,0,0,0.15);
-        padding: 10px 0px;
+        box-shadow: 0px 0px 50px rgba(0,0,0,0.15);
+        padding: 8px 0px;
         width: 285px;
         background: #fff;
         position: absolute;
@@ -74,7 +82,7 @@
 
 <ul transition:fly={{x: 40}} class="with-pointer-arrow">
     {#each  $menu.items as item}
-        <li>
+        <li on:click={() => {click(item)}}>
             <i style="background: {item.color};">
                 {@html item.icon}
             </i>

@@ -1,11 +1,13 @@
 <script>
     import { onMount } from 'svelte'
     import { fly } from 'svelte/transition'
-    import { button, showButton, showMenu, showPrompts } from 'store'
+    import { button, showButton, showMenu, showPrompts, showIntegration } from 'store'
 
     import Button from './Button'
     import Prompts from './Prompts'
     import Menu from './Menu'
+
+    import Integration from './Integrations/Integration'
 
     let style = ``
 
@@ -20,7 +22,7 @@
         showButton.set(true)
 
         setTimeout(() => {
-            showPrompts.set(true)
+            // showPrompts.set(true)
         }, 3000);
     })
 </script>
@@ -60,6 +62,10 @@
 
         {#if $showMenu}
             <Menu />
+        {/if}
+
+        {#if $showIntegration}
+            <Integration />
         {/if}
     </div>
 {/if}

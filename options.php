@@ -203,8 +203,12 @@ $options->add('field', [
                     'title' => 'Link'
                 ],
                 [
-                    'id' => 'fb_integration',
-                    'title' => 'Integration → Facebook'
+                    'id' => 'messenger',
+                    'title' => 'Integration → Messenger'
+                ],
+                [
+                    'id' => 'whatsapp',
+                    'title' => 'Integration → WhatsApp'
                 ]
             ]
         ],
@@ -213,10 +217,8 @@ $options->add('field', [
             'type' => 'text',
             'title' => 'URL',
             'condition' => ['type', '===', 'link'],
-            'attributes' => [
-                'placeholder' => 'facebook.com',
-            ]
-        ],        
+            'default' => '',
+        ],
         [
             'id' => 'icon',
             'type' => 'icon',
@@ -228,6 +230,35 @@ $options->add('field', [
             'type' => 'color',
             'title' => 'Color',
             'default' => '#2c01ff',
+        ],
+        // For whatsapp 
+        [
+            'id' => 'welcome_message',
+            'type' => 'editor',
+            'title' => 'Welcome Message',
+            'condition' => ['type', '===', 'whatsapp'],
+            'default' => '',
+        ],
+        [
+            'id' => 'avatar',
+            'type' => 'image',
+            'title' => 'User Avatar',
+            'condition' => ['type', '===', 'whatsapp'],
+            'default' => 'https://images.pexels.com/photos/53453/marilyn-monroe-woman-actress-pretty-53453.jpeg?auto=compress&cs=tinysrgb&crop=faces&fit=crop&h=200&w=200',
+        ],
+        [
+            'id' => 'user_name',
+            'type' => 'text',
+            'title' => 'User Name',
+            'condition' => ['type', '===', 'whatsapp'],
+            'default' => 'Nancy',
+        ],
+        [
+            'id' => 'caption',
+            'type' => 'text',
+            'title' => 'Caption',
+            'condition' => ['type', '===', 'whatsapp'],
+            'default' => 'Typically replies within a day',
         ],
     ],
 ]);

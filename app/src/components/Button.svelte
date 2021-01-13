@@ -1,6 +1,6 @@
 <script>
     import { fly } from 'svelte/transition'
-    import { button, showMenu, showPrompts } from 'store'
+    import { button, showMenu, showPrompts, showIntegration } from 'store'
 
     let style = `
         color: ${$button.color};
@@ -23,7 +23,8 @@
         float: right;
         height: 42px;
         line-height: 42px;
-
+        overflow: hidden;
+        
         i {
             background: rgba(255, 255, 255, 0.125);
             float: right;
@@ -82,7 +83,7 @@
 
 <div on:click={click} data-size={$button.size} {style}>
     <i>
-            {#if $showMenu}
+            {#if $showMenu || $showIntegration}
                 <div in:fly={{x: 20}}>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
@@ -97,7 +98,7 @@
             {/if}
     </i>
 
-    {#if $button.text}
+    {#if $button.text && ! $showMenu && ! $showIntegration}
         <span>{$button.text}</span>
     {/if}
 </div>

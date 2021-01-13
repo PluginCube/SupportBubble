@@ -48,7 +48,7 @@
         justify-content: center;
         color: #555;
         border-radius: 5px;
-        box-shadow: 0px 0px 30px rgba(0,0,0,0.15);
+        box-shadow: 0px 0px 50px rgba(0,0,0,0.15);
     }
 </style>
 
