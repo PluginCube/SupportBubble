@@ -38,55 +38,54 @@ function add_css() {
 	(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(document.head, style);
 }
 
-// (50:0) {#if $showButton}
+// (51:0) {#if $showButton}
 function create_if_block(ctx) {
 	let div;
-	let button_1;
 	let t0;
 	let t1;
 	let t2;
 	let div_transition;
 	let current;
-	button_1 = new _Button__WEBPACK_IMPORTED_MODULE_4__.default({});
-	let if_block0 = !/*$showMenu*/ ctx[2] && /*$showPrompts*/ ctx[3] && create_if_block_3(ctx);
-	let if_block1 = /*$showMenu*/ ctx[2] && create_if_block_2(ctx);
-	let if_block2 = /*$showIntegration*/ ctx[4] && create_if_block_1(ctx);
+	let if_block0 = !/*$showIntegration*/ ctx[2] && create_if_block_4(ctx);
+	let if_block1 = !/*$showMenu*/ ctx[3] && /*$showPrompts*/ ctx[4] && create_if_block_3(ctx);
+	let if_block2 = /*$showMenu*/ ctx[3] && create_if_block_2(ctx);
+	let if_block3 = /*$showIntegration*/ ctx[2] && create_if_block_1(ctx);
 
 	return {
 		c() {
 			div = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.create_component)(button_1.$$.fragment);
-			t0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			if (if_block0) if_block0.c();
-			t1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			t0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			if (if_block1) if_block1.c();
-			t2 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			t1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			if (if_block2) if_block2.c();
+			t2 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			if (if_block3) if_block3.c();
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div, "style", /*style*/ ctx[0]);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div, "class", "svelte-1s1ac6b");
 		},
 		m(target, anchor) {
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, div, anchor);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.mount_component)(button_1, div, null);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div, t0);
 			if (if_block0) if_block0.m(div, null);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div, t1);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div, t0);
 			if (if_block1) if_block1.m(div, null);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div, t2);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div, t1);
 			if (if_block2) if_block2.m(div, null);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div, t2);
+			if (if_block3) if_block3.m(div, null);
 			current = true;
 		},
 		p(ctx, dirty) {
-			if (!/*$showMenu*/ ctx[2] && /*$showPrompts*/ ctx[3]) {
+			if (!/*$showIntegration*/ ctx[2]) {
 				if (if_block0) {
-					if (dirty & /*$showMenu, $showPrompts*/ 12) {
+					if (dirty & /*$showIntegration*/ 4) {
 						(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_in)(if_block0, 1);
 					}
 				} else {
-					if_block0 = create_if_block_3(ctx);
+					if_block0 = create_if_block_4(ctx);
 					if_block0.c();
 					(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_in)(if_block0, 1);
-					if_block0.m(div, t1);
+					if_block0.m(div, t0);
 				}
 			} else if (if_block0) {
 				(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.group_outros)();
@@ -98,16 +97,16 @@ function create_if_block(ctx) {
 				(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.check_outros)();
 			}
 
-			if (/*$showMenu*/ ctx[2]) {
+			if (!/*$showMenu*/ ctx[3] && /*$showPrompts*/ ctx[4]) {
 				if (if_block1) {
-					if (dirty & /*$showMenu*/ 4) {
+					if (dirty & /*$showMenu, $showPrompts*/ 24) {
 						(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_in)(if_block1, 1);
 					}
 				} else {
-					if_block1 = create_if_block_2(ctx);
+					if_block1 = create_if_block_3(ctx);
 					if_block1.c();
 					(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_in)(if_block1, 1);
-					if_block1.m(div, t2);
+					if_block1.m(div, t1);
 				}
 			} else if (if_block1) {
 				(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.group_outros)();
@@ -119,16 +118,16 @@ function create_if_block(ctx) {
 				(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.check_outros)();
 			}
 
-			if (/*$showIntegration*/ ctx[4]) {
+			if (/*$showMenu*/ ctx[3]) {
 				if (if_block2) {
-					if (dirty & /*$showIntegration*/ 16) {
+					if (dirty & /*$showMenu*/ 8) {
 						(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_in)(if_block2, 1);
 					}
 				} else {
-					if_block2 = create_if_block_1(ctx);
+					if_block2 = create_if_block_2(ctx);
 					if_block2.c();
 					(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_in)(if_block2, 1);
-					if_block2.m(div, null);
+					if_block2.m(div, t2);
 				}
 			} else if (if_block2) {
 				(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.group_outros)();
@@ -140,16 +139,37 @@ function create_if_block(ctx) {
 				(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.check_outros)();
 			}
 
+			if (/*$showIntegration*/ ctx[2]) {
+				if (if_block3) {
+					if (dirty & /*$showIntegration*/ 4) {
+						(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_in)(if_block3, 1);
+					}
+				} else {
+					if_block3 = create_if_block_1(ctx);
+					if_block3.c();
+					(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_in)(if_block3, 1);
+					if_block3.m(div, null);
+				}
+			} else if (if_block3) {
+				(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.group_outros)();
+
+				(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_out)(if_block3, 1, 1, () => {
+					if_block3 = null;
+				});
+
+				(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.check_outros)();
+			}
+
 			if (!current || dirty & /*style*/ 1) {
 				(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div, "style", /*style*/ ctx[0]);
 			}
 		},
 		i(local) {
 			if (current) return;
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_in)(button_1.$$.fragment, local);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_in)(if_block0);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_in)(if_block1);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_in)(if_block2);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_in)(if_block3);
 
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.add_render_callback)(() => {
 				if (!div_transition) div_transition = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.create_bidirectional_transition)(div, svelte_transition__WEBPACK_IMPORTED_MODULE_2__.fly, { y: 100, duration: 500 }, true);
@@ -159,26 +179,55 @@ function create_if_block(ctx) {
 			current = true;
 		},
 		o(local) {
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_out)(button_1.$$.fragment, local);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_out)(if_block0);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_out)(if_block1);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_out)(if_block2);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_out)(if_block3);
 			if (!div_transition) div_transition = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.create_bidirectional_transition)(div, svelte_transition__WEBPACK_IMPORTED_MODULE_2__.fly, { y: 100, duration: 500 }, false);
 			div_transition.run(0);
 			current = false;
 		},
 		d(detaching) {
 			if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(div);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.destroy_component)(button_1);
 			if (if_block0) if_block0.d();
 			if (if_block1) if_block1.d();
 			if (if_block2) if_block2.d();
+			if (if_block3) if_block3.d();
 			if (detaching && div_transition) div_transition.end();
 		}
 	};
 }
 
-// (54:8) {#if ! $showMenu && $showPrompts}
+// (53:8) {#if ! $showIntegration}
+function create_if_block_4(ctx) {
+	let button_1;
+	let current;
+	button_1 = new _Button__WEBPACK_IMPORTED_MODULE_4__.default({});
+
+	return {
+		c() {
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.create_component)(button_1.$$.fragment);
+		},
+		m(target, anchor) {
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.mount_component)(button_1, target, anchor);
+			current = true;
+		},
+		i(local) {
+			if (current) return;
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_in)(button_1.$$.fragment, local);
+			current = true;
+		},
+		o(local) {
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.transition_out)(button_1.$$.fragment, local);
+			current = false;
+		},
+		d(detaching) {
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.destroy_component)(button_1, detaching);
+		}
+	};
+}
+
+// (57:8) {#if ! $showMenu && $showPrompts}
 function create_if_block_3(ctx) {
 	let prompts;
 	let current;
@@ -207,7 +256,7 @@ function create_if_block_3(ctx) {
 	};
 }
 
-// (58:8) {#if $showMenu}
+// (61:8) {#if $showMenu}
 function create_if_block_2(ctx) {
 	let menu;
 	let current;
@@ -236,7 +285,7 @@ function create_if_block_2(ctx) {
 	};
 }
 
-// (62:8) {#if $showIntegration}
+// (65:8) {#if $showIntegration}
 function create_if_block_1(ctx) {
 	let integration;
 	let current;
@@ -323,14 +372,14 @@ function create_fragment(ctx) {
 function instance($$self, $$props, $$invalidate) {
 	let $button;
 	let $showButton;
+	let $showIntegration;
 	let $showMenu;
 	let $showPrompts;
-	let $showIntegration;
 	(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.component_subscribe)($$self, store__WEBPACK_IMPORTED_MODULE_3__.button, $$value => $$invalidate(5, $button = $$value));
 	(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.component_subscribe)($$self, store__WEBPACK_IMPORTED_MODULE_3__.showButton, $$value => $$invalidate(1, $showButton = $$value));
-	(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.component_subscribe)($$self, store__WEBPACK_IMPORTED_MODULE_3__.showMenu, $$value => $$invalidate(2, $showMenu = $$value));
-	(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.component_subscribe)($$self, store__WEBPACK_IMPORTED_MODULE_3__.showPrompts, $$value => $$invalidate(3, $showPrompts = $$value));
-	(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.component_subscribe)($$self, store__WEBPACK_IMPORTED_MODULE_3__.showIntegration, $$value => $$invalidate(4, $showIntegration = $$value));
+	(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.component_subscribe)($$self, store__WEBPACK_IMPORTED_MODULE_3__.showIntegration, $$value => $$invalidate(2, $showIntegration = $$value));
+	(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.component_subscribe)($$self, store__WEBPACK_IMPORTED_MODULE_3__.showMenu, $$value => $$invalidate(3, $showMenu = $$value));
+	(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.component_subscribe)($$self, store__WEBPACK_IMPORTED_MODULE_3__.showPrompts, $$value => $$invalidate(4, $showPrompts = $$value));
 	let style = ``;
 
 	(0,svelte__WEBPACK_IMPORTED_MODULE_1__.onMount)(() => {
@@ -338,10 +387,11 @@ function instance($$self, $$props, $$invalidate) {
 
 		setTimeout(
 			() => {
-				store__WEBPACK_IMPORTED_MODULE_3__.showPrompts.set(true);
+				
 			},
 			3000
-		);
+		); // showPrompts.set(true)
+		// showPrompts.set(true)
 	});
 
 	$$self.$$.update = () => {
@@ -355,7 +405,7 @@ function instance($$self, $$props, $$invalidate) {
 		}
 	};
 
-	return [style, $showButton, $showMenu, $showPrompts, $showIntegration, $button];
+	return [style, $showButton, $showIntegration, $showMenu, $showPrompts, $button];
 }
 
 class App extends svelte_internal__WEBPACK_IMPORTED_MODULE_0__.SvelteComponent {
@@ -625,7 +675,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var svelte_transition__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! svelte/transition */ "./node_modules/svelte/transition/index.mjs");
 /* harmony import */ var store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! store */ "./src/store/index.js");
 /* harmony import */ var _WhatsApp__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./WhatsApp */ "./src/components/Integrations/WhatsApp.svelte");
+/* harmony import */ var _Messenger__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Messenger */ "./src/components/Integrations/Messenger.svelte");
 /* src/components/Integrations/Integration.svelte generated by Svelte v3.31.2 */
+
 
 
 
@@ -634,8 +686,8 @@ __webpack_require__.r(__webpack_exports__);
 
 function add_css() {
 	var style = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("style");
-	style.id = "svelte-g2296b-style";
-	style.textContent = "div.svelte-g2296b{box-shadow:rgba(0, 0, 0, 0.1) 0px 12px 24px 0px;background:#fff;position:absolute;bottom:75px;right:0;border-radius:10px;margin:0}";
+	style.id = "svelte-vmz7gn-style";
+	style.textContent = "div.svelte-vmz7gn{box-shadow:rgba(0, 0, 0, 0.1) 0px 12px 24px 0px;background:#fff;position:absolute;bottom:0px;right:0;border-radius:10px;margin:0}";
 	(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(document.head, style);
 }
 
@@ -660,7 +712,7 @@ function create_fragment(ctx) {
 		c() {
 			div = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
 			if (switch_instance) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.create_component)(switch_instance.$$.fragment);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div, "class", "svelte-g2296b");
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div, "class", "svelte-vmz7gn");
 		},
 		m(target, anchor) {
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, div, anchor);
@@ -727,14 +779,14 @@ function create_fragment(ctx) {
 function instance($$self, $$props, $$invalidate) {
 	let $integration;
 	(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.component_subscribe)($$self, store__WEBPACK_IMPORTED_MODULE_2__.integration, $$value => $$invalidate(0, $integration = $$value));
-	let types = { whatsapp: _WhatsApp__WEBPACK_IMPORTED_MODULE_3__.default };
+	let types = { whatsapp: _WhatsApp__WEBPACK_IMPORTED_MODULE_3__.default, messenger: _Messenger__WEBPACK_IMPORTED_MODULE_4__.default };
 	return [$integration, types];
 }
 
 class Integration extends svelte_internal__WEBPACK_IMPORTED_MODULE_0__.SvelteComponent {
 	constructor(options) {
 		super();
-		if (!document.getElementById("svelte-g2296b-style")) add_css();
+		if (!document.getElementById("svelte-vmz7gn-style")) add_css();
 		(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.init)(this, options, instance, create_fragment, svelte_internal__WEBPACK_IMPORTED_MODULE_0__.safe_not_equal, {});
 	}
 }
@@ -743,6 +795,211 @@ class Integration extends svelte_internal__WEBPACK_IMPORTED_MODULE_0__.SvelteCom
 if (false) {}
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Integration);
+
+
+/***/ }),
+
+/***/ "./src/components/Integrations/Messenger.svelte":
+/*!******************************************************!*\
+  !*** ./src/components/Integrations/Messenger.svelte ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var svelte_internal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! svelte/internal */ "./node_modules/svelte/internal/index.mjs");
+/* src/components/Integrations/Messenger.svelte generated by Svelte v3.31.2 */
+
+
+function add_css() {
+	var style = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("style");
+	style.id = "svelte-689rdb-style";
+	style.textContent = "div.svelte-689rdb.svelte-689rdb{width:325px;border-radius:10px;overflow:hidden}div.svelte-689rdb header.svelte-689rdb{padding:25px 20px;overflow:hidden;display:flex;align-items:center;background:#fff}div.svelte-689rdb header figure.svelte-689rdb{position:relative;width:52px;height:52px;display:flex;align-items:center;justify-content:center;color:#fff;border-radius:50px;float:left;margin-right:15px}div.svelte-689rdb header figure img.svelte-689rdb{width:100%;height:auto;border-radius:50px}div.svelte-689rdb header figure.svelte-689rdb::before{content:\"\";bottom:0px;right:0px;width:12px;height:12px;box-sizing:border-box;background-color:#4ad504;display:block;position:absolute;z-index:1;border-radius:50%;border:2px solid white}div.svelte-689rdb header aside.svelte-689rdb{width:calc(100% - 65px);float:left;margin:0;padding:0}div.svelte-689rdb header aside h4.svelte-689rdb{float:left;margin:0px;padding:0px;letter-spacing:0.1px;font-size:16px;font-weight:700;line-height:20px;color:#111;width:100%}div.svelte-689rdb header aside span.svelte-689rdb{float:left;color:#333;font-weight:normal;font-size:13px;line-height:18px;margin-top:5px}div.svelte-689rdb article.svelte-689rdb{padding:25px 20px;background-color:#f4f4f4;position:relative;overflow:auto}div.svelte-689rdb article aside.svelte-689rdb{padding:7px 14px 6px;background:#fff;box-shadow:rgba(0, 0, 0, 0.13) 0px 1px 0.5px;border-radius:0px 8px 8px;max-width:225px;float:left;position:relative}div.svelte-689rdb article aside.svelte-689rdb::before{position:absolute;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAmCAMAAADp2asXAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAACQUExURUxpccPDw9ra2m9vbwAAAAAAADExMf///wAAABoaGk9PT7q6uqurqwsLCycnJz4+PtDQ0JycnIyMjPf3915eXvz8/E9PT/39/RMTE4CAgAAAAJqamv////////r6+u/v7yUlJeXl5f///5ycnOXl5XNzc/Hx8f///xUVFf///+zs7P///+bm5gAAAM7Ozv///2fVensAAAAvdFJOUwCow1cBCCnqAhNAnY0WIDW2f2/hSeo99g1lBYT87vDXG8/6d8oL4sgM5szrkgl660OiZwAAAHRJREFUKM/ty7cSggAABNFVUQFzwizmjPz/39k4YuFWtm55bw7eHR6ny63+alnswT3/rIDzUSC7CrAziPYCJCsB+gbVkgDtVIDh+DsE9OTBpCtAbSBAZSEQNgWIygJ0RgJMDWYNAdYbAeKtAHODlkHIv997AkLqIVOXVU84AAAAAElFTkSuQmCC);background-position:50% 50%;background-repeat:no-repeat;background-size:contain;content:\"\";top:0px;left:-12px;width:12px;height:19px}div.svelte-689rdb article aside span.svelte-689rdb{color:#999;font-size:13px;margin-bottom:10px;float:left;width:100%;font-weight:500}div.svelte-689rdb article aside p.svelte-689rdb{font-size:14px;line-height:19px;margin:0;color:#000000;float:left;width:100%}div.svelte-689rdb article aside small.svelte-689rdb{font-size:12px;line-height:16px;color:#999;width:100%;text-align:right;padding-top:0px;float:right;margin-right:-4px;margin-bottom:0px}div.svelte-689rdb footer.svelte-689rdb{padding:20px;overflow:hidden;background:#fff;display:block}div.svelte-689rdb footer a.svelte-689rdb{text-decoration:none;font-size:15px;color:#fff;width:100%;float:left;text-align:center;font-weight:700;border-radius:8px;display:flex;height:36px;justify-content:center;align-items:center}div.svelte-689rdb footer a svg.svelte-689rdb{width:18px;margin-right:6px;fill:currentColor}";
+	(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(document.head, style);
+}
+
+function create_fragment(ctx) {
+	let div;
+	let header;
+	let figure;
+	let img;
+	let img_src_value;
+	let img_alt_value;
+	let t0;
+	let aside0;
+	let h4;
+	let t1_value = /*options*/ ctx[0].user_name + "";
+	let t1;
+	let t2;
+	let span0;
+	let t3_value = /*options*/ ctx[0].caption + "";
+	let t3;
+	let t4;
+	let article;
+	let aside1;
+	let span1;
+	let t5_value = /*options*/ ctx[0].user_name + "";
+	let t5;
+	let t6;
+	let p;
+	let raw_value = /*options*/ ctx[0].welcome_message + "";
+	let t7;
+	let small;
+	let t9;
+	let footer;
+	let a;
+	let svg;
+	let g;
+	let path0;
+	let path1;
+	let t10;
+	let a_href_value;
+
+	return {
+		c() {
+			div = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
+			header = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("header");
+			figure = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("figure");
+			img = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("img");
+			t0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			aside0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("aside");
+			h4 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("h4");
+			t1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)(t1_value);
+			t2 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			span0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("span");
+			t3 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)(t3_value);
+			t4 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			article = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("article");
+			aside1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("aside");
+			span1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("span");
+			t5 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)(t5_value);
+			t6 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			p = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("p");
+			t7 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			small = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("small");
+			small.textContent = `${/*time*/ ctx[1]}`;
+			t9 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
+			footer = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("footer");
+			a = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("a");
+			svg = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.svg_element)("svg");
+			g = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.svg_element)("g");
+			path0 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.svg_element)("path");
+			path1 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.svg_element)("path");
+			t10 = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)("\n            \n            Start Chat");
+			if (img.src !== (img_src_value = /*options*/ ctx[0].avatar)) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(img, "src", img_src_value);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(img, "alt", img_alt_value = /*options*/ ctx[0].user_name);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(img, "class", "svelte-689rdb");
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(figure, "class", "svelte-689rdb");
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(h4, "class", "svelte-689rdb");
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(span0, "class", "svelte-689rdb");
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(aside0, "class", "svelte-689rdb");
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(header, "class", "svelte-689rdb");
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(span1, "class", "svelte-689rdb");
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(p, "class", "svelte-689rdb");
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(small, "class", "svelte-689rdb");
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(aside1, "class", "svelte-689rdb");
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(article, "class", "svelte-689rdb");
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(path0, "fill", "none");
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(path0, "d", "M0 0h24v24H0z");
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(path1, "fill-rule", "nonzero");
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(path1, "d", "M12 2c5.634 0 10 4.127 10 9.7 0 5.573-4.366 9.7-10 9.7a10.894 10.894 0 0 1-2.895-.384.8.8 0 0 0-.534.039l-1.984.876a.8.8 0 0 1-1.123-.707l-.055-1.78a.797.797 0 0 0-.268-.57C3.195 17.135 2 14.617 2 11.7 2 6.127 6.367 2 12 2zM5.995 14.537c-.282.447.268.951.689.631l3.155-2.394a.6.6 0 0 1 .723 0l2.337 1.75a1.5 1.5 0 0 0 2.169-.4l2.937-4.66c.282-.448-.268-.952-.689-.633l-3.155 2.396a.6.6 0 0 1-.723 0l-2.337-1.75a1.5 1.5 0 0 0-2.169.4l-2.937 4.66z");
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(svg, "xmlns", "http://www.w3.org/2000/svg");
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(svg, "viewBox", "0 0 24 24");
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(svg, "class", "svelte-689rdb");
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(a, "href", a_href_value = /*options*/ ctx[0].messenger_url);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(a, "target", "_blank");
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_style)(a, "background-color", /*options*/ ctx[0].color);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(a, "class", "svelte-689rdb");
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(footer, "class", "svelte-689rdb");
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div, "class", "svelte-689rdb");
+		},
+		m(target, anchor) {
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, div, anchor);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div, header);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(header, figure);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(figure, img);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(header, t0);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(header, aside0);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(aside0, h4);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(h4, t1);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(aside0, t2);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(aside0, span0);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(span0, t3);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div, t4);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div, article);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(article, aside1);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(aside1, span1);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(span1, t5);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(aside1, t6);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(aside1, p);
+			p.innerHTML = raw_value;
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(aside1, t7);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(aside1, small);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div, t9);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(div, footer);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(footer, a);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(a, svg);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(svg, g);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(g, path0);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(g, path1);
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(a, t10);
+		},
+		p(ctx, [dirty]) {
+			if (dirty & /*options*/ 1 && img.src !== (img_src_value = /*options*/ ctx[0].avatar)) {
+				(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(img, "src", img_src_value);
+			}
+
+			if (dirty & /*options*/ 1 && img_alt_value !== (img_alt_value = /*options*/ ctx[0].user_name)) {
+				(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(img, "alt", img_alt_value);
+			}
+
+			if (dirty & /*options*/ 1 && t1_value !== (t1_value = /*options*/ ctx[0].user_name + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t1, t1_value);
+			if (dirty & /*options*/ 1 && t3_value !== (t3_value = /*options*/ ctx[0].caption + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t3, t3_value);
+			if (dirty & /*options*/ 1 && t5_value !== (t5_value = /*options*/ ctx[0].user_name + "")) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_data)(t5, t5_value);
+			if (dirty & /*options*/ 1 && raw_value !== (raw_value = /*options*/ ctx[0].welcome_message + "")) p.innerHTML = raw_value;;
+
+			if (dirty & /*options*/ 1 && a_href_value !== (a_href_value = /*options*/ ctx[0].messenger_url)) {
+				(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(a, "href", a_href_value);
+			}
+
+			if (dirty & /*options*/ 1) {
+				(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.set_style)(a, "background-color", /*options*/ ctx[0].color);
+			}
+		},
+		i: svelte_internal__WEBPACK_IMPORTED_MODULE_0__.noop,
+		o: svelte_internal__WEBPACK_IMPORTED_MODULE_0__.noop,
+		d(detaching) {
+			if (detaching) (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.detach)(div);
+		}
+	};
+}
+
+function instance($$self, $$props, $$invalidate) {
+	let { options } = $$props;
+	let today = new Date();
+	let time = today.getHours() + ":" + today.getMinutes();
+
+	$$self.$$set = $$props => {
+		if ("options" in $$props) $$invalidate(0, options = $$props.options);
+	};
+
+	return [options, time];
+}
+
+class Messenger extends svelte_internal__WEBPACK_IMPORTED_MODULE_0__.SvelteComponent {
+	constructor(options) {
+		super();
+		if (!document.getElementById("svelte-689rdb-style")) add_css();
+		(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.init)(this, options, instance, create_fragment, svelte_internal__WEBPACK_IMPORTED_MODULE_0__.safe_not_equal, { options: 0 });
+	}
+}
+
+
+if (false) {}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Messenger);
 
 
 /***/ }),
@@ -949,8 +1206,8 @@ __webpack_require__.r(__webpack_exports__);
 
 function add_css() {
 	var style = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("style");
-	style.id = "svelte-1m4d8lp-style";
-	style.textContent = "div.svelte-1m4d8lp{width:5px;height:5px;border-radius:50%;box-shadow:0 10px 0 var(--loader-color);position:relative;animation:svelte-1m4d8lp-loader-uy95qdk 0.5s ease-in-out alternate infinite;animation-delay:0.2s;top:-10px}div.svelte-1m4d8lp::after,div.svelte-1m4d8lp::before{content:\"\";position:absolute;width:5px;height:5px;border-radius:50%;box-shadow:0 10px 0 var(--loader-color);animation:svelte-1m4d8lp-loader-uy95qdk 0.5s cubic-bezier(0.42, 0, 0.35, 0.89) alternate infinite}div.svelte-1m4d8lp::before{left:-8px;animation-delay:0.3s}div.svelte-1m4d8lp::after{right:-8px;animation-delay:0.1s}@keyframes svelte-1m4d8lp-loader-uy95qdk{0%{box-shadow:0 10px 0 var(--loader-color)}100%{box-shadow:0 5px 0 var(--loader-color)}}";
+	style.id = "svelte-1p717gt-style";
+	style.textContent = "div.svelte-1p717gt{width:5px;height:5px;border-radius:50%;box-shadow:0 10px 0 var(--loader-color);position:relative;animation:svelte-1p717gt-loader-u4szq6a 0.5s ease-in-out alternate infinite;animation-delay:0.2s;top:-10px}div.svelte-1p717gt::after,div.svelte-1p717gt::before{content:\"\";position:absolute;width:5px;height:5px;border-radius:50%;box-shadow:0 10px 0 var(--loader-color);animation:svelte-1p717gt-loader-u4szq6a 0.5s cubic-bezier(0.42, 0, 0.35, 0.89) alternate infinite}div.svelte-1p717gt::before{left:-8px;animation-delay:0.3s}div.svelte-1p717gt::after{right:-8px;animation-delay:0.1s}@keyframes svelte-1p717gt-loader-u4szq6a{0%{box-shadow:0 10px 0 var(--loader-color)}100%{box-shadow:0 5px 0 var(--loader-color)}}";
 	(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(document.head, style);
 }
 
@@ -961,7 +1218,7 @@ function create_fragment(ctx) {
 		c() {
 			div = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div, "style", /*style*/ ctx[0]);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div, "class", "svelte-1m4d8lp");
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div, "class", "svelte-1p717gt");
 		},
 		m(target, anchor) {
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, div, anchor);
@@ -1001,7 +1258,7 @@ function instance($$self, $$props, $$invalidate) {
 class Loader extends svelte_internal__WEBPACK_IMPORTED_MODULE_0__.SvelteComponent {
 	constructor(options) {
 		super();
-		if (!document.getElementById("svelte-1m4d8lp-style")) add_css();
+		if (!document.getElementById("svelte-1p717gt-style")) add_css();
 		(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.init)(this, options, instance, create_fragment, svelte_internal__WEBPACK_IMPORTED_MODULE_0__.safe_not_equal, { color: 1, size: 2, gap: 3, duration: 4 });
 	}
 }

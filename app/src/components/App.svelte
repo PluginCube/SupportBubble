@@ -22,7 +22,7 @@
         showButton.set(true)
 
         setTimeout(() => {
-            showPrompts.set(true)
+            // showPrompts.set(true)
         }, 3000);
     })
 </script>
@@ -52,10 +52,13 @@
     }
 </style>
 
+
 {#if $showButton}
     <div transition:fly={{ y: 100, duration: 500 }} {style}>
-        <Button />
-        
+        {#if ! $showIntegration}
+            <Button />
+        {/if}
+
         {#if ! $showMenu && $showPrompts}
             <Prompts />
         {/if}

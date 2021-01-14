@@ -4,9 +4,12 @@
     import { integration } from "store"
 
     import WhatsApp from './WhatsApp'
+    import Messenger from './Messenger'
+
 
     let types = {
         whatsapp: WhatsApp,
+        messenger: Messenger
     }
 </script>
 
@@ -15,7 +18,7 @@
         box-shadow: rgba(0, 0, 0, 0.1) 0px 12px 24px 0px;
         background: #fff;
         position: absolute;
-        bottom: 75px;
+        bottom: 0px;
         right: 0;
         border-radius: 10px;
         margin: 0;
