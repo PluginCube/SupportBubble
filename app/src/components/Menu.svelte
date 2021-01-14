@@ -18,8 +18,8 @@
 
 <style lang="scss">
     ul {
-        box-shadow: 0px 0px 50px rgba(0,0,0,0.15);
-        padding: 8px 0px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 12px 24px 0px;
+        padding: 12px 0px;
         width: 285px;
         background: #fff;
         position: absolute;
@@ -33,7 +33,7 @@
             float: left;
             width: 100%;
             margin: 0;
-            padding: 8px 14px;
+            padding: 8px 16px;
             cursor: pointer;
             
             &:hover {
@@ -49,7 +49,7 @@
                 color: #fff;
                 border-radius: 50px;
                 float: left;
-                margin-right: 12px;
+                margin-right: 14px;
                 
                 :global(svg) {
                     width: 24px;
@@ -64,9 +64,9 @@
                 width: calc(100% - 60px);
                 font-size: 14px;
                 font-weight: 400;
-                margin-top: 2px;
-                margin-bottom: 2px;
-                letter-spacing: .1px;
+                margin-top: 1px;
+                margin-bottom: 3px;
+                letter-spacing: 0.1px;
             }
 
             span {
@@ -80,7 +80,7 @@
     }
 </style>
 
-<ul transition:fly={{x: 40}} class="with-pointer-arrow">
+<ul transition:fly={{x: 40}}>
     {#each  $menu.items as item}
         <li on:click={() => {click(item)}}>
             <i style="background: {item.color};">

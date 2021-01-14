@@ -13,7 +13,7 @@
         overflow: hidden;
 
         header {
-            padding: 25px;
+            padding: 25px 20px;
             overflow: hidden;
             display: flex;
             align-items: center;
@@ -198,6 +198,6 @@
     </article>
 
     <footer>
-        <a href="https://api.whatsapp.com/send?phone=14081234567">Start Chat</a>
+        <a href="https://api.whatsapp.com/send?phone={options.phone}" target="_blank" style="background-color:{options.color};">Start Chat</a>
     </footer>
 </div>

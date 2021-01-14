@@ -260,5 +260,12 @@ $options->add('field', [
             'condition' => ['type', '===', 'whatsapp'],
             'default' => 'Typically replies within a day',
         ],
+        [
+            'id' => 'phone',
+            'type' => 'text',
+            'title' => 'Phone Number',
+            'condition' => ['type', '===', 'whatsapp'],
+            'default' => '',
+        ],
     ],
 ]);

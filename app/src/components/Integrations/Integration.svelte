@@ -12,7 +12,7 @@
 
 <style>
     div {
-        box-shadow: 0px 0px 50px rgba(0,0,0,0.15);
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 12px 24px 0px;
         background: #fff;
         position: absolute;
         bottom: 75px;

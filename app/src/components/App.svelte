@@ -22,7 +22,7 @@
         showButton.set(true)
 
         setTimeout(() => {
-            // showPrompts.set(true)
+            showPrompts.set(true)
         }, 3000);
     })
 </script>
