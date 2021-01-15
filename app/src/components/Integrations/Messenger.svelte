@@ -4,6 +4,7 @@
     let today = new Date();
     let time = today.getHours() + ":" + today.getMinutes()
 
+    options.messenger_url = (options.messenger_url.indexOf('://') === -1) ? 'http://' + options.messenger_url : options.messenger_url;
 </script>
 
 <style lang="scss">
@@ -18,7 +19,8 @@
             display: flex;
             align-items: center;
             background: #fff;
-            
+            border-bottom: 1px solid #f4f4f4;
+                        
             figure {
                 position: relative;
                 width: 52px;
@@ -83,41 +85,38 @@
         }
 
         article {
-            padding: 25px 20px;
-            background-color: #f4f4f4;
+            padding: 30px 20px;
             position: relative;
             overflow: auto;
             
+            small {
+                font-size: 10px;
+                line-height: 14px;
+                color: #d4d4d4;
+                width: 100%;
+                text-align: center;
+                padding-top: 0px;
+                float: right;
+                letter-spacing: .3px;
+                margin-top: -14px;
+                margin-bottom: 16px;
+            }
+
+            img {
+                width: 30px;
+                height: auto;
+                border-radius: 50px;
+                float: left;
+                margin-right: 10px;
+            }
+
             aside {
-                padding: 7px 14px 6px;
-                background: #fff;
-                box-shadow: rgba(0, 0, 0, 0.13) 0px 1px 0.5px;
-                border-radius: 0px 8px 8px;
+                padding: 8px 12px;
+                background: #f4f4f4;
+                border-radius: 8px;
                 max-width: 225px;
                 float: left;
                 position: relative;
-
-                &::before {
-                    position: absolute;
-                    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAmCAMAAADp2asXAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAACQUExURUxpccPDw9ra2m9vbwAAAAAAADExMf///wAAABoaGk9PT7q6uqurqwsLCycnJz4+PtDQ0JycnIyMjPf3915eXvz8/E9PT/39/RMTE4CAgAAAAJqamv////////r6+u/v7yUlJeXl5f///5ycnOXl5XNzc/Hx8f///xUVFf///+zs7P///+bm5gAAAM7Ozv///2fVensAAAAvdFJOUwCow1cBCCnqAhNAnY0WIDW2f2/hSeo99g1lBYT87vDXG8/6d8oL4sgM5szrkgl660OiZwAAAHRJREFUKM/ty7cSggAABNFVUQFzwizmjPz/39k4YuFWtm55bw7eHR6ny63+alnswT3/rIDzUSC7CrAziPYCJCsB+gbVkgDtVIDh+DsE9OTBpCtAbSBAZSEQNgWIygJ0RgJMDWYNAdYbAeKtAHODlkHIv997AkLqIVOXVU84AAAAAElFTkSuQmCC);
-                    background-position: 50% 50%;
-                    background-repeat: no-repeat;
-                    background-size: contain;
-                    content: "";
-                    top: 0px;
-                    left: -12px;
-                    width: 12px;
-                    height: 19px;
-               }
-
-                span {
-                    color: #999;
-                    font-size: 13px;
-                    margin-bottom: 10px;
-                    float: left;
-                    width: 100%;
-                    font-weight: 500;
-                }
 
                 p {
                     font-size: 14px;
@@ -126,18 +125,6 @@
                     color: #000000;
                     float: left;
                     width: 100%;
-                }
-
-                small {
-                    font-size: 12px;
-                    line-height: 16px;
-                    color: #999;
-                    width: 100%;
-                    text-align: right;
-                    padding-top: 0px;
-                    float: right;
-                    margin-right: -4px;
-                    margin-bottom: 0px;
                 }
             }
         }
@@ -185,10 +172,12 @@
     </header>
 
     <article>
+        <small>{time}</small>
+
+        <img src={options.avatar} alt={options.user_name}>
+
         <aside>
-            <span>{options.user_name}</span>
             <p>{@html options.welcome_message}</p>
-            <small>{time}</small>
         </aside>
     </article>
 

@@ -66,14 +66,14 @@
                 font-weight: 400;
                 margin-top: 1px;
                 margin-bottom: 3px;
-                letter-spacing: 0.1px;
+                color: #111;
             }
 
             span {
                 width: calc(100% - 60px);
                 font-size: 13px;
                 float: left;
-                color: #888;
+                color: #999999;
                 font-weight: normal;
             }
         }
