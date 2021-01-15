@@ -137,7 +137,7 @@ $options->add('field', [
     'fields' => [
         [
             'id' => 'message',
-            'type' => 'text',
+            'type' => 'textarea',
             'title' => 'Message',
             'default' => 'New Message',
             'attributes' => [
@@ -193,33 +193,6 @@ $options->add('field', [
             'default' => 'The subtitle goes here',
         ],
         [
-            'id' => 'type',
-            'type' => 'select',
-            'title' => 'Type',
-            'default' => 'link',
-            'choices' => [
-                [
-                    'id' => 'link',
-                    'title' => 'Link'
-                ],
-                [
-                    'id' => 'messenger',
-                    'title' => 'Integration → Messenger'
-                ],
-                [
-                    'id' => 'whatsapp',
-                    'title' => 'Integration → WhatsApp'
-                ]
-            ]
-        ],
-        [
-            'id' => 'url',
-            'type' => 'text',
-            'title' => 'URL',
-            'condition' => ['type', '===', 'link'],
-            'default' => '',
-        ],
-        [
             'id' => 'icon',
             'type' => 'icon',
             'title' => 'Icon',
@@ -231,48 +204,134 @@ $options->add('field', [
             'title' => 'Color',
             'default' => '#2c01ff',
         ],
-        // For whatsapp 
+        [
+            'id' => 'type',
+            'type' => 'select',
+            'title' => 'Type',
+            'default' => 'link',
+            'choices' => [
+                [
+                    'id' => 'link',
+                    'title' => 'Link'
+                ],
+                [
+                    'id' => 'messenger',
+                    'title' => 'Messenger'
+                ],
+                [
+                    'id' => 'whatsapp',
+                    'title' => 'WhatsApp'
+                ],
+                [
+                    'id' => 'form',
+                    'title' => 'Contact Form'
+                ]
+            ]
+        ],
+        // Link
+        [
+            'id' => 'url',
+            'type' => 'text',
+            'title' => 'URL',
+            'condition' => 'data.type == "link"',
+            'default' => '',
+        ],
+        // Whatsapp & Messenger
         [
             'id' => 'welcome_message',
-            'type' => 'editor',
+            'type' => 'textarea',
             'title' => 'Welcome Message',
-            'condition' => ['type', '!==', 'link'],
+            'condition' => 'data.type !== "link" && data.type !== "form"',
             'default' => '',
         ],
         [
             'id' => 'avatar',
             'type' => 'image',
             'title' => 'User Avatar',
-            'condition' => ['type', '!==', 'link'],
-            'default' => 'https://images.pexels.com/photos/53453/marilyn-monroe-woman-actress-pretty-53453.jpeg?auto=compress&cs=tinysrgb&crop=faces&fit=crop&h=200&w=200',
+            'condition' => 'data.type !== "link" && data.type !== "form"',
+            'default' => 'https://images.pexels.com/photos/53453/marilyn-monroe-woman-actress-pretty-53453.jpeg',
         ],
         [
             'id' => 'user_name',
             'type' => 'text',
             'title' => 'User Name',
-            'condition' => ['type', '!==', 'link'],
+            'condition' => 'data.type !== "link" && data.type !== "form"',
             'default' => 'Nancy',
         ],
         [
             'id' => 'caption',
             'type' => 'text',
             'title' => 'Caption',
-            'condition' => ['type', '!==', 'link'],
+            'condition' => 'data.type !== "link" && data.type !== "form"',
             'default' => 'Typically replies within a day',
         ],
         [
             'id' => 'phone',
             'type' => 'text',
             'title' => 'Phone Number',
-            'condition' => ['type', '===', 'whatsapp'],
+            'condition' => 'data.type == "whatsapp"',
             'default' => '',
         ],
+        // Messenger
         [
             'id' => 'messenger_url',
             'type' => 'text',
             'title' => 'Messenger URL',
-            'condition' => ['type', '===', 'messenger'],
+            'condition' => 'data.type == "messenger"',
             'default' => '',
+        ],
+        // Form
+        [
+            'id' => 'fields',
+            'type' => 'repeater',
+            'title' => 'Fields',
+            'condition' => 'data.type == "form"',
+            'default' => [],
+            'fields' => [
+                [
+                    'id' => 'title',
+                    'type' => 'text',
+                    'title' => 'Title',
+                    'default' => 'Your Name*',
+                ],
+                [
+                    'id' => 'type',
+                    'type' => 'select',
+                    'title' => 'Type',
+                    'default' => 'short_text',
+                    'choices' => [
+                        [
+                            'id' => 'short_text',
+                            'title' => 'Single Line Text'
+                        ],
+                        [
+                            'id' => 'paragraph',
+                            'title' => 'Paragraph Text'
+                        ],
+                        [
+                            'id' => 'number',
+                            'title' => 'Number'
+                        ],
+                        [
+                            'id' => 'checkbox',
+                            'title' => 'Checkbox'
+                        ],
+                        [
+                            'id' => 'date',
+                            'title' => 'Date'
+                        ],
+                        [
+                            'id' => 'email',
+                            'title' => 'Email Address'
+                        ],
+                        [
+                            'id' => 'checkbox',
+                            'title' => 'Phone Number'
+                        ],
+                    ]
+                ]
+                
+            ]
         ],
     ],
 ]);

@@ -445,12 +445,12 @@ __webpack_require__.r(__webpack_exports__);
 
 function add_css() {
 	var style = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("style");
-	style.id = "svelte-1ccg8tg-style";
-	style.textContent = "div.svelte-1ccg8tg.svelte-1ccg8tg{font-size:15px;border-radius:5px;overflow:hidden;cursor:pointer;float:right;height:42px;line-height:42px;overflow:hidden}div.svelte-1ccg8tg i.svelte-1ccg8tg{background:rgba(255, 255, 255, 0.125);float:right;height:inherit;display:flex;align-items:center;justify-content:center;width:48px;overflow:hidden}div.svelte-1ccg8tg i div.svelte-1ccg8tg{display:flex}div.svelte-1ccg8tg i.svelte-1ccg8tg svg{width:20px;fill:currentColor}div.svelte-1ccg8tg span.svelte-1ccg8tg{line-height:inherit;padding:0px 20px;float:right}div[data-size=small].svelte-1ccg8tg.svelte-1ccg8tg{font-size:14px;height:40px;line-height:40px}div[data-size=small].svelte-1ccg8tg i.svelte-1ccg8tg{width:45px}div[data-size=small].svelte-1ccg8tg i.svelte-1ccg8tg svg{width:18px}div[data-size=large].svelte-1ccg8tg.svelte-1ccg8tg{font-size:15px;height:45px;line-height:45px}div[data-size=large].svelte-1ccg8tg i.svelte-1ccg8tg{width:50px}div[data-size=large].svelte-1ccg8tg i.svelte-1ccg8tg svg{width:24px}";
+	style.id = "svelte-1dx1n1i-style";
+	style.textContent = "div.svelte-1dx1n1i.svelte-1dx1n1i{font-size:15px;border-radius:5px;overflow:hidden;cursor:pointer;float:right;height:42px;line-height:42px;overflow:hidden;box-shadow:rgba(0, 0, 0, 0.1) 0px 12px 24px 0px}div.svelte-1dx1n1i i.svelte-1dx1n1i{background:rgba(255, 255, 255, 0.125);float:right;height:inherit;display:flex;align-items:center;justify-content:center;width:48px;overflow:hidden}div.svelte-1dx1n1i i div.svelte-1dx1n1i{display:flex}div.svelte-1dx1n1i i.svelte-1dx1n1i svg{width:20px;fill:currentColor}div.svelte-1dx1n1i span.svelte-1dx1n1i{line-height:inherit;padding:0px 20px;float:right}div[data-size=small].svelte-1dx1n1i.svelte-1dx1n1i{font-size:14px;height:40px;line-height:40px}div[data-size=small].svelte-1dx1n1i i.svelte-1dx1n1i{width:45px}div[data-size=small].svelte-1dx1n1i i.svelte-1dx1n1i svg{width:18px}div[data-size=large].svelte-1dx1n1i.svelte-1dx1n1i{font-size:15px;height:45px;line-height:45px}div[data-size=large].svelte-1dx1n1i i.svelte-1dx1n1i{width:50px}div[data-size=large].svelte-1dx1n1i i.svelte-1dx1n1i svg{width:24px}";
 	(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(document.head, style);
 }
 
-// (83:12) {:else}
+// (84:12) {:else}
 function create_else_block(ctx) {
 	let div;
 	let raw_value = /*$button*/ ctx[0].icon + "";
@@ -459,7 +459,7 @@ function create_else_block(ctx) {
 	return {
 		c() {
 			div = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div, "class", "svelte-1ccg8tg");
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div, "class", "svelte-1dx1n1i");
 		},
 		m(target, anchor) {
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, div, anchor);
@@ -483,7 +483,7 @@ function create_else_block(ctx) {
 	};
 }
 
-// (75:12) {#if $showMenu || $showIntegration}
+// (76:12) {#if $showMenu || $showIntegration}
 function create_if_block_1(ctx) {
 	let div;
 	let div_intro;
@@ -492,7 +492,7 @@ function create_if_block_1(ctx) {
 		c() {
 			div = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
 			div.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-11.414L9.172 7.757 7.757 9.172 10.586 12l-2.829 2.828 1.415 1.415L12 13.414l2.828 2.829 1.415-1.415L13.414 12l2.829-2.828-1.415-1.415L12 10.586z"></path></svg>`;
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div, "class", "svelte-1ccg8tg");
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div, "class", "svelte-1dx1n1i");
 		},
 		m(target, anchor) {
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, div, anchor);
@@ -513,7 +513,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (90:4) {#if $button.text && ! $showMenu && ! $showIntegration}
+// (91:4) {#if $button.text && ! $showMenu && ! $showIntegration}
 function create_if_block(ctx) {
 	let span;
 	let t_value = /*$button*/ ctx[0].text + "";
@@ -523,7 +523,7 @@ function create_if_block(ctx) {
 		c() {
 			span = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("span");
 			t = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.text)(t_value);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(span, "class", "svelte-1ccg8tg");
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(span, "class", "svelte-1dx1n1i");
 		},
 		m(target, anchor) {
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, span, anchor);
@@ -562,10 +562,10 @@ function create_fragment(ctx) {
 			if_block0.c();
 			t = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.space)();
 			if (if_block1) if_block1.c();
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(i, "class", "svelte-1ccg8tg");
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(i, "class", "svelte-1dx1n1i");
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div, "data-size", div_data_size_value = /*$button*/ ctx[0].size);
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div, "style", /*style*/ ctx[3]);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div, "class", "svelte-1ccg8tg");
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div, "class", "svelte-1dx1n1i");
 		},
 		m(target, anchor) {
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, div, anchor);
@@ -648,7 +648,7 @@ function instance($$self, $$props, $$invalidate) {
 class Button extends svelte_internal__WEBPACK_IMPORTED_MODULE_0__.SvelteComponent {
 	constructor(options) {
 		super();
-		if (!document.getElementById("svelte-1ccg8tg-style")) add_css();
+		if (!document.getElementById("svelte-1dx1n1i-style")) add_css();
 		(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.init)(this, options, instance, create_fragment, svelte_internal__WEBPACK_IMPORTED_MODULE_0__.safe_not_equal, {});
 	}
 }
