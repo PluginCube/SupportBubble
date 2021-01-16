@@ -41,8 +41,8 @@
         font-size: 14px;
         line-height: 20px;
         background: #fff;
-        min-width: 65px;
-        min-height: 40px;
+        min-width: 60px;
+        min-height: 41px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -55,7 +55,7 @@
 <div in:fade class="with-pointer-arrow">
     {#if currentMessage}
         <span>
-            {currentMessage}
+            {@html currentMessage}
         </span>
     {:else}
         <Loader color='#c0c3c5'/>

@@ -19,11 +19,11 @@
 <style lang="scss">
     ul {
         box-shadow: rgba(0, 0, 0, 0.1) 0px 12px 24px 0px;
-        padding: 12px 0px;
+        padding: 10px 0px;
         width: 285px;
         background: #fff;
         position: absolute;
-        bottom: 75px;
+        bottom: 85px;
         right: 0;
         border-radius: 5px;
         margin: 0;
@@ -33,7 +33,7 @@
             float: left;
             width: 100%;
             margin: 0;
-            padding: 8px 16px;
+            padding: 9px 16px;
             cursor: pointer;
             
             &:hover {
@@ -52,7 +52,7 @@
                 margin-right: 14px;
                 
                 :global(svg) {
-                    width: 24px;
+                    width: 22px;
                     fill: currentColor;
                 }
             }
@@ -66,7 +66,7 @@
                 font-weight: 400;
                 margin-top: 1px;
                 margin-bottom: 3px;
-                color: #111;
+                color: #333;
             }
 
             span {

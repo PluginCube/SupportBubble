@@ -8,34 +8,26 @@ $options = $this->framework->options;
 
 
 /**
- * Section: Button
+ * Section: Bubble
  */
 
 $options->add('section', [
-    'id' => 'button',
-    'title' => 'Button',
+    'id' => 'bubble',
+    'title' => 'Bubble',
 ]);
 
 $options->add('link', [
     'type' => 'section',
-    'title' => 'Button',
-    'section' => 'button',
+    'title' => 'Bubble',
+    'section' => 'bubble',
     'icon' => 'ri-chat-smile-3-fill',
-]);
-
-$options->add('field', [
-    'id' => 'text',
-    'type' => 'text',
-    'title' => 'Text',
-    'section' => 'button',
-    'default' => 'Contact Us',
 ]);
 
 $options->add('field', [
     'id' => 'icon',
     'type' => 'icon',
     'title' => 'Icon',
-    'section' => 'button',
+    'section' => 'bubble',
     'default' => 'ri-chat-smile-3-fill',
 ]);
 
@@ -43,7 +35,7 @@ $options->add('field', [
     'id' => 'size',
     'type' => 'select',
     'title' => 'Size',
-    'section' => 'button',
+    'section' => 'bubble',
     'default' => 'medium',
     'choices' => [
         [
@@ -65,7 +57,7 @@ $options->add('field', [
     'id' => 'position',
     'type' => 'select',
     'title' => 'Position',
-    'section' => 'button',
+    'section' => 'bubble',
     'default' => 'bottom_right',
     'choices' => [
         [
@@ -91,7 +83,7 @@ $options->add('field', [
     'id' => 'bg',
     'type' => 'color',
     'title' => 'Background',
-    'section' => 'button',
+    'section' => 'bubble',
     'default' => '#0043ff',
 ]);
 
@@ -99,7 +91,7 @@ $options->add('field', [
     'id' => 'color',
     'type' => 'color',
     'title' => 'Text Color',
-    'section' => 'button',
+    'section' => 'bubble',
     'default' => '#ffffff',
 ]);
 
@@ -107,52 +99,8 @@ $options->add('field', [
     'id' => 'dismissible',
     'type' => 'switch',
     'title' => 'Dismissible',
-    'section' => 'button',
+    'section' => 'bubble',
     'default' => false,
-]);
-
-
-
-/**
- * Section: Prompts
- */
-
-$options->add('section', [
-    'id' => 'prompts',
-    'title' => 'Prompts',
-]);
-
-$options->add('link', [
-    'type' => 'section',
-    'title' => 'Prompts',
-    'section' => 'prompts',
-    'icon' => 'ri-message-3-fill',
-]);
-
-$options->add('field', [
-    'id' => 'messages',
-    'type' => 'repeater',
-    'title' => 'Items',
-    'section' => 'prompts',
-    'fields' => [
-        [
-            'id' => 'message',
-            'type' => 'textarea',
-            'title' => 'Message',
-            'default' => 'New Message',
-            'attributes' => [
-                'placeholder' => 'Message here',
-            ]
-        ]
-    ],
-    'default' => [
-        [
-            'message' => 'Hello'
-        ],
-        [
-            'message' => 'You can use this button to contact us'
-        ]
-    ],
 ]);
 
 
@@ -168,7 +116,7 @@ $options->add('section', [
 
 $options->add('link', [
     'type' => 'section',
-    'title' => 'Menu',
+    'title' => 'Support Menu',
     'section' => 'menu',
     'icon' => 'ri-layout-right-fill',
 ]);
@@ -332,6 +280,48 @@ $options->add('field', [
                 ]
                 
             ]
+        ],
+    ],
+]);
+
+
+
+/**
+ * Section: Prompts
+ */
+
+$options->add('section', [
+    'id' => 'prompts',
+    'title' => 'Prompts',
+]);
+
+$options->add('link', [
+    'type' => 'section',
+    'title' => 'Prompts',
+    'section' => 'prompts',
+    'icon' => 'ri-message-3-fill',
+]);
+
+$options->add('field', [
+    'id' => 'messages',
+    'type' => 'repeater',
+    'title' => 'Items',
+    'section' => 'prompts',
+    'fields' => [
+        [
+            'id' => 'message',
+            'type' => 'textarea',
+            'title' => 'Message',
+            'default' => 'New Message',
+            'attributes' => [
+                'placeholder' => 'Message here',
+            ]
+        ]
+    ],
+    'default' => [
+        [
+            'message' => 'Hi there 👋 </br>
+            How can I help you?'
         ],
     ],
 ]);

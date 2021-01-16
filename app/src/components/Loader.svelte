@@ -65,7 +65,7 @@
             top: 50%;
             margin: -($size * 2 + $size / 2) auto 0;
         } @else {
-            top: -$size * 2;
+            top: - $size * 2 + 2;
 		}
 		
         @keyframes #{'loader-'}#{$unique-name} {

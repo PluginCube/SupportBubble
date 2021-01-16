@@ -1,9 +1,9 @@
 <script>
     import { onMount } from 'svelte'
     import { fly } from 'svelte/transition'
-    import { button, showButton, showMenu, showPrompts, showIntegration } from 'store'
+    import { bubble, showBubble, showMenu, showPrompts, showIntegration } from 'store'
 
-    import Button from './Button'
+    import Bubble from './Bubble'
     import Prompts from './Prompts'
     import Menu from './Menu'
 
@@ -11,19 +11,18 @@
 
     let style = ``
 
-    // Position style
     $: ['top', 'bottom', 'left', 'right'].forEach((e) => {
-        if ($button.position.includes(e)) {
+        if ($bubble.position.includes(e)) {
             style += e + ': 0;'
         }
     })
 
     onMount(() => {
-        showButton.set(true)
+        showBubble.set(true)
 
         setTimeout(() => {
-            // showPrompts.set(true)
-        }, 3000);
+            showPrompts.set(true)
+        }, 500);
     })
 </script>
 
@@ -31,7 +30,7 @@
     div {
         position: fixed;
         z-index: 999;
-        margin: 50px;
+        margin: 55px;
         min-width: 220px;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
             Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
@@ -43,9 +42,9 @@
                 bottom: -6px;
                 right: 20px;
                 left: auto;
-                border-right: 10px solid transparent;
-                border-top: 10px solid #FFFFFF;
-                border-left: 10px solid transparent;
+                border-right: 8px solid transparent;
+                border-top: 8px solid #FFFFFF;
+                border-left: 8px solid transparent;
                 border-bottom: 0px solid transparent;
             }
         }
@@ -53,10 +52,10 @@
 </style>
 
 
-{#if $showButton}
+{#if $showBubble}
     <div transition:fly={{ y: 100, duration: 500 }} {style}>
         {#if ! $showIntegration}
-            <Button />
+            <Bubble />
         {/if}
 
         {#if ! $showMenu && $showPrompts}
