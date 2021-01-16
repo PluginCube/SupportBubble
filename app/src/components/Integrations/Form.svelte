@@ -85,7 +85,7 @@
                 font-size: 14px;
                 font-family: inherit;
                 text-transform: inherit;
-                margin-top: 30px;
+                margin-top: 25px;
                 padding: 0px 14px;
                 line-height: 34px;
                 color: #fff;
@@ -125,6 +125,10 @@
 
                 {#if field.type == 'date'}
                     <input type="date" placeholder={field.title} bind:value={field.value} required>
+                {/if}
+
+                {#if field.type == 'phone_number'}
+                    <input type="tel" placeholder={field.title} bind:value={field.value} required>
                 {/if}
 
                 {#if field.type == 'checkbox'}
