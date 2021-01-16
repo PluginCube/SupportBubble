@@ -5,11 +5,13 @@
 
     import WhatsApp from './WhatsApp'
     import Messenger from './Messenger'
+    import Form from './Form'
 
 
     let types = {
         whatsapp: WhatsApp,
-        messenger: Messenger
+        messenger: Messenger,
+        form: Form
     }
 </script>
 
@@ -22,6 +24,7 @@
         right: 0;
         border-radius: 10px;
         margin: 0;
+        overflow: hidden;
     }
 </style>
 

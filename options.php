@@ -230,6 +230,20 @@ $options->add('field', [
         ],
         // Form
         [
+            'id' => 'headline',
+            'type' => 'text',
+            'title' => 'Headline',
+            'condition' => 'data.type == "form"',
+            'default' => '',
+        ],
+        [
+            'id' => 'description',
+            'type' => 'text',
+            'title' => 'Description',
+            'condition' => 'data.type == "form"',
+            'default' => '',
+        ],
+        [
             'id' => 'fields',
             'type' => 'repeater',
             'title' => 'Fields',
@@ -246,10 +260,10 @@ $options->add('field', [
                     'id' => 'type',
                     'type' => 'select',
                     'title' => 'Type',
-                    'default' => 'short_text',
+                    'default' => 'single_line_text',
                     'choices' => [
                         [
-                            'id' => 'short_text',
+                            'id' => 'single_line_text',
                             'title' => 'Single Line Text'
                         ],
                         [
@@ -273,7 +287,7 @@ $options->add('field', [
                             'title' => 'Email Address'
                         ],
                         [
-                            'id' => 'checkbox',
+                            'id' => 'phone_number',
                             'title' => 'Phone Number'
                         ],
                     ]

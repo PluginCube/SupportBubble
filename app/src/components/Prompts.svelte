@@ -35,7 +35,7 @@
 <style lang="scss">
     div {
         position: absolute;
-        bottom: 75px;
+        bottom: 80px;
         right: 0;
         padding: 12px 18px;
         font-size: 14px;
