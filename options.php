@@ -103,6 +103,25 @@ $options->add('field', [
     'default' => false,
 ]);
 
+$options->add('field', [
+    'id' => 'prompts',
+    'type' => 'repeater',
+    'title' => 'Prompt Messages',
+    'section' => 'bubble',
+    'default' => [],
+    'fields' => [
+        [
+            'id' => 'message',
+            'type' => 'textarea',
+            'title' => 'Message',
+            'default' => 'New Message',
+            'attributes' => [
+                'placeholder' => 'Message here',
+            ]
+        ]
+    ],
+]);
+
 
 
 /**
@@ -244,17 +263,56 @@ $options->add('field', [
             'default' => '',
         ],
         [
+            'id' => 'form',
+            'type' => 'select',
+            'title' => 'Form',
+            'condition' => 'data.type == "form"',
+            'lookup' => 'data.forms.forms',
+        ],
+    ],
+]);
+
+
+
+/**
+ * Section: Prompts
+ */
+
+$options->add('section', [
+    'id' => 'forms',
+    'title' => 'Forms',
+]);
+
+$options->add('link', [
+    'type' => 'section',
+    'title' => 'Forms',
+    'section' => 'forms',
+    'icon' => 'ri-message-3-fill',
+]);
+
+$options->add('field', [
+    'id' => 'forms',
+    'type' => 'repeater',
+    'title' => 'Forms',
+    'section' => 'forms',
+    'fields' => [
+        [
+            'id' => 'title',
+            'type' => 'text',
+            'title' => 'Title',
+            'default' => 'New Form',
+        ],
+        [
             'id' => 'fields',
             'type' => 'repeater',
             'title' => 'Fields',
-            'condition' => 'data.type == "form"',
             'default' => [],
             'fields' => [
                 [
                     'id' => 'title',
                     'type' => 'text',
                     'title' => 'Title',
-                    'default' => 'Your Name*',
+                    'default' => 'New Field',
                 ],
                 [
                     'id' => 'type',
@@ -292,50 +350,8 @@ $options->add('field', [
                         ],
                     ]
                 ]
-                
             ]
         ],
     ],
-]);
-
-
-
-/**
- * Section: Prompts
- */
-
-$options->add('section', [
-    'id' => 'prompts',
-    'title' => 'Prompts',
-]);
-
-$options->add('link', [
-    'type' => 'section',
-    'title' => 'Prompts',
-    'section' => 'prompts',
-    'icon' => 'ri-message-3-fill',
-]);
-
-$options->add('field', [
-    'id' => 'messages',
-    'type' => 'repeater',
-    'title' => 'Items',
-    'section' => 'prompts',
-    'fields' => [
-        [
-            'id' => 'message',
-            'type' => 'textarea',
-            'title' => 'Message',
-            'default' => 'New Message',
-            'attributes' => [
-                'placeholder' => 'Message here',
-            ]
-        ]
-    ],
-    'default' => [
-        [
-            'message' => 'Hi there 👋 </br>
-            How can I help you?'
-        ],
-    ],
+    'default' => [],
 ]);

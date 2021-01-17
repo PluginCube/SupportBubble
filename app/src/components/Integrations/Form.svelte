@@ -1,12 +1,14 @@
 <script>
     export let options
-    
+
+    import { forms } from 'store'
+
     import Switch from "../Extra/Switch";
 
-    let form
+    $: form = $forms['forms'].find(i => i._id == options.form)
 
     let submit = e => {
-        console.log(options.fields);
+        console.log(form);
     }
 </script>
 
@@ -106,7 +108,7 @@
 
     <article>
         <form bind:this={form} on:submit|preventDefault={submit}>
-            {#each options.fields as field}
+            {#each form.fields as field}
                 {#if field.type == 'single_line_text'}
                     <input placeholder={field.title} bind:value={field.value} required>
                 {/if}
@@ -137,7 +139,6 @@
                         <span>{field.title}</span>
                     </div>
                 {/if}
-
             {/each}
 
             <button type="submit">

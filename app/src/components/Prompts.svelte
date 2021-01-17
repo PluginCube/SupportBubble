@@ -3,7 +3,7 @@
 
     import { onMount } from 'svelte';
 
-    import { prompts } from 'store'
+    import { bubble } from 'store'
 
     import Loader from './Loader'
 
@@ -12,20 +12,20 @@
 
     onMount(() => {
         setInterval(() => {
-            if ( $prompts['messages'].length == 0 ) {
+            if ( $bubble['prompts'].length == 0 ) {
                 return
             };
 
-            currentMessage = $prompts['messages'][0]['message']
+            currentMessage = $bubble['prompts'][0]['message']
 
             setTimeout(() => {
-                if ( $prompts['messages'].length !== 1 ) {
+                if ( $bubble['prompts'].length !== 1 ) {
                     currentMessage = null
                 }
 
-                prompts.set({
-                    messages: $prompts['messages'].shift(),
-                    ... $prompts
+                bubble.set({
+                    prompts: $bubble['prompts'].shift(),
+                    ... $bubble
                 });
             }, 2500);
         }, 5000);

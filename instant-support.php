@@ -147,6 +147,8 @@ class InstantSupport
     public function convert_icons(&$arr)
     {
         foreach ($arr as $section => &$fields) {
+            if ( ! is_array($fields) ) continue;
+
             foreach ($fields as $key => &$value) {
                 if ( is_string($value) ) {
                     if (strpos($value, 'ri-') !== false) {
