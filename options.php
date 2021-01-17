@@ -269,6 +269,13 @@ $options->add('field', [
             'condition' => 'data.type == "form"',
             'lookup' => 'data.forms.forms',
         ],
+        [
+            'id' => 'success_message',
+            'type' => 'textarea',
+            'title' => 'Success Message',
+            'condition' => 'data.type == "form"',
+            'default' => '',
+        ],
     ],
 ]);
 

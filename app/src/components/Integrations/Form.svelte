@@ -7,7 +7,10 @@
 
     $: form = $forms['forms'].find(i => i._id == options.form)
 
+    let showSuccessMessage = false
+
     let submit = e => {
+        showSuccessMessage = true
         console.log(form);
     }
 </script>
@@ -43,7 +46,17 @@
             padding: 0px 25px 25px;
             overflow: hidden;
             background: #fff;
-            
+
+            > p {
+                text-align: center;
+                font-size: 16px;
+                margin: 0;
+                margin-top: 20px;
+                background: #f4f4f4;
+                padding: 15px 20px;
+                border-radius: 5px;
+            }
+
             input:not([type=checkbox]) {
                 width: 100%;
                 height: 36px;
@@ -107,43 +120,47 @@
     </header>
 
     <article>
-        <form bind:this={form} on:submit|preventDefault={submit}>
-            {#each form.fields as field}
-                {#if field.type == 'single_line_text'}
-                    <input placeholder={field.title} bind:value={field.value} required>
-                {/if}
+        {#if showSuccessMessage}
+            <p>{@html options.success_message}</p>
+        {:else}
+            <form bind:this={form} on:submit|preventDefault={submit}>
+                {#each form.fields as field}
+                    {#if field.type == 'single_line_text'}
+                        <input placeholder={field.title} bind:value={field.value} required>
+                    {/if}
 
-                {#if field.type == 'paragraph'}
-                    <textarea placeholder={field.title} bind:value={field.value} required></textarea>
-                {/if}
+                    {#if field.type == 'paragraph'}
+                        <textarea placeholder={field.title} bind:value={field.value} required></textarea>
+                    {/if}
 
-                {#if field.type == 'number'}
-                    <input type="number" placeholder={field.title} bind:value={field.value} required>
-                {/if}
+                    {#if field.type == 'number'}
+                        <input type="number" placeholder={field.title} bind:value={field.value} required>
+                    {/if}
 
-                {#if field.type == 'email'}
-                    <input type="email" placeholder={field.title} bind:value={field.value} required>
-                {/if}
+                    {#if field.type == 'email'}
+                        <input type="email" placeholder={field.title} bind:value={field.value} required>
+                    {/if}
 
-                {#if field.type == 'date'}
-                    <input type="date" placeholder={field.title} bind:value={field.value} required>
-                {/if}
+                    {#if field.type == 'date'}
+                        <input type="date" placeholder={field.title} bind:value={field.value} required>
+                    {/if}
 
-                {#if field.type == 'phone_number'}
-                    <input type="tel" placeholder={field.title} bind:value={field.value} required>
-                {/if}
+                    {#if field.type == 'phone_number'}
+                        <input type="tel" placeholder={field.title} bind:value={field.value} required>
+                    {/if}
 
-                {#if field.type == 'checkbox'}
-                    <div class="it-switch">
-                        <Switch bind:value={field.value} />
-                        <span>{field.title}</span>
-                    </div>
-                {/if}
-            {/each}
+                    {#if field.type == 'checkbox'}
+                        <div class="it-switch">
+                            <Switch bind:value={field.value} />
+                            <span>{field.title}</span>
+                        </div>
+                    {/if}
+                {/each}
 
-            <button type="submit">
-                Submit
-            </button>
-        </form>
+                <button type="submit">
+                    Submit
+                </button>
+            </form>
+        {/if}
     </article>
 </div>

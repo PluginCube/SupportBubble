@@ -58,7 +58,7 @@
             <Bubble />
         {/if}
 
-        {#if ! $showMenu && $showPrompts}
+        {#if ! $showMenu && $showPrompts && ('prompts' in $bubble)}
             <Prompts />
         {/if}
 
