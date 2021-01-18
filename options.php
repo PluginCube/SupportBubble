@@ -340,8 +340,8 @@ $options->add('field', [
                             'title' => 'Number'
                         ],
                         [
-                            'id' => 'checkbox',
-                            'title' => 'Checkbox'
+                            'id' => 'switch',
+                            'title' => 'Switch'
                         ],
                         [
                             'id' => 'date',

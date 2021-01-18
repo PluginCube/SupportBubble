@@ -2,16 +2,17 @@
     export let options
 
     import { forms } from 'store'
+    import { ajax } from 'methods'
 
     import Switch from "../Extra/Switch";
-
+    
     $: form = $forms['forms'].find(i => i._id == options.form)
 
     let showSuccessMessage = false
 
-    let submit = e => {
+    let submit = async () => {
+        await ajax('it_form_submit', form)
         showSuccessMessage = true
-        console.log(form);
     }
 </script>
 
@@ -149,7 +150,7 @@
                         <input type="tel" placeholder={field.title} bind:value={field.value} required>
                     {/if}
 
-                    {#if field.type == 'checkbox'}
+                    {#if field.type == 'switch'}
                         <div class="it-switch">
                             <Switch bind:value={field.value} />
                             <span>{field.title}</span>

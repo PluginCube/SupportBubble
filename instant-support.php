@@ -105,6 +105,12 @@ class InstantSupport
 
         // Render the front-end
         add_action('wp_footer', [$this, 'render']);
+
+        // Forms post type
+        add_action('init', [$this, 'forms_post_type']);
+
+        // Ajax form submit
+        add_action('wp_ajax_it_form_submit', [$this, 'ajax_form_submit']);
     }
 
     /**
@@ -177,8 +183,140 @@ class InstantSupport
 
         $values = $this->framework->options->get_values();
 
+        $values['nonce'] = wp_create_nonce('it-nonce');
+        $values['ajaxurl'] = admin_url('admin-ajax.php');
+
         wp_localize_script('instant-support', 'instant_support', $this->convert_icons($values));
     }
+
+    /**
+     * Register forms post type.
+     *
+     * @since 1.0.0
+     * @access public 
+     * @return void
+     */
+    public function forms_post_type()
+    {
+        $values = $this->framework->options->get_values();
+
+        foreach ($values['forms']['forms'] as $form) {
+            // Register post type
+            register_post_type($form['_id'], [
+                'public' => false,
+                'label' => $form['title'],
+                'menu_icon' => 'dashicons-email-alt',
+                'show_in_rest' => false,
+                'has_archive' => false,
+                'show_ui' => true,
+                'show_in_menu' => false,
+                'show_in_admin_bar' => false,
+                'supports' => [],
+                'capabilities' => array(
+                    'create_posts' => false,
+                ),
+            ]);
+        
+            remove_post_type_support($form['_id'], 'title');
+            remove_post_type_support($form['_id'], 'editor');
+        
+            // Register post meta
+            foreach ($form['fields'] as $field) {
+                register_post_meta($form['_id'], $field['title'], [
+                    'show_in_rest' => false,
+                    'single' => true,
+                    'type' => 'string',
+                ]);
+            }
+
+            // Filter columns
+            add_filter("manage_$form[_id]_posts_columns", function ($columns) use ($form) {
+                $columns = [];
+
+                foreach ($form['fields'] as $field) {
+                    $columns[$field['_id']] = $field['title'];
+                }
+
+                return $columns;
+            });
+
+            // Display columns
+            add_action("manage_$form[_id]_posts_custom_column", function ($column, $id) {
+                echo get_post_meta($id, $column, true);
+            }, 10, 2);
+
+            add_filter("bulk_actions-edit-$form[_id]", '__return_empty_array');        
+        }
+    }
+
+    /**
+     * Filter forms post type columns.
+     *
+     * @since 1.0.0
+     * @access public 
+     * @return void
+     */
+    public function ajax_form_submit() {
+        if ( ! check_ajax_referer('it-nonce', 'security')) {
+            wp_send_json_error([
+                'message' => 'Invalid nonce'
+            ]);    
+        }
+
+        $data = isset($_REQUEST['data']) ? $_REQUEST['data'] : false;
+
+        $post = [
+            'post_type' => $data['_id'],
+            'post_status' => 'publish',
+            'meta_input' => []
+        ];
+
+        foreach ($data['fields'] as $field) {
+            $value = $field['value'];
+
+            switch ($field['type']) {
+                case 'single_line_text':
+                    $value = sanitize_text_field($value);
+                    break;
+                
+                case 'paragraph':
+                    $value = wp_filter_post_kses($value);
+                    break;
+    
+                case 'number':
+                    $value = intval($value);
+                    break;
+
+                case 'switch':
+                    $value = $value == 'true' ? 'yes' : 'no';
+                    break;
+
+                case 'email':
+                    $value = sanitize_email($value);
+                    break;
+
+                case 'date':
+                    $value = sanitize_text_field($value);
+                    break;
+                
+                case 'phone_number':
+                    $value = sanitize_text_field($value);
+                    break;
+
+                default:
+                    $value = sanitize_text_field($value);
+                    break;
+            }
+
+            $post['meta_input'][$field['_id']] = $value;
+        }
+    
+    
+        wp_insert_post($post);
+
+        wp_send_json_success($post);    
+    }
+
 }
 
 // Start
