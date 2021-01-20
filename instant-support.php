@@ -209,11 +209,15 @@ class InstantSupport
                 'show_in_rest' => false,
                 'has_archive' => false,
                 'show_ui' => true,
-                'show_in_menu' => false,
+                'show_in_menu' => filter_var($form['show_in_admin'], FILTER_VALIDATE_BOOLEAN),
                 'show_in_admin_bar' => false,
                 'supports' => [],
+                'map_meta_cap' => true,
                 'capabilities' => array(
                     'create_posts' => false,
+                    'delete_post' => true,
+                    'edit_private_posts' => false,
+                    'edit_published_posts' => false
                 ),
             ]);
         
@@ -241,7 +245,7 @@ class InstantSupport
             });
 
             // Display columns
-            add_action("manage_$form[_id]_posts_custom_column", function ($column, $id) {
+            add_action("manage_$form[_id]_posts_custom_column", function ($column, $id) use ($form) {
                 echo get_post_meta($id, $column, true);
             }, 10, 2);
 
@@ -310,7 +314,6 @@ class InstantSupport
 
             $post['meta_input'][$field['_id']] = $value;
         }
-    
     
         wp_insert_post($post);
 

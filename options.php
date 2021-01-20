@@ -8,6 +8,40 @@ $options = $this->framework->options;
 
 
 /**
+ * Helpr functions
+ */
+function get_post_type_choices () {
+    global $wp_post_types;
+
+    $choices = [];
+
+    foreach (get_post_types() as $name) {
+        $choices[] = [
+            'value' => $name,
+            'label' => $wp_post_types[$name]->label
+        ];
+    }
+
+    return $choices;
+}
+
+function get_user_role_choices () {
+    global $wp_roles;
+
+    $choices = [];
+
+    foreach (wp_roles()->roles as $name => $info) {
+        $choices[] = [
+            'value' => $name,
+            'label' => $info['name']
+        ];
+    }
+
+    return $choices;
+}
+
+
+/**
  * Section: Bubble
  */
 
@@ -39,16 +73,16 @@ $options->add('field', [
     'default' => 'medium',
     'choices' => [
         [
-            'id' => 'small',
-            'title' => 'Small'
+            'value' => 'small',
+            'label' => 'Small'
         ],
         [
-            'id' => 'medium',
-            'title' => 'Medium'
+            'value' => 'medium',
+            'label' => 'Medium'
         ],
         [
-            'id' => 'large',
-            'title' => 'Large'
+            'value' => 'large',
+            'label' => 'Large'
         ],
     ]
 ]);
@@ -61,20 +95,20 @@ $options->add('field', [
     'default' => 'bottom_right',
     'choices' => [
         [
-            'id' => 'top_right',
-            'title' => 'Top right'
+            'value' => 'top_right',
+            'label' => 'Top right'
         ],
         [
-            'id' => 'bottom_right',
-            'title' => 'Bottom right'
+            'value' => 'bottom_right',
+            'label' => 'Bottom right'
         ],
         [
-            'id' => 'top_left',
-            'title' => 'Top left'
+            'value' => 'top_left',
+            'label' => 'Top left'
         ],
         [
-            'id' => 'bottom_left',
-            'title' => 'Bottom left'
+            'value' => 'bottom_left',
+            'label' => 'Bottom left'
         ]
     ]
 ]);
@@ -116,7 +150,7 @@ $options->add('field', [
             'title' => 'Message',
             'default' => 'New Message',
             'attributes' => [
-                'placeholder' => 'Message here',
+                'placeholder' => 'Message...',
             ]
         ]
     ],
@@ -178,20 +212,20 @@ $options->add('field', [
             'default' => 'link',
             'choices' => [
                 [
-                    'id' => 'link',
-                    'title' => 'Link'
+                    'value' => 'link',
+                    'label' => 'Link'
                 ],
                 [
-                    'id' => 'messenger',
-                    'title' => 'Messenger'
+                    'value' => 'messenger',
+                    'label' => 'Messenger'
                 ],
                 [
-                    'id' => 'whatsapp',
-                    'title' => 'WhatsApp'
+                    'value' => 'whatsapp',
+                    'label' => 'WhatsApp'
                 ],
                 [
-                    'id' => 'form',
-                    'title' => 'Contact Form'
+                    'value' => 'form',
+                    'label' => 'Contact Form'
                 ]
             ]
         ],
@@ -276,6 +310,108 @@ $options->add('field', [
             'condition' => 'data.type == "form"',
             'default' => '',
         ],
+        // Visibility Rules
+        [
+            'id' => 'visibility_rules',
+            'type' => 'repeater',
+            'title' => 'Visibility Rules',
+            'default' => [],
+            'fields' => [
+                [
+                    'id' => 'type',
+                    'type' => 'select',
+                    'title' => 'Target',
+                    'choices' => [
+                        [
+                            'value' => 'posts',
+                            'label' => 'Post ID'
+                        ],
+                        [
+                            'value' => 'post_type',
+                            'label' => 'Post Type'
+                        ],
+                        [
+                            'value' => 'user_role',
+                            'label' => 'User Role'
+                        ],
+                        [
+                            'value' => 'week_day',
+                            'label' => 'Week Day'
+                        ],
+                    ]
+                ],
+                [
+                    'id' => 'ids',
+                    'type' => 'select',
+                    'title' => 'IDs List',
+                    'condition' => 'data.type == "posts"',
+                    'default' => '',
+                    'attributes' => [
+                        'isMulti' => true,
+                        'isCreatable' => true,
+                    ]        
+                ],
+                [
+                    'id' => 'post_types',
+                    'type' => 'select',
+                    'title' => 'Post Type',
+                    'condition' => 'data.type == "post_type"',
+                    'choices' => get_post_type_choices(),
+                    'attributes' => [
+                        'isMulti' => true,
+                    ]
+                ],
+                [
+                    'id' => 'user_role',
+                    'type' => 'select',
+                    'title' => 'User Role',
+                    'condition' => 'data.type == "user_role"',
+                    'choices' => get_user_role_choices(),
+                    'attributes' => [
+                        'isMulti' => true,
+                    ]
+                ],
+                [
+                    'id' => 'weekdays',
+                    'type' => 'select',
+                    'title' => 'Weekdays',
+                    'condition' => 'data.type == "week_day"',
+                    'choices' => [
+                        [
+                            'value' => 'monday',
+                            'label' => 'Monday'
+                        ],
+                        [
+                            'value' => 'tuesday',
+                            'label' => 'Tuesday'
+                        ],
+                        [
+                            'value' => 'wednesday',
+                            'label' => 'Wednesday'
+                        ],
+                        [
+                            'value' => 'thursday',
+                            'label' => 'Thursday'
+                        ],
+                        [
+                            'value' => 'friday',
+                            'label' => 'Friday'
+                        ],
+                        [
+                            'value' => 'saturday',
+                            'label' => 'Saturday'
+                        ],
+                        [
+                            'value' => 'sunday',
+                            'label' => 'Sunday'
+                        ],
+                    ],
+                    'attributes' => [
+                        'isMulti' => true,
+                    ]
+                ]
+            ]
+        ],
     ],
 ]);
 
@@ -328,36 +464,42 @@ $options->add('field', [
                     'default' => 'single_line_text',
                     'choices' => [
                         [
-                            'id' => 'single_line_text',
-                            'title' => 'Single Line Text'
+                            'value' => 'single_line_text',
+                            'label' => 'Single Line Text'
                         ],
                         [
-                            'id' => 'paragraph',
-                            'title' => 'Paragraph Text'
+                            'value' => 'paragraph',
+                            'label' => 'Paragraph Text'
                         ],
                         [
-                            'id' => 'number',
-                            'title' => 'Number'
+                            'value' => 'number',
+                            'label' => 'Number'
                         ],
                         [
-                            'id' => 'switch',
-                            'title' => 'Switch'
+                            'value' => 'switch',
+                            'label' => 'Switch'
                         ],
                         [
-                            'id' => 'date',
-                            'title' => 'Date'
+                            'value' => 'date',
+                            'label' => 'Date'
                         ],
                         [
-                            'id' => 'email',
-                            'title' => 'Email Address'
+                            'value' => 'email',
+                            'label' => 'Email Address'
                         ],
                         [
-                            'id' => 'phone_number',
-                            'title' => 'Phone Number'
+                            'value' => 'phone_number',
+                            'label' => 'Phone Number'
                         ],
                     ]
                 ]
             ]
+        ],
+        [
+            'id' => 'show_in_admin',
+            'type' => 'switch',
+            'title' => 'Show in admin?',
+            'default' => true,
         ],
     ],
     'default' => [],

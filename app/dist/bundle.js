@@ -2166,8 +2166,8 @@ __webpack_require__.r(__webpack_exports__);
 
 function add_css() {
 	var style = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("style");
-	style.id = "svelte-ztkhqn-style";
-	style.textContent = "div.svelte-ztkhqn{width:5px;height:5px;border-radius:50%;box-shadow:0 10px 0 var(--loader-color);position:relative;animation:svelte-ztkhqn-loader-u7v3tlh 0.5s ease-in-out alternate infinite;animation-delay:0.2s;top:-8px}div.svelte-ztkhqn::after,div.svelte-ztkhqn::before{content:\"\";position:absolute;width:5px;height:5px;border-radius:50%;box-shadow:0 10px 0 var(--loader-color);animation:svelte-ztkhqn-loader-u7v3tlh 0.5s cubic-bezier(0.42, 0, 0.35, 0.89) alternate infinite}div.svelte-ztkhqn::before{left:-8px;animation-delay:0.3s}div.svelte-ztkhqn::after{right:-8px;animation-delay:0.1s}@keyframes svelte-ztkhqn-loader-u7v3tlh{0%{box-shadow:0 10px 0 var(--loader-color)}100%{box-shadow:0 5px 0 var(--loader-color)}}";
+	style.id = "svelte-1gt8ny1-style";
+	style.textContent = "div.svelte-1gt8ny1{width:5px;height:5px;border-radius:50%;box-shadow:0 10px 0 var(--loader-color);position:relative;animation:svelte-1gt8ny1-loader-u3a6dxr 0.5s ease-in-out alternate infinite;animation-delay:0.2s;top:-8px}div.svelte-1gt8ny1::after,div.svelte-1gt8ny1::before{content:\"\";position:absolute;width:5px;height:5px;border-radius:50%;box-shadow:0 10px 0 var(--loader-color);animation:svelte-1gt8ny1-loader-u3a6dxr 0.5s cubic-bezier(0.42, 0, 0.35, 0.89) alternate infinite}div.svelte-1gt8ny1::before{left:-8px;animation-delay:0.3s}div.svelte-1gt8ny1::after{right:-8px;animation-delay:0.1s}@keyframes svelte-1gt8ny1-loader-u3a6dxr{0%{box-shadow:0 10px 0 var(--loader-color)}100%{box-shadow:0 5px 0 var(--loader-color)}}";
 	(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(document.head, style);
 }
 
@@ -2178,7 +2178,7 @@ function create_fragment(ctx) {
 		c() {
 			div = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div, "style", /*style*/ ctx[0]);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div, "class", "svelte-ztkhqn");
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div, "class", "svelte-1gt8ny1");
 		},
 		m(target, anchor) {
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, div, anchor);
@@ -2218,7 +2218,7 @@ function instance($$self, $$props, $$invalidate) {
 class Loader extends svelte_internal__WEBPACK_IMPORTED_MODULE_0__.SvelteComponent {
 	constructor(options) {
 		super();
-		if (!document.getElementById("svelte-ztkhqn-style")) add_css();
+		if (!document.getElementById("svelte-1gt8ny1-style")) add_css();
 		(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.init)(this, options, instance, create_fragment, svelte_internal__WEBPACK_IMPORTED_MODULE_0__.safe_not_equal, { color: 1, size: 2, gap: 3, duration: 4 });
 	}
 }
