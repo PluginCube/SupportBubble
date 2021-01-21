@@ -64,6 +64,15 @@ class InstantSupport
     private $framework;
 
     /**
+     * Sub Classes.
+     *
+     * @since 1.0.0
+     * @access public
+     * @var array|null
+     */
+    public $classes;
+
+    /**
      * Class constructer.
      * 
      * @since 1.0.0
@@ -72,23 +81,22 @@ class InstantSupport
      */
     public function __construct()
     {
-        // Version
-        $plugin_data  = \get_file_data(__FILE__, [
-            'Version' => 'Version'
-        ]);
+        # Plugin version
+        $this->version  = \get_file_data(__FILE__, ['Version' => 'Version'])['Version'];
 
-        $this->version = $plugin_data['Version'];
-
-        // Path & URL
+        # Path & URL
         $this->path = trailingslashit(str_replace('\\', '/', dirname( __FILE__ )));
         $this->url = site_url(str_replace(str_replace('\\', '/', ABSPATH ), '', $this->path));
 
-        // define( 'WP_FS__DEV_MODE', true );
+        # define( 'WP_FS__DEV_MODE', true );
 
-        // Load the framework
+        # Load the framework
         require_once $this->path . '/framework/framework.php';
 
-        // Init the framework
+        # Load classes
+        $this->classes = $this->get_classes();
+
+        # Init the framework
         $this->framework = new Framework([
             'id' => '7401',
             'slug' => 'instant-support',
@@ -97,20 +105,47 @@ class InstantSupport
             'icon' => '',
         ]);
 
-        // Load options config
+        # Options
         include_once $this->path . '/options.php';
 
-        // Assets
+        # Assets
         add_action('wp_enqueue_scripts', [$this, "assets"]);
 
-        // Render the front-end
+        # Localize data
+        add_action('wp_enqueue_scripts', [$this, "data"]);
+
+        # Render the front-end
         add_action('wp_footer', [$this, 'render']);
 
-        // Forms post type
+        # Forms post type
         add_action('init', [$this, 'forms_post_type']);
 
-        // Ajax form submit
+        # Ajax form submit
         add_action('wp_ajax_it_form_submit', [$this, 'ajax_form_submit']);
+    }
+
+    /**
+     * Render the content
+     * 
+     * @since 1.0.0
+     * @access public
+     * @return void
+     */
+    public function get_classes()
+    {
+        $classes = [];
+
+        $files = glob($this->path . "classes/*.php");
+
+        foreach ($files as $file) {
+            require_once $file;
+
+			$data = \get_file_data($file, ['classname' => 'classname']);
+
+            $classes[lcfirst(basename($file, '.php'))] = new $data['classname']($this);
+        }
+
+        return $classes;
     }
 
     /**
@@ -180,14 +215,61 @@ class InstantSupport
     {
 
         wp_enqueue_script('instant-support', $this->url . "app/dist/bundle.js", ['jquery'], $this->version, true);
+    }
+
+    /**
+     * Localize data.
+     *
+     * @since 1.0.0
+     * @access public 
+     * @return void
+     */
+    public function data()
+    {
+        $data = [];
 
         $values = $this->framework->options->get_values();
 
-        $values['nonce'] = wp_create_nonce('it-nonce');
-        $values['ajaxurl'] = admin_url('admin-ajax.php');
+        # Ajax
+        $data['ajaxurl'] = admin_url('admin-ajax.php');
 
-        wp_localize_script('instant-support', 'instant_support', $this->convert_icons($values));
+        # Bubble settings
+        $data['settings']['bubble'] = $values['bubble'];
+
+        # Menu settings
+        $data['settings']['menu'] = [];
+
+        foreach ($values['menu']['items'] as &$item) {
+            
+            # Restrict visibility
+            if (isset($item['visibility_rules'])) {
+                $visible = $this->classes['visibility']->verify($item['visibility_rules']);
+
+                if (! $visible) {
+                    continue;
+                }
+            }
+
+            # Get form info
+            if ($item['type'] == 'form') {
+                $form = array_search($item['form'], array_column($values['forms']['forms'], '_id'));
+                
+                $form = $values['forms']['forms'][$form];
+
+                $form['nonce'] = wp_create_nonce($form['_id']);
+
+                $item['form'] = $form;
+            }
+
+            $data['settings']['menu']['items'][] = $item;
+        }
+
+        # Convert icons classname to SVG
+        $data['settings'] = $this->convert_icons($data['settings']);
+
+        wp_localize_script('instant-support', 'instant_support', $data);
     }
+
 
     /**
      * Register forms post type.
@@ -254,32 +336,33 @@ class InstantSupport
     }
 
     /**
-     * Filter forms post type columns.
+     * Ajax form submit.
      *
      * @since 1.0.0
      * @access public 
      * @return void
      */
     public function ajax_form_submit() {
-        if ( ! check_ajax_referer('it-nonce', 'security')) {
+        if ( ! check_ajax_referer($_POST['_id'], 'nonce')) {
             wp_send_json_error([
                 'message' => 'Invalid nonce'
             ]);    
         }
 
-        $data = isset($_REQUEST['data']) ? $_REQUEST['data'] : false;
-
         $post = [
-            'post_type' => $data['_id'],
+            'post_type' => $_POST['_id'],
             'post_status' => 'publish',
             'meta_input' => []
         ];
 
-        foreach ($data['fields'] as $field) {
+        foreach ($_POST['fields'] as $field) {
             $value = $field['value'];
 
             switch ($field['type']) {
                 case 'single_line_text':
+                case 'date':
+                case 'phone_number':
+        
                     $value = sanitize_text_field($value);
                     break;
                 
@@ -299,16 +382,8 @@ class InstantSupport
                     $value = sanitize_email($value);
                     break;
 
-                case 'date':
-                    $value = sanitize_text_field($value);
-                    break;
-                
-                case 'phone_number':
-                    $value = sanitize_text_field($value);
-                    break;
-
                 default:
-                    $value = sanitize_text_field($value);
+                    $value = null;
                     break;
             }
 

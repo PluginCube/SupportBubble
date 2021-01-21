@@ -7,8 +7,7 @@ export const ajax = async (action, data = {}, type = 'POST') => {
         type: type,
         data: {
             action,
-            security: get(store.nonce),
-            data    
+            ... data    
         }
     });
 }

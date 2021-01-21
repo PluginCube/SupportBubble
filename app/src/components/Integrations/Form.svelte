@@ -1,17 +1,14 @@
 <script>
     export let options
 
-    import { forms } from 'store'
     import { ajax } from 'methods'
 
     import Switch from "../Extra/Switch";
-    
-    $: form = $forms['forms'].find(i => i._id == options.form)
 
     let showSuccessMessage = false
 
     let submit = async () => {
-        await ajax('it_form_submit', form)
+        await ajax('it_form_submit', options.form)
         showSuccessMessage = true
     }
 </script>
@@ -124,8 +121,8 @@
         {#if showSuccessMessage}
             <p>{@html options.success_message}</p>
         {:else}
-            <form bind:this={form} on:submit|preventDefault={submit}>
-                {#each form.fields as field}
+            <form on:submit|preventDefault={submit}>
+                {#each options.form.fields as field}
                     {#if field.type == 'single_line_text'}
                         <input placeholder={field.title} bind:value={field.value} required>
                     {/if}

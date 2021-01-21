@@ -318,25 +318,30 @@ $options->add('field', [
             'default' => [],
             'fields' => [
                 [
-                    'id' => 'type',
+                    'id' => 'target',
                     'type' => 'select',
                     'title' => 'Target',
+                    'default' => ' ',
                     'choices' => [
                         [
-                            'value' => 'posts',
+                            'value' => 'PostID',
                             'label' => 'Post ID'
                         ],
                         [
-                            'value' => 'post_type',
+                            'value' => 'PostType',
                             'label' => 'Post Type'
                         ],
                         [
-                            'value' => 'user_role',
+                            'value' => 'UserRole',
                             'label' => 'User Role'
                         ],
                         [
-                            'value' => 'week_day',
-                            'label' => 'Week Day'
+                            'value' => 'Time',
+                            'label' => 'Time'
+                        ],
+                        [
+                            'value' => 'LoginStatus',
+                            'label' => 'Login Status'
                         ],
                     ]
                 ],
@@ -344,7 +349,7 @@ $options->add('field', [
                     'id' => 'ids',
                     'type' => 'select',
                     'title' => 'IDs List',
-                    'condition' => 'data.type == "posts"',
+                    'condition' => 'data.target == "PostID"',
                     'default' => '',
                     'attributes' => [
                         'isMulti' => true,
@@ -355,27 +360,27 @@ $options->add('field', [
                     'id' => 'post_types',
                     'type' => 'select',
                     'title' => 'Post Type',
-                    'condition' => 'data.type == "post_type"',
+                    'condition' => 'data.target == "PostType"',
                     'choices' => get_post_type_choices(),
                     'attributes' => [
                         'isMulti' => true,
                     ]
                 ],
                 [
-                    'id' => 'user_role',
+                    'id' => 'user_roles',
                     'type' => 'select',
                     'title' => 'User Role',
-                    'condition' => 'data.type == "user_role"',
+                    'condition' => 'data.target == "UserRole"',
                     'choices' => get_user_role_choices(),
                     'attributes' => [
                         'isMulti' => true,
                     ]
                 ],
                 [
-                    'id' => 'weekdays',
+                    'id' => 'days',
                     'type' => 'select',
-                    'title' => 'Weekdays',
-                    'condition' => 'data.type == "week_day"',
+                    'title' => 'Days',
+                    'condition' => 'data.target == "Time"',
                     'choices' => [
                         [
                             'value' => 'monday',
@@ -409,7 +414,32 @@ $options->add('field', [
                     'attributes' => [
                         'isMulti' => true,
                     ]
-                ]
+                ],
+                [
+                    'id' => 'from',
+                    'type' => 'text',
+                    'title' => 'From',
+                    'condition' => 'data.target == "Time"',
+                    'attributes' => [
+                        'type' => 'time',
+                    ]
+                ],
+                [
+                    'id' => 'to',
+                    'type' => 'text',
+                    'title' => 'To',
+                    'condition' => 'data.target == "Time"',
+                    'attributes' => [
+                        'type' => 'time',
+                    ]
+                ],
+                [
+                    'id' => 'only_logged_in',
+                    'type' => 'switch',
+                    'title' => 'Logged-in Only?',
+                    'condition' => 'data.target == "LoginStatus"',
+                    'default' => true
+                ],
             ]
         ],
     ],
@@ -418,7 +448,7 @@ $options->add('field', [
 
 
 /**
- * Section: Prompts
+ * Section: Forms
  */
 
 $options->add('section', [

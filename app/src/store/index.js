@@ -1,9 +1,7 @@
 import { writable, readable, get } from 'svelte/store';
 
-export const bubble = writable(instant_support.bubble);
-export const menu = writable(instant_support.menu);
-export const forms = writable(instant_support.forms);
-export const nonce = writable(instant_support.nonce);
+export const bubble = writable(instant_support.settings.bubble);
+export const menu = writable(instant_support.settings.menu);
 export const ajaxurl = writable(instant_support.ajaxurl);
 
 export const showBubble = writable(false)
