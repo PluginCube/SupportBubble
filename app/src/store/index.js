@@ -1,8 +1,8 @@
 import { writable, readable, get } from 'svelte/store';
 
-export const bubble = writable(instant_support.settings.bubble);
-export const menu = writable(instant_support.settings.menu);
-export const ajaxurl = writable(instant_support.ajaxurl);
+export const bubble = writable(InstantSupport.settings.bubble);
+export const menu = writable(InstantSupport.settings.menu);
+export const ajaxurl = writable(InstantSupport.ajaxurl);
 
 export const showBubble = writable(false)
 export const showMenu = writable(false)

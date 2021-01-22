@@ -7,10 +7,10 @@
 namespace PluginCube\InstantSupport;
 
 // Exit if accessed directly.
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 
-class Visibility 
+class Visibility
 {
     /**
      * Parent instance.
@@ -23,12 +23,12 @@ class Visibility
 
     /**
      * Class constructer.
-     * 
+     *
      * @since 1.0.0
      * @access public
-     * 
+     *
      * @param array $parent The parent instance.
-     * 
+     *
      * @return void
      */
     public function __construct($parent)
@@ -38,10 +38,10 @@ class Visibility
     
     /**
      * Verify
-     * 
+     *
      * @since 1.0.0
      * @access public
-     * @return bool
+     * @return boolean
      */
     public function verify($rules)
     {
@@ -83,7 +83,7 @@ class Visibility
 
     /**
      * Verify login status
-     * 
+     *
      * @since 1.0.0
      * @access public
      * @return boolean
@@ -99,7 +99,7 @@ class Visibility
 
     /**
      * Verify post id
-     * 
+     *
      * @since 1.0.0
      * @access public
      * @return boolean
@@ -109,7 +109,7 @@ class Visibility
         $current = get_queried_object_id();
         $ids = array_column($rule['ids'], 'value');
         
-        if ( $current ) {
+        if ($current) {
             return in_array($current, $ids);
         }
 
@@ -118,7 +118,7 @@ class Visibility
 
     /**
      * Verify post type
-     * 
+     *
      * @since 1.0.0
      * @access public
      * @return boolean
@@ -128,7 +128,7 @@ class Visibility
         $current = get_post_type();
         $types = array_column($rule['post_types'], 'value');
         
-        if ( $current ) {
+        if ($current) {
             return in_array($current, $types);
         }
 
@@ -137,7 +137,7 @@ class Visibility
 
     /**
      * Verify user role
-     * 
+     *
      * @since 1.0.0
      * @access public
      * @return boolean
@@ -146,7 +146,7 @@ class Visibility
     {
         $roles = array_column($rule['user_roles'], 'value');
         
-        if ( is_user_logged_in() ) {
+        if (is_user_logged_in()) {
             $current = (array) wp_get_current_user()->roles;
             
             foreach ($current as $role) {
@@ -161,16 +161,14 @@ class Visibility
 
     /**
      * Verify time
-     * 
+     *
      * @since 1.0.0
      * @access public
      * @return boolean
      */
     public function time($rule)
     {
-
-        # Check the day
-        if ( key_exists('days', $rule) && is_array($rule['days']) ) {
+        if (isset($rule['days']) && is_array($rule['days'])) {
             $days = array_column($rule['days'], 'value');
 
             $currentDay = lcfirst(date('l'));
@@ -180,8 +178,7 @@ class Visibility
             }
         }
 
-        # Check the hour
-        if (key_exists('from', $rule) && key_exists('to', $rule)) {
+        if (isset($rule['from']) && isset($rule['to'])) {
             $currentTime = current_time('timestamp');
 
             $from = strtotime($rule['from']);

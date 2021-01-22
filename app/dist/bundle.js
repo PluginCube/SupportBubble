@@ -2143,8 +2143,8 @@ __webpack_require__.r(__webpack_exports__);
 
 function add_css() {
 	var style = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("style");
-	style.id = "svelte-7o984s-style";
-	style.textContent = "div.svelte-7o984s{width:5px;height:5px;border-radius:50%;box-shadow:0 10px 0 var(--loader-color);position:relative;animation:svelte-7o984s-loader-uiup33a 0.5s ease-in-out alternate infinite;animation-delay:0.2s;top:-8px}div.svelte-7o984s::after,div.svelte-7o984s::before{content:\"\";position:absolute;width:5px;height:5px;border-radius:50%;box-shadow:0 10px 0 var(--loader-color);animation:svelte-7o984s-loader-uiup33a 0.5s cubic-bezier(0.42, 0, 0.35, 0.89) alternate infinite}div.svelte-7o984s::before{left:-8px;animation-delay:0.3s}div.svelte-7o984s::after{right:-8px;animation-delay:0.1s}@keyframes svelte-7o984s-loader-uiup33a{0%{box-shadow:0 10px 0 var(--loader-color)}100%{box-shadow:0 5px 0 var(--loader-color)}}";
+	style.id = "svelte-vr08oi-style";
+	style.textContent = "div.svelte-vr08oi{width:5px;height:5px;border-radius:50%;box-shadow:0 10px 0 var(--loader-color);position:relative;animation:svelte-vr08oi-loader-upp1f4f 0.5s ease-in-out alternate infinite;animation-delay:0.2s;top:-8px}div.svelte-vr08oi::after,div.svelte-vr08oi::before{content:\"\";position:absolute;width:5px;height:5px;border-radius:50%;box-shadow:0 10px 0 var(--loader-color);animation:svelte-vr08oi-loader-upp1f4f 0.5s cubic-bezier(0.42, 0, 0.35, 0.89) alternate infinite}div.svelte-vr08oi::before{left:-8px;animation-delay:0.3s}div.svelte-vr08oi::after{right:-8px;animation-delay:0.1s}@keyframes svelte-vr08oi-loader-upp1f4f{0%{box-shadow:0 10px 0 var(--loader-color)}100%{box-shadow:0 5px 0 var(--loader-color)}}";
 	(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.append)(document.head, style);
 }
 
@@ -2155,7 +2155,7 @@ function create_fragment(ctx) {
 		c() {
 			div = (0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.element)("div");
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div, "style", /*style*/ ctx[0]);
-			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div, "class", "svelte-7o984s");
+			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.attr)(div, "class", "svelte-vr08oi");
 		},
 		m(target, anchor) {
 			(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.insert)(target, div, anchor);
@@ -2195,7 +2195,7 @@ function instance($$self, $$props, $$invalidate) {
 class Loader extends svelte_internal__WEBPACK_IMPORTED_MODULE_0__.SvelteComponent {
 	constructor(options) {
 		super();
-		if (!document.getElementById("svelte-7o984s-style")) add_css();
+		if (!document.getElementById("svelte-vr08oi-style")) add_css();
 		(0,svelte_internal__WEBPACK_IMPORTED_MODULE_0__.init)(this, options, instance, create_fragment, svelte_internal__WEBPACK_IMPORTED_MODULE_0__.safe_not_equal, { color: 1, size: 2, gap: 3, duration: 4 });
 	}
 }
@@ -5141,9 +5141,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var svelte_store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! svelte/store */ "./node_modules/svelte/store/index.mjs");
 
 
-const bubble = (0,svelte_store__WEBPACK_IMPORTED_MODULE_0__.writable)(instant_support.settings.bubble);
-const menu = (0,svelte_store__WEBPACK_IMPORTED_MODULE_0__.writable)(instant_support.settings.menu);
-const ajaxurl = (0,svelte_store__WEBPACK_IMPORTED_MODULE_0__.writable)(instant_support.ajaxurl);
+const bubble = (0,svelte_store__WEBPACK_IMPORTED_MODULE_0__.writable)(InstantSupport.settings.bubble);
+const menu = (0,svelte_store__WEBPACK_IMPORTED_MODULE_0__.writable)(InstantSupport.settings.menu);
+const ajaxurl = (0,svelte_store__WEBPACK_IMPORTED_MODULE_0__.writable)(InstantSupport.ajaxurl);
 
 const showBubble = (0,svelte_store__WEBPACK_IMPORTED_MODULE_0__.writable)(false)
 const showMenu = (0,svelte_store__WEBPACK_IMPORTED_MODULE_0__.writable)(false)

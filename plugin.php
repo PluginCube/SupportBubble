@@ -23,16 +23,16 @@
 namespace PluginCube;
 
 # Exit if accessed directly.
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
-class InstantSupport 
+class InstantSupport
 {
     /**
      * Version, used for cache-busting.
      *
      * @since 1.0.0
      * @access private
-     * @var string|null
+     * @var string
      */
     private $version;
 
@@ -41,7 +41,7 @@ class InstantSupport
      *
      * @since 1.0.0
      * @access private
-     * @var string|null
+     * @var string
      */
     private $url;
 
@@ -50,7 +50,7 @@ class InstantSupport
      *
      * @since 1.0.0
      * @access private
-     * @var string|null
+     * @var string
      */
     private $path;
 
@@ -59,22 +59,31 @@ class InstantSupport
      *
      * @since 1.0.0
      * @access private
-     * @var object|null
+     * @var object
      */
     private $framework;
+
+    /**
+     * Settings values.
+     *
+     * @since 1.0.0
+     * @access private
+     * @var array
+     */
+    private $values;
 
     /**
      * Sub Classes.
      *
      * @since 1.0.0
      * @access public
-     * @var array|null
+     * @var array
      */
     public $classes;
 
     /**
      * Class constructer.
-     * 
+     *
      * @since 1.0.0
      * @access public
      * @return void
@@ -85,16 +94,16 @@ class InstantSupport
         $this->version  = \get_file_data(__FILE__, ['Version' => 'Version'])['Version'];
 
         # Path & URL
-        $this->path = trailingslashit(str_replace('\\', '/', dirname( __FILE__ )));
-        $this->url = site_url(str_replace(str_replace('\\', '/', ABSPATH ), '', $this->path));
+        $this->path = trailingslashit(str_replace('\\', '/', dirname(__FILE__)));
+        $this->url = site_url(str_replace(str_replace('\\', '/', ABSPATH), '', $this->path));
 
         # define( 'WP_FS__DEV_MODE', true );
 
         # Load the framework
         require_once $this->path . '/framework/framework.php';
 
-        # Load classes
-        $this->classes = $this->get_classes();
+        # Load sub classes
+        $this->classes = $this->get_sub_classes();
 
         # Init the framework
         $this->framework = new Framework([
@@ -108,6 +117,21 @@ class InstantSupport
         # Options
         include_once $this->path . '/options.php';
 
+        $this->values = $this->framework->options->get_values();
+    
+        # Initialize
+        $this->init();
+    }
+
+    /**
+     * Initialize
+     *
+     * @since 1.0.0
+     * @access public
+     * @return void
+     */
+    public function init()
+    {
         # Assets
         add_action('wp_enqueue_scripts', [$this, "assets"]);
 
@@ -118,20 +142,33 @@ class InstantSupport
         add_action('wp_footer', [$this, 'render']);
 
         # Forms post type
-        add_action('init', [$this, 'forms_post_type']);
+        foreach ($this->values['forms']['forms'] as $form) {
+            add_action('init', function ($columns) use ($form) {
+                $this->add_form_post_type($form);
+                $this->add_form_post_type_meta($form);
+            });
+            
+            add_filter("manage_$form[_id]_posts_columns", function ($columns) use ($form) {
+                return $this->forms_post_type_columns($form);
+            });
+
+            add_filter("manage_$form[_id]_posts_custom_column", [$this, 'forms_post_type_columns_content'], 10, 2);
+
+            add_filter("bulk_actions-edit-$form[_id]", '__return_empty_array');
+        }
 
         # Ajax form submit
-        add_action('wp_ajax_it_form_submit', [$this, 'ajax_form_submit']);
+        add_action('wp_ajax_it_form_submit', [$this, 'submit']);
     }
 
     /**
-     * Render the content
-     * 
+     * Get sub classes
+     *
      * @since 1.0.0
      * @access public
-     * @return void
+     * @return array
      */
-    public function get_classes()
+    public function get_sub_classes()
     {
         $classes = [];
 
@@ -140,7 +177,7 @@ class InstantSupport
         foreach ($files as $file) {
             require_once $file;
 
-			$data = \get_file_data($file, ['classname' => 'classname']);
+            $data = \get_file_data($file, ['classname' => 'classname']);
 
             $classes[lcfirst(basename($file, '.php'))] = new $data['classname']($this);
         }
@@ -150,7 +187,7 @@ class InstantSupport
 
     /**
      * Render the content
-     * 
+     *
      * @since 1.0.0
      * @access public
      * @return void
@@ -161,11 +198,70 @@ class InstantSupport
     }
 
     /**
-     * Get SVG icon from css tag
-     * 
+     * Enqueue assets.
+     *
      * @since 1.0.0
      * @access public
      * @return void
+     */
+    public function assets()
+    {
+        wp_enqueue_script('instant-support', $this->url . "app/dist/bundle.js", ['jquery'], $this->version, true);
+    }
+
+    /**
+     * Add frontend data.
+     *
+     * @since 1.0.0
+     * @access public
+     * @return void
+     */
+    public function data()
+    {
+        $data = [];
+
+        $values = $this->values;
+
+        $data['ajaxurl'] = admin_url('admin-ajax.php');
+
+        # Settings
+        $data['settings']['bubble'] = $values['bubble'];
+        $data['settings']['menu'] = [];
+
+        # Menu items
+        foreach ($values['menu']['items'] as &$item) {
+            $visible = isset($item['visibility']) ? $this->classes['visibility']->verify($item['visibility']) : true;
+
+            if (! $visible) {
+                continue;
+            }
+
+            # Form setup
+            if ('form' === $item['type']) {
+                $form = array_search($item['form'], array_column($values['forms']['forms'], '_id'));
+                
+                $item['form'] = $values['forms']['forms'][$form];
+
+                $item['form']['nonce'] = wp_create_nonce($item['form']['_id']);
+            }
+
+            $data['settings']['menu']['items'][] = $item;
+        }
+
+        # Convert icons tag value to svg
+        $data['settings'] = $this->get_svg_icon_recursive($data['settings']);
+
+        $data = json_encode($data);
+
+        wp_add_inline_script('instant-support', "const InstantSupport = $data", 'before');
+    }
+
+    /**
+     * Get svg icon from class name
+     *
+     * @since 1.0.0
+     * @access public
+     * @return string
      */
     public function get_svg_icon($tag)
     {
@@ -179,24 +275,26 @@ class InstantSupport
     }
 
     /**
-     * Get SVG icon for all fields
-     * 
+     * Get svg icon from class name recursively
+     *
      * @since 1.0.0
      * @access public
-     * @return void
+     * @return array|string
      */
-    public function convert_icons(&$arr)
+    public function get_svg_icon_recursive(&$arr)
     {
         foreach ($arr as $section => &$fields) {
-            if ( ! is_array($fields) ) continue;
+            if (! is_array($fields)) {
+                continue;
+            }
 
             foreach ($fields as $key => &$value) {
-                if ( is_string($value) ) {
+                if (is_string($value)) {
                     if (strpos($value, 'ri-') !== false) {
                         $value = $this->get_svg_icon($value);
                     }
-                } else if ( is_array($value) ) {
-                    $value = $this->convert_icons($value);
+                } elseif (is_array($value)) {
+                    $value = $this->get_svg_icon_recursive($value);
                 }
             }
         }
@@ -205,148 +303,104 @@ class InstantSupport
     }
 
     /**
-     * Enqueue assets.
-     *
-     * @since 1.0.0
-     * @access public 
-     * @return void
-     */
-    public function assets()
-    {
-
-        wp_enqueue_script('instant-support', $this->url . "app/dist/bundle.js", ['jquery'], $this->version, true);
-    }
-
-    /**
-     * Localize data.
-     *
-     * @since 1.0.0
-     * @access public 
-     * @return void
-     */
-    public function data()
-    {
-        $data = [];
-
-        $values = $this->framework->options->get_values();
-
-        # Ajax
-        $data['ajaxurl'] = admin_url('admin-ajax.php');
-
-        # Bubble settings
-        $data['settings']['bubble'] = $values['bubble'];
-
-        # Menu settings
-        $data['settings']['menu'] = [];
-
-        foreach ($values['menu']['items'] as &$item) {
-            
-            # Restrict visibility
-            if (isset($item['visibility_rules'])) {
-                $visible = $this->classes['visibility']->verify($item['visibility_rules']);
-
-                if (! $visible) {
-                    continue;
-                }
-            }
-
-            # Get form info
-            if ($item['type'] == 'form') {
-                $form = array_search($item['form'], array_column($values['forms']['forms'], '_id'));
-                
-                $form = $values['forms']['forms'][$form];
-
-                $form['nonce'] = wp_create_nonce($form['_id']);
-
-                $item['form'] = $form;
-            }
-
-            $data['settings']['menu']['items'][] = $item;
-        }
-
-        # Convert icons classname to SVG
-        $data['settings'] = $this->convert_icons($data['settings']);
-
-        wp_localize_script('instant-support', 'instant_support', $data);
-    }
-
-
-    /**
      * Register forms post type.
      *
      * @since 1.0.0
-     * @access public 
+     * @access public
      * @return void
      */
-    public function forms_post_type()
+    public function add_form_post_type($form)
     {
-        $values = $this->framework->options->get_values();
+        extract($form);
 
-        foreach ($values['forms']['forms'] as $form) {
-            // Register post type
-            register_post_type($form['_id'], [
-                'public' => false,
-                'label' => $form['title'],
-                'menu_icon' => 'dashicons-email-alt',
+        $args = [
+            'public'                => false,
+            'label'                 => $title,
+            'menu_icon'             => 'dashicons-email-alt',
+            'show_in_rest'          => false,
+            'has_archive'           => false,
+            'show_ui'               => true,
+            'show_in_menu'          => filter_var($show_in_admin, FILTER_VALIDATE_BOOLEAN),
+            'show_in_admin_bar'     => false,
+            'supports'              => [],
+            'map_meta_cap'          => true,
+            'capabilities' => [
+                'create_posts'          => false,
+                'delete_post'           => true,
+                'edit_private_posts'    => false,
+                'edit_published_posts'  => false
+            ]
+        ];
+
+        register_post_type($_id, $args);
+    
+        remove_post_type_support($_id, 'title');
+        remove_post_type_support($_id, 'editor');
+    }
+
+    /**
+     * Register forms post type meta.
+     *
+     * @since 1.0.0
+     * @access public
+     * @return void
+     */
+    public function add_form_post_type_meta($form)
+    {
+        foreach ($form['fields'] as $field) {
+            $meta = [
                 'show_in_rest' => false,
-                'has_archive' => false,
-                'show_ui' => true,
-                'show_in_menu' => filter_var($form['show_in_admin'], FILTER_VALIDATE_BOOLEAN),
-                'show_in_admin_bar' => false,
-                'supports' => [],
-                'map_meta_cap' => true,
-                'capabilities' => array(
-                    'create_posts' => false,
-                    'delete_post' => true,
-                    'edit_private_posts' => false,
-                    'edit_published_posts' => false
-                ),
-            ]);
-        
-            remove_post_type_support($form['_id'], 'title');
-            remove_post_type_support($form['_id'], 'editor');
-        
-            // Register post meta
-            foreach ($form['fields'] as $field) {
-                register_post_meta($form['_id'], $field['title'], [
-                    'show_in_rest' => false,
-                    'single' => true,
-                    'type' => 'string',
-                ]);
-            }
+                'single' => true,
+                'type' => 'string',
+            ];
 
-            // Filter columns
-            add_filter("manage_$form[_id]_posts_columns", function ($columns) use ($form) {
-                $columns = [];
-
-                foreach ($form['fields'] as $field) {
-                    $columns[$field['_id']] = $field['title'];
-                }
-
-                return $columns;
-            });
-
-            // Display columns
-            add_action("manage_$form[_id]_posts_custom_column", function ($column, $id) use ($form) {
-                echo get_post_meta($id, $column, true);
-            }, 10, 2);
-
-            add_filter("bulk_actions-edit-$form[_id]", '__return_empty_array');        
+            register_post_meta($form['_id'], $field['title'], $meta);
         }
+    }
+
+    /**
+     * Form post type columns.
+     *
+     * @since 1.0.0
+     * @access public
+     * @return array
+     */
+    public function forms_post_type_columns($form)
+    {
+        $columns = [];
+
+        foreach ($form['fields'] as $field) {
+            $columns[$field['_id']] = $field['title'];
+        }
+
+        return $columns;
+    }
+
+    /**
+     * Form post type table column content.
+     *
+     * @since 1.0.0
+     * @access public
+     * @return void
+     */
+    public function forms_post_type_columns_content($column, $id)
+    {
+        echo get_post_meta($id, $column, true);
     }
 
     /**
      * Ajax form submit.
      *
      * @since 1.0.0
-     * @access public 
+     * @access public
      * @return void
      */
-    public function ajax_form_submit() {
-        if ( ! check_ajax_referer($_POST['_id'], 'nonce')) {
+    public function submit()
+    {
+        if (! check_ajax_referer($_POST['_id'], 'nonce')) {
             wp_send_json_error([
                 'message' => 'Invalid nonce'
-            ]);    
+            ]);
         }
 
         $post = [
@@ -359,13 +413,6 @@ class InstantSupport
             $value = $field['value'];
 
             switch ($field['type']) {
-                case 'single_line_text':
-                case 'date':
-                case 'phone_number':
-        
-                    $value = sanitize_text_field($value);
-                    break;
-                
                 case 'paragraph':
                     $value = wp_filter_post_kses($value);
                     break;
@@ -383,7 +430,7 @@ class InstantSupport
                     break;
 
                 default:
-                    $value = null;
+                    $value = sanitize_text_field($value);
                     break;
             }
 
@@ -392,9 +439,8 @@ class InstantSupport
     
         wp_insert_post($post);
 
-        wp_send_json_success($post);    
+        wp_send_json_success($post);
     }
-
 }
 
 // Start

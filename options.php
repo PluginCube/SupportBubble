@@ -1,16 +1,17 @@
 <?php
 
-
 /**
  * Shorthand variable
  */
+
 $options = $this->framework->options;
 
 
 /**
  * Helpr functions
  */
-function get_post_type_choices () {
+function get_post_type_choices()
+{
     global $wp_post_types;
 
     $choices = [];
@@ -25,7 +26,8 @@ function get_post_type_choices () {
     return $choices;
 }
 
-function get_user_role_choices () {
+function get_user_role_choices()
+{
     global $wp_roles;
 
     $choices = [];
@@ -312,7 +314,7 @@ $options->add('field', [
         ],
         // Visibility Rules
         [
-            'id' => 'visibility_rules',
+            'id' => 'visibility',
             'type' => 'repeater',
             'title' => 'Visibility Rules',
             'default' => [],
@@ -354,7 +356,7 @@ $options->add('field', [
                     'attributes' => [
                         'isMulti' => true,
                         'isCreatable' => true,
-                    ]        
+                    ]
                 ],
                 [
                     'id' => 'post_types',
