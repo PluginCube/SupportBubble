@@ -109,7 +109,7 @@ class SupportBubble
         $this->framework = new Framework([
             'id' => '7401',
             'slug' => 'support-bubble',
-            'title' => 'Instant Support',
+            'title' => 'Support Bubble',
             'public_key' => 'pk_677cbbdf1055c4c6bf6a410734760',
             'icon' => '',
         ]);
