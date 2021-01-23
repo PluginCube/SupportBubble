@@ -6,7 +6,7 @@
     import Switch from "../Extra/Switch";
 
     let showSuccessMessage = false
-
+    
     let submit = async () => {
         await ajax('it_form_submit', options.form)
         showSuccessMessage = true
@@ -28,7 +28,7 @@
                 width: 100%;
                 margin: 0;
                 font-size: 22px;
-                line-height: 0px;
+                line-height: 1;
             }
 
             p {
@@ -118,7 +118,7 @@
     </header>
 
     <article>
-        {#if showSuccessMessage}
+        {#if showSuccessMessage || ! options.form.fields}
             <p>{@html options.success_message}</p>
         {:else}
             <form on:submit|preventDefault={submit}>

@@ -35,8 +35,10 @@
 
                 img {
                     width: 100%;
-                    height: auto;
+                    height: 100%;
                     border-radius: 50px;
+                    object-fit: cover;
+                    object-position: center;
                 }
                 
                 &::before{
@@ -104,10 +106,12 @@
 
             img {
                 width: 30px;
-                height: auto;
+                height: 30px;
                 border-radius: 50px;
                 float: left;
                 margin-right: 10px;
+                object-fit: cover;
+                object-position: center;
             }
 
             aside {

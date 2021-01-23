@@ -149,7 +149,7 @@ class SupportBubble
             });
             
             add_filter("manage_$form[_id]_posts_columns", function ($columns) use ($form) {
-                return $this->forms_post_type_columns($form);
+                return $this->forms_post_type_columns($columns, $form);
             });
 
             add_filter("manage_$form[_id]_posts_custom_column", [$this, 'forms_post_type_columns_content'], 10, 2);
@@ -237,12 +237,15 @@ class SupportBubble
             }
 
             # Form setup
-            if ('form' === $item['type']) {
+            if ('form' === $item['type'] && $item['form']) {
                 $form = array_search($item['form'], array_column($values['forms']['forms'], '_id'));
                 
-                $item['form'] = $values['forms']['forms'][$form];
-
-                $item['form']['nonce'] = wp_create_nonce($item['form']['_id']);
+                if ($form !== false) {
+                    $item['form'] = $values['forms']['forms'][$form];
+                    $item['form']['nonce'] = wp_create_nonce($item['form']['_id']);
+                } else {
+                    $item['form'] = [];
+                }
             }
 
             $data['settings']['menu']['items'][] = $item;
@@ -347,6 +350,10 @@ class SupportBubble
      */
     public function add_form_post_type_meta($form)
     {
+        if ( ! isset($form['fields']) || ! is_array($form['fields']) ) {
+            return;
+        };
+
         foreach ($form['fields'] as $field) {
             $meta = [
                 'show_in_rest' => false,
@@ -365,15 +372,19 @@ class SupportBubble
      * @access public
      * @return array
      */
-    public function forms_post_type_columns($form)
+    public function forms_post_type_columns($columns, $form)
     {
-        $columns = [];
+        $new = [];
 
-        foreach ($form['fields'] as $field) {
-            $columns[$field['_id']] = $field['title'];
-        }
+        if ( isset($form['fields']) ) {
+            foreach ($form['fields'] as $field) {
+                $new[$field['_id']] = $field['title'];
+            }
+        };
 
-        return $columns;
+        $new['date'] = $columns['date'];
+
+        return $new;
     }
 
     /**

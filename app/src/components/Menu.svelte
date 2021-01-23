@@ -2,13 +2,15 @@
     import { fly } from 'svelte/transition'
     import { menu, showIntegration, integration, showMenu } from "store"
 
+    $menu.items = $menu.items.length ? $menu.items : []
+
     let click = (item) => {
         if (item.type == 'link') {
-            item.url = (item.url.indexOf('://') === -1) ? 'http://' + item.url : item.url;
-            window.open(item.url, "_blank");
-        }
-        
-        else {
+            if (item.url) {
+                item.url = (item.url.indexOf('://') === -1) ? 'http://' + item.url : item.url;
+                window.open(item.url, "_blank");
+            }
+        } else {
             showMenu.set(false)
             showIntegration.set(true)
             integration.set(item)
