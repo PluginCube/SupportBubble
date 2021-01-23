@@ -1,19 +1,19 @@
 <?php
 
 /**
- * @package   InstantSupport
+ * @package   SupportBubble
  * @author    PluginCube <support@plugincube.com>
- * @copyright {{author_copyright}}
+ * @copyright SupportBubble
  * @license   GPLv3
- * @link      https://plugincube.com/
+ * @link      https://SupportBubble.com/
  *
- * Plugin Name:     InstantSupport
- * Plugin URI:      https://plugincube.com/products/instant-support
- * Description:     Floating support button
+ * Plugin Name:     SupportBubble
+ * Plugin URI:      https://SupportBubble.co
+ * Description:     Floating support button & contact form
  * Version:         1.0.0
  * Author:          PluginCube
  * Author URI:      https://plugincube.com/
- * Text Domain:     plugin-name
+ * Text Domain:     support-bubble
  * License:         GPLv3
  * License URI:     https://www.gnu.org/licenses/gpl-3.0.txt
  * Domain Path:     /languages
@@ -25,7 +25,7 @@ namespace PluginCube;
 # Exit if accessed directly.
 defined('ABSPATH') || exit;
 
-class InstantSupport
+class SupportBubble
 {
     /**
      * Version, used for cache-busting.
@@ -108,7 +108,7 @@ class InstantSupport
         # Init the framework
         $this->framework = new Framework([
             'id' => '7401',
-            'slug' => 'instant-support',
+            'slug' => 'support-bubble',
             'title' => 'Instant Support',
             'public_key' => 'pk_677cbbdf1055c4c6bf6a410734760',
             'icon' => '',
@@ -194,7 +194,7 @@ class InstantSupport
      */
     public function render()
     {
-        echo "<div id='instant-support'></div>";
+        echo "<div id='support-bubble'></div>";
     }
 
     /**
@@ -206,7 +206,7 @@ class InstantSupport
      */
     public function assets()
     {
-        wp_enqueue_script('instant-support', $this->url . "app/dist/bundle.js", ['jquery'], $this->version, true);
+        wp_enqueue_script('support-bubble', $this->url . "app/dist/bundle.js", ['jquery'], $this->version, true);
     }
 
     /**
@@ -253,7 +253,7 @@ class InstantSupport
 
         $data = json_encode($data);
 
-        wp_add_inline_script('instant-support', "const InstantSupport = $data", 'before');
+        wp_add_inline_script('support-bubble', "const SupportBubble = $data", 'before');
     }
 
     /**
@@ -444,4 +444,4 @@ class InstantSupport
 }
 
 // Start
-new InstantSupport();
+new SupportBubble();

@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Classname: PluginCube\InstantSupport\Visibility
+ * Classname: PluginCube\SupportBubble\Visibility
  */
 
-namespace PluginCube\InstantSupport;
+namespace PluginCube\SupportBubble;
 
 // Exit if accessed directly.
 defined('ABSPATH') || exit;

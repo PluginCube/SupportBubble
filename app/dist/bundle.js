@@ -5085,7 +5085,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const app = new _components_App__WEBPACK_IMPORTED_MODULE_0__.default({
-	target: document.getElementById('instant-support')
+	target: document.getElementById('support-bubble')
 });
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (app);
@@ -5141,9 +5141,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var svelte_store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! svelte/store */ "./node_modules/svelte/store/index.mjs");
 
 
-const bubble = (0,svelte_store__WEBPACK_IMPORTED_MODULE_0__.writable)(InstantSupport.settings.bubble);
-const menu = (0,svelte_store__WEBPACK_IMPORTED_MODULE_0__.writable)(InstantSupport.settings.menu);
-const ajaxurl = (0,svelte_store__WEBPACK_IMPORTED_MODULE_0__.writable)(InstantSupport.ajaxurl);
+const bubble = (0,svelte_store__WEBPACK_IMPORTED_MODULE_0__.writable)(SupportBubble.settings.bubble);
+const menu = (0,svelte_store__WEBPACK_IMPORTED_MODULE_0__.writable)(SupportBubble.settings.menu);
+const ajaxurl = (0,svelte_store__WEBPACK_IMPORTED_MODULE_0__.writable)(SupportBubble.ajaxurl);
 
 const showBubble = (0,svelte_store__WEBPACK_IMPORTED_MODULE_0__.writable)(false)
 const showMenu = (0,svelte_store__WEBPACK_IMPORTED_MODULE_0__.writable)(false)
