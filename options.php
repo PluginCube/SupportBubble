@@ -470,6 +470,7 @@ $options->add('field', [
     'type' => 'repeater',
     'title' => 'Forms',
     'section' => 'forms',
+    'remove_alert' => 'This will remove the form and all the submission data associated with it. Are you sure?',
     'fields' => [
         [
             'id' => 'title',
@@ -567,5 +568,4 @@ $options->add('field', [
     'type' => 'import',
     'title' => 'Import',
     'section' => 'advanced',
-
 ]);

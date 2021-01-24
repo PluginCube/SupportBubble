@@ -5,10 +5,10 @@
  * @author    PluginCube <support@plugincube.com>
  * @copyright SupportBubble
  * @license   GPLv3
- * @link      https://SupportBubble.com/
+ * @link      https://plugincube.com/products/support-bubble
  *
  * Plugin Name:     SupportBubble
- * Plugin URI:      https://SupportBubble.co
+ * Plugin URI:      https://plugincube.com/products/support-bubble
  * Description:     Floating support button & contact form
  * Version:         1.0.0
  * Author:          PluginCube
@@ -109,7 +109,7 @@ class SupportBubble
         $this->framework = new Framework([
             'id' => '7401',
             'slug' => 'support-bubble',
-            'title' => 'Support Bubble',
+            'title' => 'SupportBubble',
             'public_key' => 'pk_677cbbdf1055c4c6bf6a410734760',
             'icon' => '',
         ]);

@@ -1,6 +1,8 @@
 <script>
     export let options
 
+    import { bubble } from 'bubble'
+
     import { ajax } from 'methods'
 
     import Switch from "../Extra/Switch";
@@ -157,7 +159,7 @@
                     {/if}
                 {/each}
 
-                <button type="submit" style="background-color:{options.btn_color};">
+                <button type="submit" style="background-color:{$bubble.bg};">
                     Submit
                 </button>
             </form>
