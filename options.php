@@ -462,7 +462,7 @@ $options->add('link', [
     'type' => 'section',
     'title' => 'Forms',
     'section' => 'forms',
-    'icon' => 'ri-message-3-fill',
+    'icon' => 'ri-mail-fill',
 ]);
 
 $options->add('field', [
@@ -535,4 +535,37 @@ $options->add('field', [
         ],
     ],
     'default' => [],
+]);
+
+
+/**
+ * Section: Advanced
+ */
+
+
+$options->add('section', [
+    'id' => 'advanced',
+    'title' => 'Advanced',
+]);
+
+$options->add('link', [
+    'type' => 'section',
+    'title' => 'Advanced',
+    'section' => 'advanced',
+    'icon' => 'ri-inbox-archive-fill',
+]);
+
+$options->add('field', [
+    'id' => 'export',
+    'type' => 'export',
+    'title' => 'Export',
+    'section' => 'advanced',
+]);
+
+$options->add('field', [
+    'id' => 'import',
+    'type' => 'import',
+    'title' => 'Import',
+    'section' => 'advanced',
+
 ]);

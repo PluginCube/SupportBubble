@@ -36,12 +36,14 @@
                 float: left;
                 width: 100%;
                 margin: 15px 0px 0px;
-                font-size: 15px;
+                font-size: 14px;
+                padding-right: 25px;
+                color: #111;
             }
         }
 
         article {
-            padding: 0px 25px 25px;
+            padding: 5px 25px 25px;
             overflow: hidden;
             background: #fff;
 
@@ -79,7 +81,7 @@
                 align-items: center;
                 
                 span {
-                    margin-left: 20px;
+                    margin-left: 15px;
                 }
             }
 
@@ -155,7 +157,7 @@
                     {/if}
                 {/each}
 
-                <button type="submit">
+                <button type="submit" style="background-color:{options.btn_color};">
                     Submit
                 </button>
             </form>
