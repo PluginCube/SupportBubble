@@ -483,6 +483,7 @@ $options->add('field', [
             'type' => 'repeater',
             'title' => 'Fields',
             'default' => [],
+            'remove_alert' => 'This will remove the field and all the submission data associated with it. Are you sure?',
             'fields' => [
                 [
                     'id' => 'title',

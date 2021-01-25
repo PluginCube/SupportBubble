@@ -225,34 +225,35 @@ class SupportBubble
         $data['ajaxurl'] = admin_url('admin-ajax.php');
 
         # Settings
-        $data['settings']['bubble'] = $values['bubble'];
-        $data['settings']['menu'] = [];
-
-        # Menu items
-        foreach ($values['menu']['items'] as &$item) {
-            $visible = isset($item['visibility']) ? $this->classes['visibility']->verify($item['visibility']) : true;
-
-            if (! $visible) {
-                continue;
-            }
-
-            # Form setup
-            if ('form' === $item['type'] && $item['form']) {
-                $form = array_search($item['form'], array_column($values['forms']['forms'], '_id'));
-                
-                if ($form !== false) {
-                    $item['form'] = $values['forms']['forms'][$form];
-                    $item['form']['nonce'] = wp_create_nonce($item['form']['_id']);
-                } else {
-                    $item['form'] = [];
+        $data['settings'] = [
+            'bubble' => $values['bubble'],
+            'menu' => [
+                'items' => $values['menu']['items']
+            ]
+        ];
+        
+        # Include form settings in menu items
+        array_walk($data['settings']['menu']['items'], 
+            function (&$i) use($values) {
+                if ($i['type'] == 'form' && $i['form']) {
+                    $form = array_search($i['form'], array_column($values['forms']['forms'], '_id'));
+                    
+                    if ($form !== false) {
+                        $i['form'] = $values['forms']['forms'][$form];
+                        $i['form']['nonce'] = wp_create_nonce($i['form']['_id']);
+                    } else {
+                        $i['form'] = [];
+                    }
                 }
             }
+        );
 
-            $data['settings']['menu']['items'][] = $item;
-        }
 
         # Convert icons tag value to svg
         $data['settings'] = $this->get_svg_icon_recursive($data['settings']);
+
+        # Filter to allow future extensibility
+        $data = apply_filters("plugincube/supportbubble/frontend/data", $data);
 
         $data = json_encode($data);
 
@@ -448,6 +449,8 @@ class SupportBubble
             $post['meta_input'][$field['_id']] = $value;
         }
     
+        do_action('plugincube/supportbubble/events/form/submit', $post);
+
         wp_insert_post($post);
 
         wp_send_json_success($post);
