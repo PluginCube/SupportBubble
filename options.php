@@ -7,41 +7,6 @@
 $options = $this->framework->options;
 
 
-/**
- * Helpr functions
- */
-function get_post_type_choices()
-{
-    global $wp_post_types;
-
-    $choices = [];
-
-    foreach (get_post_types() as $name) {
-        $choices[] = [
-            'value' => $name,
-            'label' => $wp_post_types[$name]->label
-        ];
-    }
-
-    return $choices;
-}
-
-function get_user_role_choices()
-{
-    global $wp_roles;
-
-    $choices = [];
-
-    foreach (wp_roles()->roles as $name => $info) {
-        $choices[] = [
-            'value' => $name,
-            'label' => $info['name']
-        ];
-    }
-
-    return $choices;
-}
-
 
 /**
  * Section: Bubble
@@ -171,7 +136,7 @@ $options->add('section', [
 
 $options->add('link', [
     'type' => 'section',
-    'title' => 'Support Menu',
+    'title' => 'Menu',
     'section' => 'menu',
     'icon' => 'ri-layout-right-fill',
 ]);
@@ -312,137 +277,15 @@ $options->add('field', [
             'condition' => 'data.type == "form"',
             'default' => '',
         ],
-        // Visibility Rules
+        // Targeting Rules
         [
-            'id' => 'visibility',
-            'type' => 'repeater',
-            'title' => 'Visibility Rules',
+            'id' => 'targeting',
+            'type' => 'link',
+            'title' => 'Targeting Rules',
             'default' => [],
-            'fields' => [
-                [
-                    'id' => 'target',
-                    'type' => 'select',
-                    'title' => 'Target',
-                    'default' => ' ',
-                    'choices' => [
-                        [
-                            'value' => 'PostID',
-                            'label' => 'Post ID'
-                        ],
-                        [
-                            'value' => 'PostType',
-                            'label' => 'Post Type'
-                        ],
-                        [
-                            'value' => 'UserRole',
-                            'label' => 'User Role'
-                        ],
-                        [
-                            'value' => 'Time',
-                            'label' => 'Time'
-                        ],
-                        [
-                            'value' => 'LoginStatus',
-                            'label' => 'Login Status'
-                        ],
-                    ]
-                ],
-                [
-                    'id' => 'ids',
-                    'type' => 'select',
-                    'title' => 'IDs List',
-                    'condition' => 'data.target == "PostID"',
-                    'default' => '',
-                    'attributes' => [
-                        'isMulti' => true,
-                        'isCreatable' => true,
-                    ]
-                ],
-                [
-                    'id' => 'post_types',
-                    'type' => 'select',
-                    'title' => 'Post Type',
-                    'condition' => 'data.target == "PostType"',
-                    'choices' => get_post_type_choices(),
-                    'attributes' => [
-                        'isMulti' => true,
-                    ]
-                ],
-                [
-                    'id' => 'user_roles',
-                    'type' => 'select',
-                    'title' => 'User Role',
-                    'condition' => 'data.target == "UserRole"',
-                    'choices' => get_user_role_choices(),
-                    'attributes' => [
-                        'isMulti' => true,
-                    ]
-                ],
-                [
-                    'id' => 'days',
-                    'type' => 'select',
-                    'title' => 'Days',
-                    'condition' => 'data.target == "Time"',
-                    'choices' => [
-                        [
-                            'value' => 'monday',
-                            'label' => 'Monday'
-                        ],
-                        [
-                            'value' => 'tuesday',
-                            'label' => 'Tuesday'
-                        ],
-                        [
-                            'value' => 'wednesday',
-                            'label' => 'Wednesday'
-                        ],
-                        [
-                            'value' => 'thursday',
-                            'label' => 'Thursday'
-                        ],
-                        [
-                            'value' => 'friday',
-                            'label' => 'Friday'
-                        ],
-                        [
-                            'value' => 'saturday',
-                            'label' => 'Saturday'
-                        ],
-                        [
-                            'value' => 'sunday',
-                            'label' => 'Sunday'
-                        ],
-                    ],
-                    'attributes' => [
-                        'isMulti' => true,
-                    ]
-                ],
-                [
-                    'id' => 'from',
-                    'type' => 'text',
-                    'title' => 'From',
-                    'condition' => 'data.target == "Time"',
-                    'attributes' => [
-                        'type' => 'time',
-                    ]
-                ],
-                [
-                    'id' => 'to',
-                    'type' => 'text',
-                    'title' => 'To',
-                    'condition' => 'data.target == "Time"',
-                    'attributes' => [
-                        'type' => 'time',
-                    ]
-                ],
-                [
-                    'id' => 'only_logged_in',
-                    'type' => 'switch',
-                    'title' => 'Logged-in Only?',
-                    'condition' => 'data.target == "LoginStatus"',
-                    'default' => true
-                ],
-            ]
+            'icon' => 'ri-coin-fill',
+            'text' => 'Go Pro',
+            'url' => 'facebook.com'
         ],
     ],
 ]);

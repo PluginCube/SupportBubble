@@ -102,9 +102,6 @@ class SupportBubble
         # Load the framework
         require_once $this->path . '/framework/framework.php';
 
-        # Load sub classes
-        $this->classes = $this->get_sub_classes();
-
         # Init the framework
         $this->framework = new Framework([
             'id' => '7401',
@@ -114,10 +111,14 @@ class SupportBubble
             'icon' => '',
         ]);
 
+        # Load sub classes
+        $this->classes = $this->get_sub_classes();
+        
         # Options
         include_once $this->path . '/options.php';
 
         $this->values = $this->framework->options->get_values();
+
     
         # Initialize
         $this->init();
@@ -194,7 +195,7 @@ class SupportBubble
      */
     public function render()
     {
-        echo "<div id='support-bubble'></div>";
+        echo "<div id='support-bubble'><a href='https://plugincube.com'>plugincube</a></div>";
     }
 
     /**
@@ -247,7 +248,6 @@ class SupportBubble
                 }
             }
         );
-
 
         # Convert icons tag value to svg
         $data['settings'] = $this->get_svg_icon_recursive($data['settings']);
