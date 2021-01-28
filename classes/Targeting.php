@@ -35,8 +35,8 @@ class Targeting
     {
         $this->parent = $parent;
 
-        // add_filter('plugincube/supportbubble/frontend/data', [$this, 'filter']);
-        // add_filter('plugincube/options/support-bubble/add/field', [$this, 'add_field']);
+        add_filter('plugincube/supportbubble/frontend/data', [$this, 'filter']);
+        add_filter('plugincube/options/support-bubble/add/field', [$this, 'field']);
     }
     
     /**
@@ -46,7 +46,7 @@ class Targeting
      * @access public
      * @return array
      */
-    public function add_field($args)
+    public function field($args)
     {
         if ($args['section'] !== 'menu' || $args['id'] !== 'items') return $args;
 

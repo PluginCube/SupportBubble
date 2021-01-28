@@ -285,7 +285,7 @@ $options->add('field', [
             'default' => [],
             'icon' => 'ri-coin-fill',
             'text' => 'Go Pro',
-            'url' => 'facebook.com'
+            'url' => $this->framework->freemius->get_upgrade_url()
         ],
     ],
 ]);
@@ -377,6 +377,15 @@ $options->add('field', [
             'type' => 'switch',
             'title' => 'Show in admin?',
             'default' => true,
+        ],
+        [
+            'id' => 'forward',
+            'type' => 'link',
+            'title' => 'Forward to Email?',
+            'default' => [],
+            'icon' => 'ri-coin-fill',
+            'text' => 'Go Pro',
+            'url' => $this->framework->freemius->get_upgrade_url()
         ],
     ],
     'default' => [],
