@@ -21,7 +21,7 @@ $options->add('link', [
     'type' => 'section',
     'title' => 'Bubble',
     'section' => 'bubble',
-    'icon' => 'ri-chat-smile-3-fill',
+    'icon' => 'ri-chat-3-fill',
 ]);
 
 $options->add('field', [
@@ -147,6 +147,13 @@ $options->add('field', [
     'title' => 'Items',
     'section' => 'menu',
     'default' => [],
+    'limit'   => 5,
+    'limit_link' => [
+        'icon' => 'ri-coin-fill',
+        'text' => 'Go Pro',
+        'msg'  => 'Upgrade to the Pro plan to get unlimited items.',
+        'url' => $this->framework->freemius->get_upgrade_url()
+    ],
     'fields' => [
         [
             'id' => 'title',
@@ -281,10 +288,11 @@ $options->add('field', [
         [
             'id' => 'targeting',
             'type' => 'link',
-            'title' => 'Targeting Rules',
+            'title' => 'Audience Targeting',
             'default' => [],
             'icon' => 'ri-coin-fill',
             'text' => 'Go Pro',
+            'msg'  => 'Our audience targeting feature allows you to show/hide items on specific pages, users, login status, and for a specific time of the day.',
             'url' => $this->framework->freemius->get_upgrade_url()
         ],
     ],
@@ -313,6 +321,13 @@ $options->add('field', [
     'type' => 'repeater',
     'title' => 'Forms',
     'section' => 'forms',
+    'limit'   => 3,
+    'limit_link' => [
+        'icon' => 'ri-coin-fill',
+        'text' => 'Go Pro',
+        'msg'  => 'Upgrade to the Pro plan to get unlimited forms.',
+        'url' => $this->framework->freemius->get_upgrade_url()
+    ],
     'remove_alert' => 'This will remove the form and all the submission data associated with it. Are you sure?',
     'fields' => [
         [

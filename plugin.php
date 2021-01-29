@@ -106,9 +106,9 @@ class SupportBubble
         $this->framework = new Framework([
             'id' => '7401',
             'slug' => 'support-bubble',
-            'title' => 'SupportBubble',
+            'title' => 'Support Bubble',
             'public_key' => 'pk_677cbbdf1055c4c6bf6a410734760',
-            'icon' => '',
+            'icon' => 'data:image/svg+xml;base64,' . base64_encode(file_get_contents($this->path . '/assets/img/logo-menu.svg')),
         ]);
 
         # Load sub classes
