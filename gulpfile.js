@@ -12,7 +12,7 @@ const config = {
     libs: [
         {
             'dir': '',
-            'del': ['/temp', '/*.lock', '/gulpfile.js', '/*.json', '/.gitignore', '/.gitmodules', '/*.xml', '/node_modules'],
+            'del': ['/temp', '/*.lock', '/gulpfile.js', '/*.json', '/.gitignore', '/.gitmodules', '/*.xml', '/node_modules', '/plugin.zip'],
             'command': false
         },
         {
