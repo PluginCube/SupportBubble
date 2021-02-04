@@ -400,6 +400,7 @@ $options->add('field', [
             'default' => [],
             'icon' => 'ri-coin-fill',
             'text' => 'Go Pro',
+            'msg'  => 'Upgrade and get the form entries delivered directly to your email.',
             'url' => $this->framework->freemius->get_upgrade_url()
         ],
     ],
