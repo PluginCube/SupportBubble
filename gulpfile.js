@@ -12,7 +12,7 @@ const config = {
     libs: [
         {
             'dir': '',
-            'del': ['/*.lock', '/gulpfile.js', '/*.json', '/.gitignore', '/.gitmodules', '/*.xml', '/node_modules'],
+            'del': ['/temp', '/*.lock', '/gulpfile.js', '/*.json', '/.gitignore', '/.gitmodules', '/*.xml', '/node_modules'],
             'command': false
         },
         {
@@ -27,7 +27,7 @@ const config = {
         },
         {
             'dir': '/framework/assets/pricing-page',
-            'del': ['/*.*', '/.*', '/node_modules'],
+            'del': ['/*.*', '/.*', '/node_modules', '/src'],
             'command': 'npm install && npm run build'
         },
     ]   
@@ -81,9 +81,6 @@ gulp.task('zip', () => {
     return gulp.src('./temp/**')
         .pipe(zip('plugin.zip'))
         .pipe(gulp.dest('./'))
-        .on('end', function() {
-            del('./temp');
-        })
 });
 
 
