@@ -1,10 +1,10 @@
 <script>
-	export let color = 'currentColor'
-	export let size = 56
-	export let gap = 12
-	export let duration = 1
+    export let color = 'currentColor'
+    export let size = 56
+    export let gap = 12
+    export let duration = 1
 
-	let style = `
+    let style = `
 		--loader-size: ${size}px;
 		--loader-color: ${color};
 		--loader-animation-duration: ${duration}s;
@@ -59,15 +59,15 @@
         @if ($align == center) {
             margin-left: auto;
             margin-right: auto;
-		}
-		
+        }
+
         @if ($align == middle) {
             top: 50%;
             margin: -($size * 2 + $size / 2) auto 0;
         } @else {
-            top: - $size * 2 + 2;
-		}
-		
+            top: -$size * 2 + 2;
+        }
+
         @keyframes #{'loader-'}#{$unique-name} {
             0% {
                 box-shadow: 0 $size * 2 0 $color;
@@ -77,11 +77,11 @@
                 box-shadow: 0 $size 0 $color;
             }
         }
-	}
-	
-	div {
-		@include loader($size: 5px, $gap: 3px, $duration: 0.5s);
-	}
+    }
+
+    div {
+        @include loader($size: 5px, $gap: 3px, $duration: 0.5s);
+    }
 </style>
 
-<div {style}></div>
+<div {style} />

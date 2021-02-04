@@ -1,14 +1,17 @@
 <script>
     import { fly } from 'svelte/transition'
-    import { menu, showIntegration, integration, showMenu } from "store"
+    import { menu, showIntegration, integration, showMenu } from 'store'
 
     $menu.items = $menu.items.length ? $menu.items : []
 
     let click = (item) => {
         if (item.type == 'link') {
             if (item.url) {
-                item.url = (item.url.indexOf('://') === -1) ? 'http://' + item.url : item.url;
-                window.open(item.url, "_blank");
+                item.url =
+                    item.url.indexOf('://') === -1
+                        ? 'http://' + item.url
+                        : item.url
+                window.open(item.url, '_blank')
             }
         } else {
             showMenu.set(false)
@@ -30,14 +33,14 @@
         border-radius: 5px;
         margin: 0;
         list-style: none;
-        
+
         li {
             float: left;
             width: 100%;
             margin: 0;
             padding: 9px 16px;
             cursor: pointer;
-            
+
             &:hover {
                 background: #f1f1f1;
             }
@@ -52,7 +55,7 @@
                 border-radius: 50px;
                 float: left;
                 margin-right: 14px;
-                
+
                 :global(svg) {
                     width: 22px;
                     fill: currentColor;
@@ -82,17 +85,21 @@
     }
 </style>
 
-<ul transition:fly={{x: 40}}>
-    {#each  $menu.items as item}
-        <li on:click={() => {click(item)}}>
+<ul transition:fly={{ x: 40 }}>
+    {#each $menu.items as item}
+        <li
+            on:click={() => {
+                click(item)
+            }}
+        >
             <i style="background: {item.color};">
                 {@html item.icon}
             </i>
-            
+
             <h4>
                 {item.title}
             </h4>
-            
+
             <span>
                 {item.subtitle}
             </span>

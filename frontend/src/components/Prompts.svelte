@@ -1,7 +1,7 @@
 <script>
     import { fade } from 'svelte/transition'
 
-    import { onMount } from 'svelte';
+    import { onMount } from 'svelte'
 
     import { bubble } from 'store'
 
@@ -9,26 +9,25 @@
 
     let currentMessage = null
 
-
     onMount(() => {
         setInterval(() => {
-            if ( $bubble['prompts'].length == 0 ) {
+            if ($bubble['prompts'].length == 0) {
                 return
-            };
+            }
 
             currentMessage = $bubble['prompts'][0]['message']
 
             setTimeout(() => {
-                if ( $bubble['prompts'].length !== 1 ) {
+                if ($bubble['prompts'].length !== 1) {
                     currentMessage = null
                 }
 
                 bubble.set({
                     prompts: $bubble['prompts'].shift(),
-                    ... $bubble
-                });
-            }, 2500);
-        }, 5000);
+                    ...$bubble,
+                })
+            }, 2500)
+        }, 5000)
     })
 </script>
 
@@ -58,6 +57,6 @@
             {@html currentMessage}
         </span>
     {:else}
-        <Loader color='#c0c3c5'/>
+        <Loader color="#c0c3c5" />
     {/if}
 </div>

@@ -1,7 +1,13 @@
 <script>
     import { onMount } from 'svelte'
     import { fly } from 'svelte/transition'
-    import { bubble, showBubble, showMenu, showPrompts, showIntegration } from 'store'
+    import {
+        bubble,
+        showBubble,
+        showMenu,
+        showPrompts,
+        showIntegration,
+    } from 'store'
 
     import Bubble from './Bubble'
     import Prompts from './Prompts'
@@ -22,7 +28,7 @@
 
         setTimeout(() => {
             showPrompts.set(true)
-        }, 500);
+        }, 500)
     })
 </script>
 
@@ -37,13 +43,13 @@
 
         :global(.with-pointer-arrow) {
             &::before {
-                content: "";
+                content: '';
                 position: absolute;
                 bottom: -6px;
                 right: 20px;
                 left: auto;
                 border-right: 8px solid transparent;
-                border-top: 8px solid #FFFFFF;
+                border-top: 8px solid #ffffff;
                 border-left: 8px solid transparent;
                 border-bottom: 0px solid transparent;
             }
@@ -51,14 +57,13 @@
     }
 </style>
 
-
 {#if $showBubble}
     <div transition:fly={{ y: 100, duration: 500 }} {style}>
-        {#if ! $showIntegration}
+        {#if !$showIntegration}
             <Bubble />
         {/if}
 
-        {#if ! $showMenu && $showPrompts && ('prompts' in $bubble)}
+        {#if !$showMenu && $showPrompts && 'prompts' in $bubble}
             <Prompts />
         {/if}
 

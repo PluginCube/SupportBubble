@@ -105,7 +105,7 @@ class SupportBubble
         # Init the framework
         $this->framework = new Framework([
             'id' => '7401',
-            'slug' => 'support-bubble',
+            'slug' => 'supportbubble',
             'title' => 'Support Bubble',
             'public_key' => 'pk_677cbbdf1055c4c6bf6a410734760',
             'icon' => 'data:image/svg+xml;base64,' . base64_encode(file_get_contents($this->path . '/assets/img/logo-menu.svg')),
@@ -207,7 +207,7 @@ class SupportBubble
      */
     public function assets()
     {
-        wp_enqueue_script('support-bubble', $this->url . "app/dist/bundle.js", ['jquery'], $this->version, true);
+        wp_enqueue_script('support-bubble', $this->url . "frontend/dist/bundle.js", ['jquery'], $this->version, true);
     }
 
     /**

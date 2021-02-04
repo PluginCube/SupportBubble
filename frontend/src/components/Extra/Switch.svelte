@@ -39,7 +39,7 @@
 
         span:before {
             position: absolute;
-            content: "";
+            content: '';
             height: 12px;
             width: 12px;
             left: 4px;
@@ -48,7 +48,6 @@
             transition: 0.4s;
             border-radius: 50%;
             box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.06);
-            
         }
     }
 </style>

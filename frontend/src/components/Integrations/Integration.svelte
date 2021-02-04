@@ -1,7 +1,7 @@
 <script>
     import { fly } from 'svelte/transition'
 
-    import { integration, showIntegration } from "store"
+    import { integration, showIntegration } from 'store'
 
     import WhatsApp from './WhatsApp'
     import Messenger from './Messenger'
@@ -10,7 +10,7 @@
     let types = {
         whatsapp: WhatsApp,
         messenger: Messenger,
-        form: Form
+        form: Form,
     }
 
     let close = () => {
@@ -39,7 +39,7 @@
             border-radius: 50px;
             opacity: 0;
             cursor: pointer;
-            
+
             svg {
                 width: 13px;
                 fill: currentColor;
@@ -52,13 +52,18 @@
     }
 </style>
 
-<div transition:fly={{x: 40}}>
+<div transition:fly={{ x: 40 }}>
     <i on:click={close}>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path fill="none" d="M0 0h24v24H0z"/>
-            <path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/>
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path
+                d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"
+            />
         </svg>
     </i>
-    
-    <svelte:component this={types[$integration.type]} options={$integration} />
+
+    <svelte:component
+        this={types[$integration.type]}
+        options={$integration}
+    />
 </div>

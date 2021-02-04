@@ -1,14 +1,14 @@
 <script>
     export let options
 
-    import { bubble } from 'bubble'
+    import { bubble } from 'store'
 
     import { ajax } from 'methods'
 
-    import Switch from "../Extra/Switch";
+    import Switch from '../Extra/Switch'
 
     let showSuccessMessage = false
-    
+
     let submit = async () => {
         await ajax('it_form_submit', options.form)
         showSuccessMessage = true
@@ -23,7 +23,7 @@
             padding: 25px;
             overflow: hidden;
             background: #fff;
-            
+
             h4 {
                 display: block;
                 float: left;
@@ -59,7 +59,7 @@
                 border-radius: 5px;
             }
 
-            input:not([type=checkbox]) {
+            input:not([type='checkbox']) {
                 width: 100%;
                 height: 36px;
                 line-height: 36px;
@@ -71,7 +71,7 @@
                 margin-top: 10px;
                 font-family: inherit;
             }
-            
+
             .it-switch {
                 line-height: 36px;
                 font-size: 13px;
@@ -81,7 +81,7 @@
                 font-weight: 600;
                 display: flex;
                 align-items: center;
-                
+
                 span {
                     margin-left: 15px;
                 }
@@ -122,33 +122,61 @@
     </header>
 
     <article>
-        {#if showSuccessMessage || ! options.form.fields}
+        {#if showSuccessMessage || !options.form.fields}
             <p>{@html options.success_message}</p>
         {:else}
             <form on:submit|preventDefault={submit}>
                 {#each options.form.fields as field}
                     {#if field.type == 'single_line_text'}
-                        <input placeholder={field.title} bind:value={field.value} required>
+                        <input
+                            placeholder={field.title}
+                            bind:value={field.value}
+                            required
+                        />
                     {/if}
 
                     {#if field.type == 'paragraph'}
-                        <textarea placeholder={field.title} bind:value={field.value} required></textarea>
+                        <textarea
+                            placeholder={field.title}
+                            bind:value={field.value}
+                            required
+                        />
                     {/if}
 
                     {#if field.type == 'number'}
-                        <input type="number" placeholder={field.title} bind:value={field.value} required>
+                        <input
+                            type="number"
+                            placeholder={field.title}
+                            bind:value={field.value}
+                            required
+                        />
                     {/if}
 
                     {#if field.type == 'email'}
-                        <input type="email" placeholder={field.title} bind:value={field.value} required>
+                        <input
+                            type="email"
+                            placeholder={field.title}
+                            bind:value={field.value}
+                            required
+                        />
                     {/if}
 
                     {#if field.type == 'date'}
-                        <input type="date" placeholder={field.title} bind:value={field.value} required>
+                        <input
+                            type="date"
+                            placeholder={field.title}
+                            bind:value={field.value}
+                            required
+                        />
                     {/if}
 
                     {#if field.type == 'phone_number'}
-                        <input type="tel" placeholder={field.title} bind:value={field.value} required>
+                        <input
+                            type="tel"
+                            placeholder={field.title}
+                            bind:value={field.value}
+                            required
+                        />
                     {/if}
 
                     {#if field.type == 'switch'}
@@ -159,7 +187,9 @@
                     {/if}
                 {/each}
 
-                <button type="submit" style="background-color:{$bubble.bg};">
+                <button
+                    type="submit"
+                    style="background-color:{$bubble.bg};">
                     Submit
                 </button>
             </form>

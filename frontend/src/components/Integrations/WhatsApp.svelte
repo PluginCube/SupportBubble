@@ -1,9 +1,8 @@
 <script>
     export let options
 
-    let today = new Date();
-    let time = today.getHours() + ":" + today.getMinutes()
-
+    let today = new Date()
+    let time = today.getHours() + ':' + today.getMinutes()
 </script>
 
 <style lang="scss">
@@ -18,7 +17,7 @@
             display: flex;
             align-items: center;
             background: #fff;
-            
+
             figure {
                 position: relative;
                 width: 52px;
@@ -38,9 +37,9 @@
                     object-fit: cover;
                     object-position: center;
                 }
-                
-                &::before{
-                    content: "";
+
+                &::before {
+                    content: '';
                     bottom: 0px;
                     right: 0px;
                     width: 12px;
@@ -89,11 +88,11 @@
             background-color: #e6ddd4;
             position: relative;
             overflow: auto;
-            
+
             &::before {
                 display: block;
                 position: absolute;
-                content: "";
+                content: '';
                 left: 0px;
                 top: 0px;
                 height: 100%;
@@ -118,12 +117,12 @@
                     background-position: 50% 50%;
                     background-repeat: no-repeat;
                     background-size: contain;
-                    content: "";
+                    content: '';
                     top: 0px;
                     left: -12px;
                     width: 12px;
                     height: 19px;
-               }
+                }
 
                 span {
                     color: #999;
@@ -182,9 +181,9 @@
 <div>
     <header>
         <figure>
-            <img src={options.avatar} alt={options.user_name}>
+            <img src={options.avatar} alt={options.user_name} />
         </figure>
-        
+
         <aside>
             <h4>{options.user_name}</h4>
             <span>{options.caption}</span>
@@ -200,6 +199,10 @@
     </article>
 
     <footer>
-        <a href="https://api.whatsapp.com/send?phone={options.phone}" target="_blank" style="background-color:{options.color};">Start Chat</a>
+        <a
+            href="https://api.whatsapp.com/send?phone={options.phone}"
+            target="_blank"
+            style="background-color:{options.color};">Start Chat</a
+        >
     </footer>
 </div>

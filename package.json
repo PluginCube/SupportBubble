@@ -1,0 +1,20 @@
+{
+  "name": "SupportBubble",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build:zip": "gulp zip"
+  },
+  "repository": "https://github.com/PluginCube/SupportBubble",
+  "author": "Omar Badran <engineer.o.badran@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "del": "^6.0.0",
+    "fs-extra": "^9.1.0",
+    "glob": "^7.1.6",
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.3.0",
+    "gulp-exec": "^5.0.0",
+    "gulp-zip": "^5.0.2"
+  }
+}
