@@ -77,9 +77,7 @@ gulp.task('clean', (done) => {
     done();
 });
 
-gulp.task('zip', (done) => {
-    console.log('Zipping Now:', glob.sync('./temp/**'));
-
+gulp.task('zip', () => {
     return gulp.src('./temp/**')
         .pipe(zip('plugin.zip'))
         .pipe(gulp.dest('./'))
