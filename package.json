@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build:zip": "gulp zip"
+    "build:zip": "gulp build:zip"
   },
   "repository": "https://github.com/PluginCube/SupportBubble",
   "author": "Omar Badran <engineer.o.badran@gmail.com>",

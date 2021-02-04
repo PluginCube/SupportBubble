@@ -39,23 +39,22 @@ gulp.task('copy', (done) => {
         del(config.temp);
     }
     
-    let files = glob.sync('./*/');
-
     fs.mkdirSync(config.temp);
     fs.mkdirSync(config.cwd);
-
-    files.forEach(function(file) {
-        fs.copySync(file, config.cwd);
-    });
-
-    done();
+    
+    return gulp.src('./**')
+        .pipe(gulp.dest(config.cwd));
 });
 
 gulp.task('commands', (done) => {
     config.libs.forEach(lib => {
         let dir = config.cwd + lib.dir;
         
+        console.log('Running Command:', lib.command);
+
         if (fs.existsSync(dir) && lib.command) {
+            console.log('In Folder:', dir);
+            
             exec(lib.command, {
                 cwd: dir
             }, function(error, stdout, stderr) {
@@ -79,15 +78,15 @@ gulp.task('clean', (done) => {
 });
 
 gulp.task('zip', (done) => {
-    gulp.src('./temp/**')
+    console.log('Zipping Now:', glob.sync('./temp/**'));
+
+    return gulp.src('./temp/**')
         .pipe(zip('plugin.zip'))
         .pipe(gulp.dest('./'))
         .on('end', function() {
             del('./temp');
         })
-
-    done();
 });
 
 
-gulp.task('zip', gulp.series('copy', 'commands', 'clean', 'zip'));
+gulp.task('build:zip', gulp.series('copy', 'commands', 'clean', 'zip'));
