@@ -14,14 +14,10 @@ jobs:
         node-version: [12.x]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Checkout submodules using a PAT
-      run: |
-        git config --file .gitmodules --get-regexp url | while read url; do
-          git config --file=.gitmodules $(echo "$url" | sed -E "s/git@github.com:|https:\/\/github.com\//https:\/\/${{ secrets.CI_PAT }}:${{ secrets.CI_PAT }}@github.com\//")
-        done
-        git submodule sync
-        git submodule update --init --recursive
+    - uses: actions/checkout@v2.3.1
+      with:
+        token: ${{github.token}}
+        submodules: recursive
 
     - name: Use Node.js ${{matrix.node-version}}
       uses: actions/setup-node@v1
