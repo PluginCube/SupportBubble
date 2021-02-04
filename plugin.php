@@ -10,7 +10,7 @@
  * Plugin Name:     SupportBubble
  * Plugin URI:      https://plugincube.com/products/support-bubble
  * Description:     Floating support button & contact form
- * Version:         1.0.0
+ * Version:         0.1.0
  * Author:          PluginCube
  * Author URI:      https://plugincube.com/
  * Text Domain:     support-bubble
@@ -97,17 +97,21 @@ class SupportBubble
         $this->path = trailingslashit(str_replace('\\', '/', dirname(__FILE__)));
         $this->url = site_url(str_replace(str_replace('\\', '/', ABSPATH), '', $this->path));
 
-        # define( 'WP_FS__DEV_MODE', true );
+         define( 'WP_FS__DEV_MODE', true );
 
         # Load the framework
         require_once $this->path . '/framework/framework.php';
 
         # Init the framework
         $this->framework = new Framework([
-            'id' => '7401',
+            'id' => '7724',
             'slug' => 'supportbubble',
             'title' => 'Support Bubble',
-            'public_key' => 'pk_677cbbdf1055c4c6bf6a410734760',
+            'public_key' => 'pk_a864adadb04fe33bb9c6866e6cb9a',
+            'has_premium_version' => true,
+            'has_addons'          => false,
+            'has_paid_plans'      => true,
+            'is_premium'          => true,
             'icon' => 'data:image/svg+xml;base64,' . base64_encode(file_get_contents($this->path . '/assets/img/logo-menu.svg')),
         ]);
 
