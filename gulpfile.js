@@ -28,7 +28,7 @@ const config = {
         {
             'dir': '/framework/assets/pricing-page',
             'del': ['/*.*', '/.*', '/node_modules'],
-            'command': 'git checkout single-plan-on-mobile-show-fix && npm install && npm run build'
+            'command': 'git checkout feature/single-plan-on-mobile-show-fix && npm install && npm run build'
         },
     ]   
 }
