@@ -17,12 +17,6 @@
 
     let style = ``
 
-    $: ['top', 'bottom', 'left', 'right'].forEach((e) => {
-        if ($bubble.position.includes(e)) {
-            style += e + ': 0;'
-        }
-    })
-
     onMount(() => {
         showBubble.set(true)
 
@@ -40,6 +34,8 @@
         min-width: 220px;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
             Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+        bottom: 0;
+        right: 0;
 
         :global(.with-pointer-arrow) {
             &::before {

@@ -55,32 +55,6 @@ $options->add('field', [
 ]);
 
 $options->add('field', [
-    'id' => 'position',
-    'type' => 'select',
-    'title' => 'Position',
-    'section' => 'bubble',
-    'default' => 'bottom_right',
-    'choices' => [
-        [
-            'value' => 'top_right',
-            'label' => 'Top right'
-        ],
-        [
-            'value' => 'bottom_right',
-            'label' => 'Bottom right'
-        ],
-        [
-            'value' => 'top_left',
-            'label' => 'Top left'
-        ],
-        [
-            'value' => 'bottom_left',
-            'label' => 'Bottom left'
-        ]
-    ]
-]);
-
-$options->add('field', [
     'id' => 'bg',
     'type' => 'color',
     'title' => 'Background',
@@ -94,14 +68,6 @@ $options->add('field', [
     'title' => 'Text Color',
     'section' => 'bubble',
     'default' => '#ffffff',
-]);
-
-$options->add('field', [
-    'id' => 'dismissible',
-    'type' => 'switch',
-    'title' => 'Dismissible',
-    'section' => 'bubble',
-    'default' => false,
 ]);
 
 $options->add('field', [
