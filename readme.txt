@@ -9,11 +9,10 @@ Requires PHP: 5.6.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Provide your users with an instant support button using various support channels. Create a custom form and gather submissions directly on your site.
-
+Provide your users with an instant support button with various support channels. Create a floating form and capture leads directly on your site.
 == Description ==
 
-Provide your users with an instant support button using various support channels. Create a custom form and gather submissions directly on your site.
+Provide your users with an instant support button using various support channels. Create a custom contact form and gather submissions directly on your site.
 
 Why SupportBubble?
 - A smooth customer experience.
