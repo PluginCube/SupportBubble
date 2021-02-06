@@ -146,7 +146,6 @@ $options->add('field', [
     'type' => 'repeater',
     'title' => 'Items',
     'section' => 'menu',
-    'default' => [],
     'limit'   => 5,
     'limit_link' => [
         'icon' => 'ri-coin-fill',
@@ -295,6 +294,23 @@ $options->add('field', [
             'msg'  => 'Our audience targeting feature allows you to show/hide items on specific pages, users, login status, and for a specific time of the day.',
             'url' => $this->framework->freemius->get_upgrade_url()
         ],
+    ],
+    'default' => [
+        [
+            "title" => "Messenger",
+            "avatar" => "https://images.pexels.com/photos/53453/marilyn-monroe-woman-actress-pretty-53453.jpeg",
+            "caption" => "Typically replies within a day",
+            "color" => "rgba(0, 132, 255, 1)",
+            "icon" => "ri-messenger-fill",
+            "messenger_url" => "m.me/102918678451971",
+            "subtitle" => "Contact us on Facebook",
+            "type" => "messenger",
+            "url" => "facebook.com",
+            "user_name" => "PluginCube",
+            "welcome_message" => "Hi there 👋 <br> \nHow can I help you?",
+            "_id" => "_imn3s"
+
+        ]
     ],
 ]);
 
