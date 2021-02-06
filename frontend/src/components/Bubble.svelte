@@ -22,11 +22,15 @@
         height: 52px;
         width: 52px;
         overflow: hidden;
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 12px 24px 0px;
+        box-shadow: rgb(0 0 0 / 10%) 0px 10px 35px 0px;
         display: flex;
         align-items: center;
         justify-content: center;
 
+        i {
+            line-height: 1;
+        }
+        
         :global(svg) {
             width: 18px;
             fill: currentColor;

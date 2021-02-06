@@ -20,7 +20,7 @@
 
 <style lang="scss">
     div {
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 12px 24px 0px;
+        box-shadow: rgb(0 0 0 / 10%) 0px 10px 35px 0px;
         background: #fff;
         position: absolute;
         bottom: 0px;
@@ -39,7 +39,8 @@
             border-radius: 50px;
             opacity: 0;
             cursor: pointer;
-
+            line-height: 13px;
+            
             svg {
                 width: 13px;
                 fill: currentColor;
