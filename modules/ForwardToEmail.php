@@ -35,7 +35,7 @@ class ForwardToEmail
     {
         $this->parent = $parent;
 
-        add_filter('plugincube/options/support-bubble/add/field', [$this, 'fields']);
+        add_filter('plugincube/options/supportbubble/add/field', [$this, 'fields']);
         add_action('plugincube/supportbubble/events/form/submit', [$this, 'send']);
     }
 

@@ -36,7 +36,7 @@ class Targeting
         $this->parent = $parent;
 
         add_filter('plugincube/supportbubble/frontend/data', [$this, 'filter']);
-        add_filter('plugincube/options/support-bubble/add/field', [$this, 'field']);
+        add_filter('plugincube/options/supportbubble/add/field', [$this, 'field']);
     }
     
     /**

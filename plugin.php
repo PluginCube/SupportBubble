@@ -18,6 +18,8 @@
  * License URI:     https://www.gnu.org/licenses/gpl-3.0.txt
  * Domain Path:     /languages
  * Requires PHP:    5.6
+ * 
+ * @fs_premium_only /modules/
  */
 
 namespace PluginCube;
@@ -73,13 +75,13 @@ class SupportBubble
     private $values;
 
     /**
-     * Sub Classes.
+     * Plugin modules.
      *
      * @since 1.0.0
      * @access public
      * @var array
      */
-    public $classes;
+    public $modules;
 
     /**
      * Class constructer.
@@ -97,7 +99,7 @@ class SupportBubble
         $this->path = trailingslashit(str_replace('\\', '/', dirname(__FILE__)));
         $this->url = site_url(str_replace(str_replace('\\', '/', ABSPATH), '', $this->path));
 
-         define( 'WP_FS__DEV_MODE', true );
+        # define( 'WP_FS__DEV_MODE', true );
 
         # Load the framework
         require_once $this->path . '/framework/framework.php';
@@ -115,15 +117,14 @@ class SupportBubble
             'icon' => 'data:image/svg+xml;base64,' . base64_encode(file_get_contents($this->path . '/assets/img/logo-menu.svg')),
         ]);
 
-        # Load sub classes
-        $this->classes = $this->get_sub_classes();
+        # Load modules
+        $this->load_modules();
         
         # Options
         include_once $this->path . '/options.php';
 
         $this->values = $this->framework->options->get_values();
 
-    
         # Initialize
         $this->init();
     }
@@ -167,27 +168,27 @@ class SupportBubble
     }
 
     /**
-     * Get sub classes
+     * Load the available modules
      *
      * @since 1.0.0
      * @access public
      * @return array
      */
-    public function get_sub_classes()
+    public function load_modules()
     {
-        $classes = [];
+        $modules = [];
 
-        $files = glob($this->path . "classes/*.php");
+        $files = glob($this->path . "modules/*.php");
 
         foreach ($files as $file) {
             require_once $file;
 
             $data = \get_file_data($file, ['classname' => 'classname']);
 
-            $classes[lcfirst(basename($file, '.php'))] = new $data['classname']($this);
+            $modules[lcfirst(basename($file, '.php'))] = new $data['classname']($this);
         }
 
-        return $classes;
+        $this->modules = $modules;
     }
 
     /**
@@ -199,7 +200,7 @@ class SupportBubble
      */
     public function render()
     {
-        echo "<div id='support-bubble'><a href='https://plugincube.com'>plugincube</a></div>";
+        echo "<div id='support-bubble'></div>";
     }
 
     /**
