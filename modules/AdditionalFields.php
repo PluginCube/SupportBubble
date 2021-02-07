@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Classname: PluginCube\SupportBubble\RemoveLimit
+ * Classname: PluginCube\SupportBubble\AdditionalFields
  */
 
 namespace PluginCube\SupportBubble;
@@ -10,7 +10,7 @@ namespace PluginCube\SupportBubble;
 defined('ABSPATH') || exit;
 
 
-class RemoveLimit
+class AdditionalFields
 {
     /**
      * Parent instance.
@@ -35,7 +35,6 @@ class RemoveLimit
     {
         $this->parent = $parent;
 
-        add_filter('plugincube/options/supportbubble/add/field/menu/items', [$this, 'field']);
         add_filter('plugincube/options/supportbubble/add/field/forms/forms', [$this, 'field']);
     }
     
@@ -48,7 +47,25 @@ class RemoveLimit
      */
     public function field($args)
     {
-        $args['limit'] = false;
+        $fields = & $args['fields'][array_search('fields', array_column($args['fields'], 'id'))]['fields'];
+        $types = & $fields[array_search('type', array_column($fields, 'id'))];
+
+        $types['choices'][] = [
+            'value' => 'dropdown',
+            'label' => 'Dropdown'
+        ];
+
+        $fields[] = [
+            'id' => 'choices',
+            'type' => 'select',
+            'title' => 'Choices',
+            'condition' => 'data.type == "dropdown"',
+            'default' => [],
+            'attributes' => [
+                'isMulti' => true,
+                'isCreatable' => true,
+            ]
+        ];
 
         return $args;
     }

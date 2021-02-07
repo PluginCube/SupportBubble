@@ -35,10 +35,9 @@ class ForwardToEmail
     {
         $this->parent = $parent;
 
-        add_filter('plugincube/options/supportbubble/add/field', [$this, 'fields']);
+        add_filter('plugincube/options/supportbubble/add/field/forms/forms', [$this, 'fields']);
         add_action('plugincube/supportbubble/events/form/submit', [$this, 'send']);
     }
-
 
     /**
      * Add the field
@@ -49,8 +48,6 @@ class ForwardToEmail
      */
     public function fields($args)
     {
-        if ($args['section'] !== 'forms' || $args['id'] !== 'forms') return $args;
-
         $field = & $args['fields'][array_search('forward', array_column($args['fields'], 'id'))];
         
         $field['type'] = 'switch';

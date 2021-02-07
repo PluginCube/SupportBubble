@@ -59,7 +59,7 @@
                 border-radius: 5px;
             }
 
-            input:not([type='checkbox']) {
+            input:not([type='checkbox']), select {
                 width: 100%;
                 height: 36px;
                 line-height: 36px;
@@ -70,6 +70,21 @@
                 box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05);
                 margin-top: 10px;
                 font-family: inherit;
+            }
+
+            select {
+                background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+                background-repeat: no-repeat;
+                background-size: 13px;
+                background-position-y: center;
+                background-position-x: calc(100% - 11px);
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                text-indent: 1px;
+                cursor: pointer;
+                appearance: none;
+                color: #333;
+                font-size: 12px;
             }
 
             .it-switch {
@@ -88,7 +103,9 @@
             }
 
             textarea {
-                width: 100%;
+                width: 100% !important;
+                max-width: 100%;
+                min-height: 100px;
                 padding: 5px 10px;
                 border: 1px solid rgba(0, 0, 0, 0.05);
                 border-radius: 5px;
@@ -96,6 +113,7 @@
                 box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.05);
                 margin-top: 10px;
                 font-family: inherit;
+                float: left;
             }
 
             button {
@@ -184,6 +202,16 @@
                             <Switch bind:value={field.value} />
                             <span>{field.title}</span>
                         </div>
+                    {/if}
+
+                    {#if field.type == 'dropdown'}
+                        <select bind:value={field.value}>
+                            {#each field.choices as choice}
+                                <option value={choice.value}>
+                                    {choice.value}
+                                </option>
+                            {/each}
+                        </select>
                     {/if}
                 {/each}
 

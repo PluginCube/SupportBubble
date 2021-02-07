@@ -36,7 +36,7 @@ class Targeting
         $this->parent = $parent;
 
         add_filter('plugincube/supportbubble/frontend/data', [$this, 'filter']);
-        add_filter('plugincube/options/supportbubble/add/field', [$this, 'field']);
+        add_filter('plugincube/options/supportbubble/add/field/menu/items', [$this, 'field']);
     }
     
     /**
@@ -48,8 +48,6 @@ class Targeting
      */
     public function field($args)
     {
-        if ($args['section'] !== 'menu' || $args['id'] !== 'items') return $args;
-
         $field = & $args['fields'][array_search('targeting', array_column($args['fields'], 'id'))];
         
         $field['type'] = 'repeater';
