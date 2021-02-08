@@ -1,4 +1,4 @@
-=== All in One Support Button, Contact Form, Chat, Email, Whatsapp & Messenger  ===
+=== All in One Support Button, Contact Form, Chat, Email, Social Links  ===
 Contributors: plugincube
 Donate link: 
 Tags: support, form, floating, contact, conversion, action button, call, marketing, social Sharing, wordpress, whatsapp, messenger, contact form, facebook messenger, call now button, instagram, youtube, social buttons, messegner, floating form, call button, SupportBubble, contact us form

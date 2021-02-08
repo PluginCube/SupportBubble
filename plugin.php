@@ -421,7 +421,7 @@ class SupportBubble
         }
 
         $post = [
-            'post_type' => $_POST['_id'],
+            'post_type' => sanitize_key($_POST['_id']),
             'post_status' => 'publish',
             'meta_input' => []
         ];
