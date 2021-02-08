@@ -87,7 +87,7 @@
                 font-size: 12px;
             }
 
-            .it-switch {
+            .it-toggle {
                 line-height: 36px;
                 font-size: 13px;
                 margin-top: 12px;
@@ -197,8 +197,8 @@
                         />
                     {/if}
 
-                    {#if field.type == 'switch'}
-                        <div class="it-switch">
+                    {#if field.type == 'toggle'}
+                        <div class="it-toggle">
                             <Switch bind:value={field.value} />
                             <span>{field.title}</span>
                         </div>

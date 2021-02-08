@@ -51,6 +51,11 @@ class AdditionalFields
         $types = & $fields[array_search('type', array_column($fields, 'id'))];
 
         $types['choices'][] = [
+            'value' => 'toggle',
+            'label' => 'Toggle'
+        ];
+
+        $types['choices'][] = [
             'value' => 'dropdown',
             'label' => 'Dropdown'
         ];

@@ -1,4 +1,4 @@
-=== All in One Support Button, Contact Form, Chat, Email, Social Links  ===
+=== All in One Support Button, Contact, Chat, Email & Social Links  ===
 Contributors: plugincube
 Donate link: 
 Tags: support, form, floating, contact, conversion, action button, call, marketing, social Sharing, wordpress, whatsapp, messenger, contact form, facebook messenger, call now button, instagram, youtube, social buttons, messegner, floating form, call button, SupportBubble, contact us form
@@ -46,7 +46,8 @@ Available fields are:
 - Email Address
 - Date & Time
 - Phone Number
-- Switch
+- Toggle (Pro)
+- Dropdown (Pro)
 
 For example, you create a simple contact form, a user feedback form, a callback request form, etc. 
 

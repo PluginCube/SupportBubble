@@ -350,10 +350,6 @@ $options->add('field', [
                             'label' => 'Number'
                         ],
                         [
-                            'value' => 'switch',
-                            'label' => 'Switch'
-                        ],
-                        [
                             'value' => 'date',
                             'label' => 'Date'
                         ],
