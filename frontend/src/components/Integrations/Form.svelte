@@ -188,6 +188,15 @@
                         />
                     {/if}
 
+                    {#if field.type == 'time'}
+                        <input
+                            type="time"
+                            placeholder={field.title}
+                            bind:value={field.value}
+                            required
+                        />
+                    {/if}
+
                     {#if field.type == 'phone_number'}
                         <input
                             type="tel"

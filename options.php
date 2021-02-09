@@ -354,6 +354,10 @@ $options->add('field', [
                             'label' => 'Date'
                         ],
                         [
+                            'value' => 'time',
+                            'label' => 'Time'
+                        ],
+                        [
                             'value' => 'email',
                             'label' => 'Email Address'
                         ],
