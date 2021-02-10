@@ -62,24 +62,29 @@
                 }
             }
 
-            h4 {
-                float: left;
-                margin: 0px;
-                padding: 0px;
+            div {
                 width: calc(100% - 60px);
-                font-size: 14px;
-                font-weight: 400;
-                margin-top: 1px;
-                margin-bottom: 3px;
-                color: #333;
-            }
+                float: left;
 
-            span {
-                width: calc(100% - 60px);
-                font-size: 13px;
-                float: left;
-                color: #999999;
-                font-weight: normal;
+                h4 {
+                    float: left;
+                    margin: 0px;
+                    padding: 0px;
+                    font-size: 14px;
+                    font-weight: 400;
+                    margin-top: 1px;
+                    margin-bottom: 3px;
+                    color: #333;
+                    width: 100%;
+                }
+
+                span {
+                    font-size: 13px;
+                    float: left;
+                    color: #999999;
+                    font-weight: normal;
+                    width: 100%;
+                }
             }
         }
     }
@@ -96,13 +101,15 @@
                 {@html item.icon}
             </i>
 
-            <h4>
-                {item.title}
-            </h4>
+            <div>
+                <h4>
+                    {item.title}
+                </h4>
 
-            <span>
-                {item.subtitle}
-            </span>
+                <span>
+                    {item.subtitle}
+                </span>
+            </div>
         </li>
     {/each}
 </ul>

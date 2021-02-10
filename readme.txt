@@ -4,7 +4,7 @@ Donate link:
 Tags: support, form, floating, contact, conversion, action button, call, marketing, social Sharing, wordpress, whatsapp, messenger, contact form, facebook messenger, call now button, instagram, youtube, social buttons, messegner, floating form, call button, SupportBubble, contact us form
 Requires at least: 4.8
 Tested up to: 5.6
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 Requires PHP: 5.6.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
