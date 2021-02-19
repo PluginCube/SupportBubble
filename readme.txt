@@ -1,4 +1,4 @@
-=== All in One Support Button, Contact, Chat, Email & Social Links ===
+=== Sticky Chat Button - Contact, Chat, Email & Social Links – SupportBubble ===
 Contributors: plugincube
 Donate link: 
 Tags: contact form, chat, whatsapp, messenger, callback, call, marketing, social Sharing, WordPress, WhatsApp, messenger, contact form, Facebook messenger, call now button, Instagram, youtube, social buttons, messenger, floating form, call button, SupportBubble, contact us form
@@ -9,7 +9,7 @@ Requires PHP: 5.6.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Provide your users with an instant support button. Contact, Chat, Whatsapp, Messenger & Email.
+All in One support button for WordPress - Contact form, Chat, Whatsapp, Messenger & Email.
 
 == Description ==
 
@@ -149,6 +149,9 @@ Yes! And you can upgrade to the pro version to unlock more possibilities.
 
 == Changelog ==
 
+= 1.2.0 - 2020-08-25 =
+*New: Add *email* item type
+*New: Add more info for the bubble options
 
 == Upgrade Notice ==
 
