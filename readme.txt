@@ -1,7 +1,7 @@
-=== All in One Support Button, Contact, Chat, Email & Social Links  ===
+=== All in One Support Button, Contact, Chat, Email & Social Links ===
 Contributors: plugincube
 Donate link: 
-Tags: support, form, floating, contact, conversion, action button, call, marketing, social Sharing, wordpress, whatsapp, messenger, contact form, facebook messenger, call now button, instagram, youtube, social buttons, messegner, floating form, call button, SupportBubble, contact us form
+Tags: contact form, chat, whatsapp, messenger, callback, call, marketing, social Sharing, WordPress, WhatsApp, messenger, contact form, Facebook messenger, call now button, Instagram, youtube, social buttons, messenger, floating form, call button, SupportBubble, contact us form
 Requires at least: 4.8
 Tested up to: 5.6
 Stable tag: 1.1.1
@@ -10,35 +10,43 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Provide your users with an instant support button with various support channels. Create a floating form and capture leads directly on your site.
+
 == Description ==
 
-Provide your users with an instant support button using various support channels. Create a custom contact form and gather submissions directly on your site.
+**SupportBubble** allows you to provide your users with an instant support button using various support channels. Create a custom contact form and gather submissions directly on your site.
 
-Why SupportBubble?
-- A smooth customer experience.
-- Capture more leads and messages.
-- Collect customer feedback.
-- Add a callback request form.
-- Direct users to your social pages & grow your audience.
+<br>
 
-## How does it work?
+**Why SupportBubble?**
 
-Your SupportBubble is accessible from the bottom-right corner of each page. When the chat button is clicked the user is presented with a menu of available support options, which you can fully customize to fit your needs. 
+- Capture leads and messages
+- Smooth customer experience
+- Grow your newsletter subscribers
+- Gather users feedback
+- Receive callback requests
+- Floating contact form
 
-Currently, SupportBubble has four support methods available:
+<br>
 
-- Custom Form
-- Whatsapp Widget
-- Messenger Widget
+**How does it work?**
+
+The contact button is accessible from the bottom-right corner of each page. When the chat button is clicked the user is presented with a menu of available support options, which you can fully customize to fit your needs. 
+
+With multiple support methods:
+
+- Contact Form
+- Whatsapp badge
+- Messenger badge
 - Outbound Link
+- Email
 
-## Custom Forms
+<br>
+
+**Custom Forms**
 
 Unlimited potential. No matter what kind of form you’re building, you can achieve it with our plugin. With an easy-to-use interface, you can add as many fields as you wish. And receive the submissions directly on your site without needing any third-party tool.
 
-
-
-Available fields are:
+Available fields:
 
 - Single-Line Text
 - Paragraph Text
@@ -50,13 +58,16 @@ Available fields are:
 - Toggle (Pro)
 - Dropdown (Pro)
 
-For example, you create a simple contact form, a user feedback form, a callback request form, etc. 
+<br>
 
+**Whatsapp & Messenger Widgets**
 
-## Whatsapp & Messenger Widgets
 You can direct your customer to chat with you on their favorite platform. You can add different options with a different Whatsapp number, Facebook page, avatar, name, and average reply time. You also customize the welcome message to attract the attention of your visitors & increase the conversion rate.
 
-## Outbound Link
+<br>
+
+**Outbound Link**
+
 Direct your users to any URL you wish and grow your audience on various social platforms. With many options available:
 - Facebook page
 - Twitter page
@@ -68,7 +79,6 @@ Direct your users to any URL you wish and grow your audience on various social p
 - Facebook Messenger
 - Email
 - Address
-- Open hours
 - WeChat
 - Telegram
 - Vimeo
@@ -82,32 +92,32 @@ Direct your users to any URL you wish and grow your audience on various social p
 - Line
 - SMS
 - Tumblr
-- Qzone
-- QQ
 - Behance
 - Dribble
 - Quora
-- Yelp
 - Amazon
 - Reddit
 - RSS
 - Flickr
 - eBay
-- Etsy
 - Slack
-- Trip Advisor
 - Medium
-- Google Play (Google)
-- App Store (Apple)
+- Google Play
+- App Store
 - Fiverr
 - Shopify
 - Gumroad
 - And much more...
+<br>
 
-## Prompt Messages
+**Prompt Messages**
+
 Display automated messages with typing imitation to attract more attention. You can add as many as you want.
 
-## Audience Targeting (Pro)
+<br>
+
+**Audience Targeting (Pro)**
+
 With our advanced audience targeting tool, you to show or hide certain support methods conditionally. You can target:
 - Specific pages & posts
 - Logged-in users only
@@ -115,17 +125,16 @@ With our advanced audience targeting tool, you to show or hide certain support m
 - Time of the day (From hour x to hour y)
 - Workday (Monday, Tuesday, etc.)
 
-## Get form submissions directly to your email (Pro)
+<br>
+
+**Get form submissions directly to your email (Pro)**
 
 When a form is submitted the message is sent directly to your email. And the conversation will continue with your favorite e-mail client. You can set a different email for each audience so that you can assign a different support agent for each form.
-
-
 
 == Installation ==
 
 1. Upload the plugin files to the `/wp-content/plugins/` directory, or install the plugin through the WordPress plugins screen directly.
 1. Activate the plugin through the 'Plugins' screen in WordPress
-
 
 == Frequently Asked Questions ==
 
@@ -133,11 +142,17 @@ When a form is submitted the message is sent directly to your email. And the con
 
 Yes! And you can upgrade to the pro version to unlock more possibilities.
 
+=  =
+
+
+
 
 == Screenshots ==
 
+1. 
 
 == Changelog ==
 
 
 == Upgrade Notice ==
+
