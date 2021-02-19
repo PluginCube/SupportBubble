@@ -4,7 +4,7 @@ Donate link:
 Tags: contact form, chat, whatsapp, messenger, callback, call, marketing, social Sharing, WordPress, WhatsApp, messenger, contact form, Facebook messenger, call now button, Instagram, youtube, social buttons, messenger, floating form, call button, SupportBubble, contact us form
 Requires at least: 4.8
 Tested up to: 5.6
-Stable tag: 1.1.1
+Stable tag: 1.2
 Requires PHP: 5.6.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
