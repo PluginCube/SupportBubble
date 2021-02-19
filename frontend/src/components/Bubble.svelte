@@ -1,17 +1,12 @@
 <script>
     import { fly } from 'svelte/transition'
-    import { bubble, showMenu, showPrompts, showIntegration } from 'store'
+    import { bubbleClick } from 'methods'
+    import { bubble, showMenu, showIntegration } from 'store'
 
     let style = `
         color: ${$bubble.color};
         background-color: ${$bubble.bg};
     `
-
-    let click = () => {
-        showMenu.set(!$showMenu)
-
-        showPrompts.set(false)
-    }
 </script>
 
 <style lang="scss">
@@ -56,7 +51,7 @@
     }
 </style>
 
-<div on:click={click} data-size={$bubble.size} {style}>
+<div on:click={bubbleClick} data-size={$bubble.size} {style}>
     {#if $showMenu || $showIntegration}
         <i in:fly={{ x: 20 }}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

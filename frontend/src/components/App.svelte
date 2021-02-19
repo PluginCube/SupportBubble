@@ -9,6 +9,8 @@
         showIntegration,
     } from 'store'
 
+    import { bubbleClick } from 'methods'
+
     import Bubble from './Bubble'
     import Prompts from './Prompts'
     import Menu from './Menu'
@@ -19,10 +21,14 @@
 
     onMount(() => {
         showBubble.set(true)
-
-        setTimeout(() => {
-            showPrompts.set(true)
-        }, 500)
+        
+        if ($bubble.automatically_expand) {
+            bubbleClick()
+        } else {
+            setTimeout(() => {
+                showPrompts.set(true)
+            }, 500)
+        }
     })
 </script>
 

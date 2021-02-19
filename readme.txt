@@ -13,7 +13,7 @@ All in One support button for WordPress - Contact form, Chat, Whatsapp, Messenge
 
 == Description ==
 
-**SupportBubble** allows you to provide your users with an instant support button using various support channels. Create a custom contact form and gather submissions directly on your site.
+Provide your users with an instant support button using various support channels. Create a custom contact form and gather submissions directly on your site.
 
 <br>
 
@@ -60,7 +60,7 @@ Available fields:
 
 <br>
 
-**Whatsapp & Messenger Widgets**
+**Whatsapp & Messenger**
 
 You can direct your customer to chat with you on their favorite platform. You can add different options with a different Whatsapp number, Facebook page, avatar, name, and average reply time. You also customize the welcome message to attract the attention of your visitors & increase the conversion rate.
 
@@ -108,6 +108,7 @@ Direct your users to any URL you wish and grow your audience on various social p
 - Shopify
 - Gumroad
 - And much more...
+
 <br>
 
 **Prompt Messages**
@@ -149,9 +150,9 @@ Yes! And you can upgrade to the pro version to unlock more possibilities.
 
 == Changelog ==
 
-= 1.2.0 - 2020-08-25 =
-*New: Add *email* item type
-*New: Add more info for the bubble options
+= 1.2.0 - 2021-02-20 =
+*New: Add *Email* item type
+*New: Add **Behaviour** options for the bubble
 
 == Upgrade Notice ==
 

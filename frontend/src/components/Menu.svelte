@@ -1,33 +1,13 @@
 <script>
     import { fly } from 'svelte/transition'
-    import { menu, showIntegration, integration, showMenu } from 'store'
+    import { menu } from 'store'
+    import { menuItemClick } from 'methods'
 
     $menu.items = $menu.items.length ? $menu.items : []
-
-    let click = (item, e) => {
-        if (['link', 'email'].includes(item.type))
-            return;
-
-        e.preventDefault();
-
-        showMenu.set(false)
-        showIntegration.set(true)
-        integration.set(item)
-    }
-
-    let itemLink = (item) => {
-        if (item.type == 'link') {
-            return item.url.indexOf('://') === -1 ? 'http://' + item.url : item.url
-        } else if (item.type == 'email') {
-            return 'mailto:' + item.email
-        }
-
-        return '#';
-    }
 </script>
 
 <style lang="scss">
-    aside {
+    ul {
         box-shadow: rgb(0 0 0 / 10%) 0px 10px 35px 0px;
         padding: 10px 0px;
         width: 285px;
@@ -39,7 +19,7 @@
         margin: 0;
         list-style: none;
 
-        > a {
+        > li {
             float: left;
             width: 100%;
             margin: 0;
@@ -95,10 +75,10 @@
     }
 </style>
 
-<aside transition:fly={{ x: 40 }}>
+<ul transition:fly={{ x: 40 }}>
     {#each $menu.items as item}
-        <a href={itemLink(item)} target="_blank" on:click={(e) => {
-            click(item, e)
+        <li on:click={(e) => {
+            menuItemClick(item)
         }}>
             <i style="background: {item.color};">
                 {@html item.icon}
@@ -113,6 +93,6 @@
                     {item.subtitle}
                 </span>
             </div>
-        </a>
+        </li>
     {/each}
-</aside>
+</ul>

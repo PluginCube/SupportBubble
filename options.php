@@ -71,6 +71,32 @@ $options->add('field', [
 ]);
 
 $options->add('field', [
+    'id' => 'behaviour',
+    'type' => 'select',
+    'title' => 'Behaviour',
+    'section' => 'bubble',
+    'default' => 'menu',
+    'choices' => [
+        [
+            'value' => 'menu',
+            'label' => 'Open menu'
+        ],
+        [
+            'value' => 'first_item',
+            'label' => 'Launch first item'
+        ],
+    ]
+]);
+
+$options->add('field', [
+    'id' => 'automatically_expand',
+    'type' => 'switch',
+    'title' => 'Automatically Expand',
+    'section' => 'bubble',
+    'default' => false,
+]);
+
+$options->add('field', [
     'id' => 'prompts',
     'type' => 'repeater',
     'title' => 'Prompt Messages',
