@@ -4,25 +4,30 @@
 
     $menu.items = $menu.items.length ? $menu.items : []
 
-    let click = (item) => {
+    let click = (item, e) => {
+        if (['link', 'email'].includes(item.type))
+            return;
+
+        e.preventDefault();
+
+        showMenu.set(false)
+        showIntegration.set(true)
+        integration.set(item)
+    }
+
+    let itemLink = (item) => {
         if (item.type == 'link') {
-            if (item.url) {
-                item.url =
-                    item.url.indexOf('://') === -1
-                        ? 'http://' + item.url
-                        : item.url
-                window.open(item.url, '_blank')
-            }
-        } else {
-            showMenu.set(false)
-            showIntegration.set(true)
-            integration.set(item)
+            return item.url.indexOf('://') === -1 ? 'http://' + item.url : item.url
+        } else if (item.type == 'email') {
+            return 'mailto:' + item.email
         }
+
+        return '#';
     }
 </script>
 
 <style lang="scss">
-    ul {
+    aside {
         box-shadow: rgb(0 0 0 / 10%) 0px 10px 35px 0px;
         padding: 10px 0px;
         width: 285px;
@@ -34,7 +39,7 @@
         margin: 0;
         list-style: none;
 
-        li {
+        > a {
             float: left;
             width: 100%;
             margin: 0;
@@ -90,13 +95,11 @@
     }
 </style>
 
-<ul transition:fly={{ x: 40 }}>
+<aside transition:fly={{ x: 40 }}>
     {#each $menu.items as item}
-        <li
-            on:click={() => {
-                click(item)
-            }}
-        >
+        <a href={itemLink(item)} target="_blank" on:click={(e) => {
+            click(item, e)
+        }}>
             <i style="background: {item.color};">
                 {@html item.icon}
             </i>
@@ -110,6 +113,6 @@
                     {item.subtitle}
                 </span>
             </div>
-        </li>
+        </a>
     {/each}
-</ul>
+</aside>

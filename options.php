@@ -75,7 +75,12 @@ $options->add('field', [
     'type' => 'repeater',
     'title' => 'Prompt Messages',
     'section' => 'bubble',
-    'default' => [],
+    'default' => [
+        [
+            "message" => "Hi there 👋 </br>\nHow can I help you?",
+            "_id" => "_vevbj2n"
+        ]
+    ],
     'fields' => [
         [
             'id' => 'message',
@@ -151,8 +156,12 @@ $options->add('field', [
             'default' => 'link',
             'choices' => [
                 [
+                    'value' => 'form',
+                    'label' => 'Contact Form'
+                ],
+                [
                     'value' => 'link',
-                    'label' => 'Link'
+                    'label' => 'Outbound Link'
                 ],
                 [
                     'value' => 'messenger',
@@ -163,9 +172,9 @@ $options->add('field', [
                     'label' => 'WhatsApp'
                 ],
                 [
-                    'value' => 'form',
-                    'label' => 'Contact Form'
-                ]
+                    'value' => 'email',
+                    'label' => 'Email'
+                ],
             ]
         ],
         // Link
@@ -181,28 +190,28 @@ $options->add('field', [
             'id' => 'welcome_message',
             'type' => 'textarea',
             'title' => 'Welcome Message',
-            'condition' => 'data.type !== "link" && data.type !== "form"',
+            'condition' => '["messenger", "whatsapp"].includes(data.type)',
             'default' => '',
         ],
         [
             'id' => 'avatar',
             'type' => 'image',
             'title' => 'User Avatar',
-            'condition' => 'data.type !== "link" && data.type !== "form"',
+            'condition' => '["messenger", "whatsapp"].includes(data.type)',
             'default' => 'https://images.pexels.com/photos/53453/marilyn-monroe-woman-actress-pretty-53453.jpeg',
         ],
         [
             'id' => 'user_name',
             'type' => 'text',
             'title' => 'User Name',
-            'condition' => 'data.type !== "link" && data.type !== "form"',
+            'condition' => '["messenger", "whatsapp"].includes(data.type)',
             'default' => 'Nancy',
         ],
         [
             'id' => 'caption',
             'type' => 'text',
             'title' => 'Caption',
-            'condition' => 'data.type !== "link" && data.type !== "form"',
+            'condition' => '["messenger", "whatsapp"].includes(data.type)',
             'default' => 'Typically replies within a day',
         ],
         [
@@ -249,6 +258,15 @@ $options->add('field', [
             'condition' => 'data.type == "form"',
             'default' => '',
         ],
+        // Messenger
+        [
+            'id' => 'email',
+            'type' => 'text',
+            'title' => 'Email',
+            'condition' => 'data.type == "email"',
+            'default' => '',
+        ],
+        
         // Targeting Rules
         [
             'id' => 'targeting',

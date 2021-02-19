@@ -9,7 +9,7 @@ Requires PHP: 5.6.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Provide your users with an instant support button with various support channels. Create a floating form and capture leads directly on your site.
+Provide your users with an instant support button. Contact, Chat, Whatsapp, Messenger & Email.
 
 == Description ==
 
@@ -20,7 +20,7 @@ Provide your users with an instant support button with various support channels.
 **Why SupportBubble?**
 
 - Capture leads and messages
-- Smooth customer experience
+- Smooth customer support experience
 - Grow your newsletter subscribers
 - Gather users feedback
 - Receive callback requests
@@ -142,14 +142,10 @@ When a form is submitted the message is sent directly to your email. And the con
 
 Yes! And you can upgrade to the pro version to unlock more possibilities.
 
-=  =
-
-
 
 
 == Screenshots ==
 
-1. 
 
 == Changelog ==
 
