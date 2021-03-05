@@ -1,15 +1,15 @@
-=== Sticky Chat Button - Contact, Chat, Email & Social Links – SupportBubble ===
+=== Floating Contact Form & Social Chat for WordPress – SupportBubble ===
 Contributors: plugincube
 Donate link: 
-Tags: contact form, chat, whatsapp, messenger, callback, call, marketing, social Sharing, WordPress, WhatsApp, messenger, contact form, Facebook messenger, call now button, Instagram, youtube, social buttons, messenger, floating form, call button, SupportBubble, contact us form
+Tags: support, chat, contact form, callback, social
 Requires at least: 4.8
-Tested up to: 5.6
-Stable tag: 1.2
+Tested up to: 5.7
+Stable tag: 1.3
 Requires PHP: 5.6.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-All in One support button for WordPress - Contact form, Chat, Whatsapp, Messenger & Email.
+Add a floating support button with contact forms, social chat, whatsapp, messenger & email support.
 
 == Description ==
 
@@ -131,6 +131,24 @@ With our advanced audience targeting tool, you to show or hide certain support m
 **Get form submissions directly to your email (Pro)**
 
 When a form is submitted the message is sent directly to your email. And the conversation will continue with your favorite e-mail client. You can set a different email for each audience so that you can assign a different support agent for each form.
+
+<br>
+
+**Supported languages**
+- 🇺🇸 English
+- 🇸🇦 العربية
+- 🇩🇪 Deutsch
+- 🇲🇽 Español
+- 🇮🇩 Indonesia
+- 🇫🇷 Français
+- 🇨🇳 繁體中文
+- 🇳🇱 Dutch
+- 🇧🇷 Português
+- 🇵🇰 اردو
+- 🇷🇺 Русский
+- 🇧🇩 বাংলা
+- 🇯🇵 日本語
+Can't find your language? You can help us with the translation [here](https://translate.wordpress.org/projects/wp-plugins/supportbubble/).
 
 == Installation ==
 
