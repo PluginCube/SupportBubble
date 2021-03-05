@@ -3,18 +3,21 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build:zip": "gulp build:zip"
+    "build:zip": "gulp build:zip",
+    "build:translate": "gulp build:translate"
   },
   "repository": "https://github.com/PluginCube/SupportBubble",
   "author": "Omar Badran <engineer.o.badran@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.21.1",
     "del": "^6.0.0",
     "fs-extra": "^9.1.0",
-    "glob": "^7.1.6",
+    "gettext-parser": "^4.0.4",
     "gulp": "^4.0.2",
     "gulp-cli": "^2.3.0",
     "gulp-exec": "^5.0.0",
+    "gulp-wp-pot": "^2.5.0",
     "gulp-zip": "^5.0.2"
   }
 }

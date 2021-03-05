@@ -5,15 +5,15 @@
  * @author    PluginCube <support@plugincube.com>
  * @copyright SupportBubble
  * @license   GPLv3
- * @link      https://plugincube.com/products/support-bubble
+ * @link      https://plugincube.com/products/supportbubble
  *
  * Plugin Name:     SupportBubble
- * Plugin URI:      https://plugincube.com/products/support-bubble
+ * Plugin URI:      https://plugincube.com/products/supportbubble
  * Description:     Floating support button & contact form
  * Version:         1.2
  * Author:          PluginCube
  * Author URI:      https://plugincube.com/
- * Text Domain:     support-bubble
+ * Text Domain:     supportbubble
  * License:         GPLv3
  * License URI:     https://www.gnu.org/licenses/gpl-3.0.txt
  * Domain Path:     /languages
@@ -99,16 +99,19 @@ class SupportBubble
         $this->path = trailingslashit(str_replace('\\', '/', dirname(__FILE__)));
         $this->url = site_url(str_replace(str_replace('\\', '/', ABSPATH), '', $this->path));
 
+        # Load textdomain
+        add_action('plugins_loaded', [$this, "load_textdomain"]);
+
         # define( 'WP_FS__DEV_MODE', true );
 
         # Load the framework
         require_once $this->path . '/framework/framework.php';
 
-        # Init the framework
+        # Initialize the framework
         $this->framework = new Framework([
             'id' => '7724',
             'slug' => 'supportbubble',
-            'title' => 'Support Bubble',
+            'title' => __('Support Bubble', 'supportbubble'),
             'public_key' => 'pk_a864adadb04fe33bb9c6866e6cb9a',
             'has_premium_version' => true,
             'has_addons'          => false,
@@ -117,16 +120,11 @@ class SupportBubble
             'icon' => 'data:image/svg+xml;base64,' . base64_encode(file_get_contents($this->path . '/assets/img/logo-menu.svg')),
         ]);
 
+        # Initialize
+        add_action('plugins_loaded', [$this, "init"]);
+
         # Load modules
         $this->load_modules();
-        
-        # Options
-        include_once $this->path . '/options.php';
-
-        $this->values = $this->framework->options->get_values();
-
-        # Initialize
-        $this->init();
     }
 
     /**
@@ -138,6 +136,12 @@ class SupportBubble
      */
     public function init()
     {
+        # Add options
+        include_once $this->path . '/options.php';
+
+        # Load and cache the values
+        $this->values = $this->framework->options->get_values();
+        
         # Assets
         add_action('wp_enqueue_scripts', [$this, "assets"]);
 
@@ -165,6 +169,18 @@ class SupportBubble
 
         # Ajax form submit
         add_action('wp_ajax_it_form_submit', [$this, 'submit']);
+    }
+    
+    /**
+     * load textdomain.
+     *
+     * @since 1.0.0
+     * @access public 
+     * @return void
+     */
+    public function load_textdomain()
+    {
+        load_plugin_textdomain('supportbubble', false, dirname( plugin_basename( __FILE__ ) ) . '/languages'); 
     }
 
     /**
@@ -200,7 +216,7 @@ class SupportBubble
      */
     public function render()
     {
-        echo "<div id='support-bubble'></div>";
+        echo "<div id='supportbubble'></div>";
     }
 
     /**
@@ -212,7 +228,7 @@ class SupportBubble
      */
     public function assets()
     {
-        wp_enqueue_script('support-bubble', $this->url . "frontend/dist/bundle.js", ['jquery'], $this->version, true);
+        wp_enqueue_script('supportbubble', $this->url . "frontend/dist/bundle.js", ['jquery'], $this->version, true);
     }
 
     /**
@@ -262,7 +278,7 @@ class SupportBubble
 
         $data = json_encode($data);
 
-        wp_add_inline_script('support-bubble', "const SupportBubble = $data", 'before');
+        wp_add_inline_script('supportbubble', "const SupportBubble = $data", 'before');
     }
 
     /**

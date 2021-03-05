@@ -6,6 +6,38 @@
 
 $options = $this->framework->options;
 
+/**
+ * Translation
+ */
+
+$options->translation = [
+    'confirm'               =>      __('Are You Sure?', 'supportbubble'),
+    'save_changes'          =>      __('Save Changes', 'supportbubble'),
+    'error'                 =>      __('An error occurred, please reload the page', 'supportbubble'),
+    'validation_error'      =>      __('Changes could not be updated, Some errors were found', 'supportbubble'),
+    'data_saved'            =>      __('Changes successfully updated', 'supportbubble'),
+    'add_item'              =>      __('Add Item', 'supportbubble'),
+    'remove'                =>      __('Remove', 'supportbubble'),
+    'import'                =>      __('Import', 'supportbubble'),
+    'download_data'         =>      __('Download Data', 'supportbubble'),
+    'override_warning'      =>      __('This will override your current settings. Are You Sure?', 'supportbubble'),
+    'image_url'             =>      __('Image URL', 'supportbubble'),
+    'from_library'          =>      __('From Library', 'supportbubble'),
+    'select'                =>      __('Select', 'supportbubble'),
+    'search'                =>      __('Search', 'supportbubble'),
+    'select_file'           =>      __('Select file', 'supportbubble'),
+    'size'                  =>      __('Size', 'supportbubble'),
+    'line_height'           =>      __('Line Height', 'supportbubble'),
+    'left'                  =>      __('Left', 'supportbubble'),
+    'right'                 =>      __('Right', 'supportbubble'),
+    'center'                =>      __('Center', 'supportbubble'),
+    'justify'               =>      __('Justify', 'supportbubble'),
+    'letter_spacing'        =>      __('Letter Spacing', 'supportbubble'),
+    'word_spacing'          =>      __('Word Spacing', 'supportbubble'),
+    'underline'             =>      __('Underline', 'supportbubble'),
+    'italic'                =>      __('Italic', 'supportbubble'),
+    'uppercase'             =>      __('Uppercase', 'supportbubble')
+];
 
 
 /**
@@ -14,12 +46,12 @@ $options = $this->framework->options;
 
 $options->add('section', [
     'id' => 'bubble',
-    'title' => 'Bubble',
+    'title' => __('Bubble', 'supportbubble'),
 ]);
 
 $options->add('link', [
     'type' => 'section',
-    'title' => 'Bubble',
+    'title' => __('Bubble', 'supportbubble'),
     'section' => 'bubble',
     'icon' => 'ri-chat-3-fill',
 ]);
@@ -27,7 +59,7 @@ $options->add('link', [
 $options->add('field', [
     'id' => 'icon',
     'type' => 'icon',
-    'title' => 'Icon',
+    'title' => __('Icon', 'supportbubble'),
     'section' => 'bubble',
     'default' => 'ri-chat-smile-3-fill',
 ]);
@@ -35,21 +67,21 @@ $options->add('field', [
 $options->add('field', [
     'id' => 'size',
     'type' => 'select',
-    'title' => 'Size',
+    'title' => __('Size', 'supportbubble'),
     'section' => 'bubble',
     'default' => 'medium',
     'choices' => [
         [
             'value' => 'small',
-            'label' => 'Small'
+            'label' => __('Small', 'supportbubble')
         ],
         [
             'value' => 'medium',
-            'label' => 'Medium'
+            'label' => __('Medium', 'supportbubble')
         ],
         [
             'value' => 'large',
-            'label' => 'Large'
+            'label' => __('Large', 'supportbubble')
         ],
     ]
 ]);
@@ -57,7 +89,7 @@ $options->add('field', [
 $options->add('field', [
     'id' => 'bg',
     'type' => 'color',
-    'title' => 'Background',
+    'title' => __('Background', 'supportbubble'),
     'section' => 'bubble',
     'default' => '#0043ff',
 ]);
@@ -65,7 +97,7 @@ $options->add('field', [
 $options->add('field', [
     'id' => 'color',
     'type' => 'color',
-    'title' => 'Text Color',
+    'title' => __('Text Color', 'supportbubble'),
     'section' => 'bubble',
     'default' => '#ffffff',
 ]);
@@ -73,17 +105,17 @@ $options->add('field', [
 $options->add('field', [
     'id' => 'behaviour',
     'type' => 'select',
-    'title' => 'Behaviour',
+    'title' => __('Behaviour', 'supportbubble'),
     'section' => 'bubble',
     'default' => 'menu',
     'choices' => [
         [
             'value' => 'menu',
-            'label' => 'Open menu'
+            'label' => __('Open menu', 'supportbubble')
         ],
         [
             'value' => 'first_item',
-            'label' => 'Launch first item'
+            'label' => __('Launch first item', 'supportbubble')
         ],
     ]
 ]);
@@ -91,7 +123,7 @@ $options->add('field', [
 $options->add('field', [
     'id' => 'automatically_expand',
     'type' => 'switch',
-    'title' => 'Automatically Expand',
+    'title' => __('Automatically Expand', 'supportbubble'),
     'section' => 'bubble',
     'default' => false,
 ]);
@@ -99,7 +131,7 @@ $options->add('field', [
 $options->add('field', [
     'id' => 'prompts',
     'type' => 'repeater',
-    'title' => 'Prompt Messages',
+    'title' => __('Prompt Messages', 'supportbubble'),
     'section' => 'bubble',
     'default' => [
         [
@@ -111,10 +143,10 @@ $options->add('field', [
         [
             'id' => 'message',
             'type' => 'textarea',
-            'title' => 'Message',
-            'default' => 'New Message',
+            'title' => __('Message', 'supportbubble'),
+            'default' => __('New Message', 'supportbubble'),
             'attributes' => [
-                'placeholder' => 'Message...',
+                'placeholder' => __('Message...', 'supportbubble'),
             ]
         ]
     ],
@@ -128,12 +160,12 @@ $options->add('field', [
 
 $options->add('section', [
     'id' => 'menu',
-    'title' => 'Menu',
+    'title' => __('Menu', 'supportbubble'),
 ]);
 
 $options->add('link', [
     'type' => 'section',
-    'title' => 'Menu',
+    'title' => __('Menu', 'supportbubble'),
     'section' => 'menu',
     'icon' => 'ri-layout-right-fill',
 ]);
@@ -141,7 +173,7 @@ $options->add('link', [
 $options->add('field', [
     'id' => 'items',
     'type' => 'repeater',
-    'title' => 'Items',
+    'title' => __('Items', 'supportbubble'),
     'section' => 'menu',
     'limit'   => 5,
     'limit_link' => [
@@ -154,52 +186,52 @@ $options->add('field', [
         [
             'id' => 'title',
             'type' => 'text',
-            'title' => 'Title',
-            'default' => 'New Item',
+            'title' => __('Title', 'supportbubble'),
+            'default' => __('New Item', 'supportbubble'),
         ],
         [
             'id' => 'subtitle',
             'type' => 'text',
-            'title' => 'Subtitle',
-            'default' => 'The subtitle goes here',
+            'title' => __('Subtitle', 'supportbubble'),
+            'default' => __('The subtitle goes here', 'supportbubble'),
         ],
         [
             'id' => 'icon',
             'type' => 'icon',
-            'title' => 'Icon',
+            'title' => __('Icon', 'supportbubble'),
             'default' => 'ri-messenger-fill',
         ],
         [
             'id' => 'color',
             'type' => 'color',
-            'title' => 'Color',
+            'title' => __('Color', 'supportbubble'),
             'default' => '#2c01ff',
         ],
         [
             'id' => 'type',
             'type' => 'select',
-            'title' => 'Type',
+            'title' => __('Type', 'supportbubble'),
             'default' => 'link',
             'choices' => [
                 [
                     'value' => 'form',
-                    'label' => 'Contact Form'
+                    'label' => __('Contact Form', 'supportbubble'),
                 ],
                 [
                     'value' => 'link',
-                    'label' => 'Outbound Link'
+                    'label' => __('Outbound Link', 'supportbubble'),
                 ],
                 [
                     'value' => 'messenger',
-                    'label' => 'Messenger'
+                    'label' => __('Messenger', 'supportbubble'),
                 ],
                 [
                     'value' => 'whatsapp',
-                    'label' => 'WhatsApp'
+                    'label' => __('WhatsApp', 'supportbubble'),
                 ],
                 [
                     'value' => 'email',
-                    'label' => 'Email'
+                    'label' => __('Email', 'supportbubble'),
                 ],
             ]
         ],
@@ -207,7 +239,7 @@ $options->add('field', [
         [
             'id' => 'url',
             'type' => 'text',
-            'title' => 'URL',
+            'title' => __('URL', 'supportbubble'),
             'condition' => 'data.type == "link"',
             'default' => '',
         ],
@@ -215,35 +247,35 @@ $options->add('field', [
         [
             'id' => 'welcome_message',
             'type' => 'textarea',
-            'title' => 'Welcome Message',
+            'title' => __('Welcome Message', 'supportbubble'),
             'condition' => '["messenger", "whatsapp"].includes(data.type)',
             'default' => '',
         ],
         [
             'id' => 'avatar',
             'type' => 'image',
-            'title' => 'User Avatar',
+            'title' => __('User Avatar', 'supportbubble'),
             'condition' => '["messenger", "whatsapp"].includes(data.type)',
             'default' => 'https://images.pexels.com/photos/53453/marilyn-monroe-woman-actress-pretty-53453.jpeg',
         ],
         [
             'id' => 'user_name',
             'type' => 'text',
-            'title' => 'User Name',
+            'title' => __('User Name', 'supportbubble'),
             'condition' => '["messenger", "whatsapp"].includes(data.type)',
             'default' => 'Nancy',
         ],
         [
             'id' => 'caption',
             'type' => 'text',
-            'title' => 'Caption',
+            'title' => __('Caption', 'supportbubble'),
             'condition' => '["messenger", "whatsapp"].includes(data.type)',
-            'default' => 'Typically replies within a day',
+            'default' => __('Typically replies within a day', 'supportbubble'),
         ],
         [
             'id' => 'phone',
             'type' => 'text',
-            'title' => 'Phone Number',
+            'title' => __('Phone Number', 'supportbubble'),
             'condition' => 'data.type == "whatsapp"',
             'default' => '',
         ],
@@ -251,7 +283,7 @@ $options->add('field', [
         [
             'id' => 'messenger_url',
             'type' => 'text',
-            'title' => 'Messenger URL',
+            'title' => __('Messenger URL', 'supportbubble'),
             'condition' => 'data.type == "messenger"',
             'default' => '',
         ],
@@ -259,28 +291,28 @@ $options->add('field', [
         [
             'id' => 'headline',
             'type' => 'text',
-            'title' => 'Headline',
+            'title' => __('Headline', 'supportbubble'),
             'condition' => 'data.type == "form"',
             'default' => '',
         ],
         [
             'id' => 'description',
             'type' => 'text',
-            'title' => 'Description',
+            'title' => __('Description', 'supportbubble'),
             'condition' => 'data.type == "form"',
             'default' => '',
         ],
         [
             'id' => 'form',
             'type' => 'select',
-            'title' => 'Form',
+            'title' => __('Form', 'supportbubble'),
             'condition' => 'data.type == "form"',
             'lookup' => 'data.forms.forms',
         ],
         [
             'id' => 'success_message',
             'type' => 'textarea',
-            'title' => 'Success Message',
+            'title' => __('Success Message', 'supportbubble'),
             'condition' => 'data.type == "form"',
             'default' => '',
         ],
@@ -288,7 +320,7 @@ $options->add('field', [
         [
             'id' => 'email',
             'type' => 'text',
-            'title' => 'Email',
+            'title' => __('Email', 'supportbubble'),
             'condition' => 'data.type == "email"',
             'default' => '',
         ],
@@ -297,7 +329,7 @@ $options->add('field', [
         [
             'id' => 'targeting',
             'type' => 'link',
-            'title' => 'Audience Targeting',
+            'title' => __('Audience Targeting', 'supportbubble'),
             'default' => [],
             'icon' => 'ri-coin-fill',
             'text' => 'Go Pro',
@@ -307,17 +339,17 @@ $options->add('field', [
     ],
     'default' => [
         [
-            "title" => "Messenger",
+            "title" => __("Messenger", 'supportbubble'),
             "avatar" => "https://images.pexels.com/photos/53453/marilyn-monroe-woman-actress-pretty-53453.jpeg",
-            "caption" => "Typically replies within a day",
+            "caption" => __("Typically replies within a day", 'supportbubble'),
             "color" => "rgba(0, 132, 255, 1)",
             "icon" => "ri-messenger-fill",
             "messenger_url" => "m.me/102918678451971",
-            "subtitle" => "Contact us on Facebook",
+            "subtitle" => __("Contact us on Facebook", 'supportbubble'),
             "type" => "messenger",
             "url" => "facebook.com",
             "user_name" => "PluginCube",
-            "welcome_message" => "Hi there 👋 <br> \nHow can I help you?",
+            "welcome_message" => __("Hi there 👋 <br> \nHow can I help you?", 'supportbubble'),
             "_id" => "_imn3s"
 
         ]
@@ -332,12 +364,12 @@ $options->add('field', [
 
 $options->add('section', [
     'id' => 'forms',
-    'title' => 'Forms',
+    'title' => __('Forms', 'supportbubble'),
 ]);
 
 $options->add('link', [
     'type' => 'section',
-    'title' => 'Forms',
+    'title' => __('Forms', 'supportbubble'),
     'section' => 'forms',
     'icon' => 'ri-mail-fill',
 ]);
@@ -345,7 +377,7 @@ $options->add('link', [
 $options->add('field', [
     'id' => 'forms',
     'type' => 'repeater',
-    'title' => 'Forms',
+    'title' => __('Forms', 'supportbubble'),
     'section' => 'forms',
     'limit'   => 3,
     'limit_link' => [
@@ -359,55 +391,55 @@ $options->add('field', [
         [
             'id' => 'title',
             'type' => 'text',
-            'title' => 'Title',
-            'default' => 'New Form',
+            'title' => __('Title', 'supportbubble'),
+            'default' => __('New Form', 'supportbubble'),
         ],
         [
             'id' => 'fields',
             'type' => 'repeater',
-            'title' => 'Fields',
+            'title' => __('Fields', 'supportbubble'),
             'default' => [],
-            'remove_alert' => 'This will remove the field and all the submission data associated with it. Are you sure?',
+            'remove_alert' => __('This will remove the field and all the submission data associated with it. Are you sure?', 'supportbubble'),
             'fields' => [
                 [
                     'id' => 'title',
                     'type' => 'text',
-                    'title' => 'Title',
-                    'default' => 'New Field',
+                    'title' => __('Title', 'supportbubble'),
+                    'default' => __('New Field', 'supportbubble'),
                 ],
                 [
                     'id' => 'type',
                     'type' => 'select',
-                    'title' => 'Type',
+                    'title' => __('Type', 'supportbubble'),
                     'default' => 'single_line_text',
                     'choices' => [
                         [
                             'value' => 'single_line_text',
-                            'label' => 'Single Line Text'
+                            'label' => __('Single Line Text', 'supportbubble')
                         ],
                         [
                             'value' => 'paragraph',
-                            'label' => 'Paragraph Text'
+                            'label' => __('Paragraph Text', 'supportbubble')
                         ],
                         [
                             'value' => 'number',
-                            'label' => 'Number'
+                            'label' => __('Number', 'supportbubble')
                         ],
                         [
                             'value' => 'date',
-                            'label' => 'Date'
+                            'label' => __('Date', 'supportbubble')
                         ],
                         [
                             'value' => 'time',
-                            'label' => 'Time'
+                            'label' => __('Time', 'supportbubble')
                         ],
                         [
                             'value' => 'email',
-                            'label' => 'Email Address'
+                            'label' => __('Email Address', 'supportbubble')
                         ],
                         [
                             'value' => 'phone_number',
-                            'label' => 'Phone Number'
+                            'label' => __('Phone Number', 'supportbubble')
                         ],
                     ]
                 ]
@@ -416,13 +448,13 @@ $options->add('field', [
         [
             'id' => 'show_in_admin',
             'type' => 'switch',
-            'title' => 'Show in admin?',
+            'title' => __('Show in admin?', 'supportbubble'),
             'default' => true,
         ],
         [
             'id' => 'forward',
             'type' => 'link',
-            'title' => 'Forward to Email?',
+            'title' => __('Forward to Email?', 'supportbubble'),
             'default' => [],
             'icon' => 'ri-coin-fill',
             'text' => 'Go Pro',
@@ -441,12 +473,12 @@ $options->add('field', [
 
 $options->add('section', [
     'id' => 'advanced',
-    'title' => 'Advanced',
+    'title' => __('Advanced', 'supportbubble'),
 ]);
 
 $options->add('link', [
     'type' => 'section',
-    'title' => 'Advanced',
+    'title' => __('Advanced', 'supportbubble'),
     'section' => 'advanced',
     'icon' => 'ri-inbox-archive-fill',
 ]);
@@ -454,13 +486,13 @@ $options->add('link', [
 $options->add('field', [
     'id' => 'export',
     'type' => 'export',
-    'title' => 'Export',
+    'title' => __('Export', 'supportbubble'),
     'section' => 'advanced',
 ]);
 
 $options->add('field', [
     'id' => 'import',
     'type' => 'import',
-    'title' => 'Import',
+    'title' => __('Import', 'supportbubble'),
     'section' => 'advanced',
 ]);

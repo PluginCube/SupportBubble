@@ -151,8 +151,8 @@ Yes! And you can upgrade to the pro version to unlock more possibilities.
 == Changelog ==
 
 = 1.2.0 - 2021-02-20 =
-*New: Add *Email* item type
-*New: Add **Behaviour** options for the bubble
+New: Add **Email** item type
+New: Add **Behaviour** options for the bubble
 
 == Upgrade Notice ==
 
