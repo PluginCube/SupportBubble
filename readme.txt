@@ -4,7 +4,7 @@ Donate link:
 Tags: support, chat, contact form, callback, social
 Requires at least: 4.8
 Tested up to: 5.7
-Stable tag: 1.3
+Stable tag: 1.3.1
 Requires PHP: 5.6.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -12,8 +12,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Add a floating support button with contact forms, social chat, whatsapp, messenger & email support.
 
 == Description ==
-
-Provide your users with an instant support button using various support channels. Create a custom contact form and gather submissions directly on your site.
+Add a floating support button using various support channels. Create a custom contact form and gather submissions directly on your site. Or simply redirect users to their preferred messaging platform.
 
 <br>
 
@@ -24,15 +23,13 @@ Provide your users with an instant support button using various support channels
 - Grow your newsletter subscribers
 - Gather users feedback
 - Receive callback requests
-- Floating contact form
+- Add a floating contact form
 
 <br>
 
-**How does it work?**
+## How does it work?
 
-The contact button is accessible from the bottom-right corner of each page. When the chat button is clicked the user is presented with a menu of available support options, which you can fully customize to fit your needs. 
-
-With multiple support methods:
+The contact button is accessible from the bottom-right corner of each page. When the button is clicked the user is presented with a menu of available support options, which you can fully customize to fit your needs. With multiple support methods such as:
 
 - Contact Form
 - Whatsapp badge
@@ -42,7 +39,7 @@ With multiple support methods:
 
 <br>
 
-**Custom Forms**
+## Custom Forms
 
 Unlimited potential. No matter what kind of form you’re building, you can achieve it with our plugin. With an easy-to-use interface, you can add as many fields as you wish. And receive the submissions directly on your site without needing any third-party tool.
 
@@ -60,15 +57,16 @@ Available fields:
 
 <br>
 
-**Whatsapp & Messenger**
+## Whatsapp & Messenger
 
 You can direct your customer to chat with you on their favorite platform. You can add different options with a different Whatsapp number, Facebook page, avatar, name, and average reply time. You also customize the welcome message to attract the attention of your visitors & increase the conversion rate.
 
 <br>
 
-**Outbound Link**
+## Social Links
 
 Direct your users to any URL you wish and grow your audience on various social platforms. With many options available:
+
 - Facebook page
 - Twitter page
 - Instagram page
@@ -111,30 +109,32 @@ Direct your users to any URL you wish and grow your audience on various social p
 
 <br>
 
-**Prompt Messages**
+## Prompt Messages
 
 Display automated messages with typing imitation to attract more attention. You can add as many as you want.
 
 <br>
 
-**Audience Targeting (Pro)**
+## Audience Targeting (Pro)
 
 With our advanced audience targeting tool, you to show or hide certain support methods conditionally. You can target:
+
 - Specific pages & posts
 - Logged-in users only
-- User Role (customer, subscriber, etc.)
-- Time of the day (From hour x to hour y)
-- Workday (Monday, Tuesday, etc.)
+- User Role
+- Time of the day
+- Workday
 
 <br>
 
-**Get form submissions directly to your email (Pro)**
+## Get form submissions directly to your email (Pro)
 
 When a form is submitted the message is sent directly to your email. And the conversation will continue with your favorite e-mail client. You can set a different email for each audience so that you can assign a different support agent for each form.
 
 <br>
 
-**Supported languages**
+## Supported languages
+
 - 🇺🇸 English
 - 🇸🇦 العربية
 - 🇩🇪 Deutsch
@@ -148,6 +148,7 @@ When a form is submitted the message is sent directly to your email. And the con
 - 🇷🇺 Русский
 - 🇧🇩 বাংলা
 - 🇯🇵 日本語
+
 Can't find your language? You can help us with the translation [here](https://translate.wordpress.org/projects/wp-plugins/supportbubble/).
 
 == Installation ==
@@ -168,7 +169,13 @@ Yes! And you can upgrade to the pro version to unlock more possibilities.
 
 == Changelog ==
 
-= 1.2.0 - 2021-02-20 =
+= 1.3.1 - 2021-03-06 =
+Fix: Some grammatical errors in readme.txt
+
+= 1.3 - 2021-03-05 =
+New: Add translation for 12 languages
+
+= 1.2 - 2021-02-20 =
 New: Add **Email** item type
 New: Add **Behaviour** options for the bubble
 

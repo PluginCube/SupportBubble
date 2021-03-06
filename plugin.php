@@ -10,7 +10,7 @@
  * Plugin Name:     SupportBubble
  * Plugin URI:      https://plugincube.com/products/supportbubble
  * Description:     Floating support button & contact form
- * Version:         1.3
+ * Version:         1.3.1
  * Author:          PluginCube
  * Author URI:      https://plugincube.com/
  * Text Domain:     supportbubble
