@@ -169,7 +169,7 @@ Yes! And you can upgrade to the pro version to unlock more possibilities.
 
 == Changelog ==
 
-= 1.3.2 =
+= 1.3.3 =
 
 **Release Date:** 2021/03/07
 
