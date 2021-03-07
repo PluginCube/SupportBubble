@@ -4,7 +4,7 @@ Donate link:
 Tags: support, chat, contact form, callback, social
 Requires at least: 4.8
 Tested up to: 5.7
-Stable tag: 1.3.2
+Stable tag: 1.3.3
 Requires PHP: 5.6.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -168,6 +168,13 @@ Yes! And you can upgrade to the pro version to unlock more possibilities.
 
 
 == Changelog ==
+
+= 1.3.2 =
+
+**Release Date:** 2021/03/07
+
+- New: Remove duplicate option
+
 
 = 1.3.2 =
 

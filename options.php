@@ -287,13 +287,6 @@ $options->add('field', [
             'default' => __('Start Chat', 'supportbubble'),
         ],
         [
-            'id' => 'caption',
-            'type' => 'text',
-            'title' => __('Caption', 'supportbubble'),
-            'condition' => '["messenger", "whatsapp"].includes(data.type)',
-            'default' => __('Typically replies within a day', 'supportbubble'),
-        ],
-        [
             'id' => 'phone',
             'type' => 'text',
             'title' => __('Phone Number', 'supportbubble'),
