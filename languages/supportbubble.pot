@@ -41,7 +41,7 @@ msgstr ""
 msgid "Remove"
 msgstr ""
 
-#: options.php:21, options.php:496
+#: options.php:21, options.php:519
 msgid "Import"
 msgstr ""
 
@@ -185,7 +185,7 @@ msgstr ""
 msgid "Items"
 msgstr ""
 
-#: options.php:189, options.php:394, options.php:407
+#: options.php:189, options.php:417, options.php:430
 msgid "Title"
 msgstr ""
 
@@ -205,7 +205,7 @@ msgstr ""
 msgid "Color"
 msgstr ""
 
-#: options.php:213, options.php:413
+#: options.php:213, options.php:436
 msgid "Type"
 msgstr ""
 
@@ -217,7 +217,7 @@ msgstr ""
 msgid "Outbound Link"
 msgstr ""
 
-#: options.php:226, options.php:342
+#: options.php:226, options.php:363
 msgid "Messenger"
 msgstr ""
 
@@ -225,7 +225,7 @@ msgstr ""
 msgid "WhatsApp"
 msgstr ""
 
-#: options.php:234, options.php:323
+#: options.php:234, options.php:344
 msgid "Email"
 msgstr ""
 
@@ -245,109 +245,121 @@ msgstr ""
 msgid "User Name"
 msgstr ""
 
-#: options.php:271
+#: options.php:271, options.php:292
 msgid "Caption"
 msgstr ""
 
-#: options.php:273, options.php:344
+#: options.php:273, options.php:294, options.php:365
 msgid "Typically replies within a day"
 msgstr ""
 
-#: options.php:278, options.php:442
+#: options.php:278
+msgid "Button Icon"
+msgstr ""
+
+#: options.php:285
+msgid "Button Text"
+msgstr ""
+
+#: options.php:287, options.php:375
+msgid "Start Chat"
+msgstr ""
+
+#: options.php:299, options.php:465
 msgid "Phone Number"
 msgstr ""
 
-#: options.php:286
+#: options.php:307
 msgid "Messenger URL"
 msgstr ""
 
-#: options.php:294
+#: options.php:315
 msgid "Headline"
 msgstr ""
 
-#: options.php:301
+#: options.php:322
 msgid "Description"
 msgstr ""
 
-#: options.php:308
+#: options.php:329
 msgid "Form"
 msgstr ""
 
-#: options.php:315
+#: options.php:336
 msgid "Success Message"
 msgstr ""
 
-#: options.php:332
+#: options.php:353
 msgid "Audience Targeting"
 msgstr ""
 
-#: options.php:348
+#: options.php:369
 msgid "Contact us on Facebook"
 msgstr ""
 
-#: options.php:352
+#: options.php:373
 msgid ""
 "Hi there 👋 <br> \n"
 "How can I help you?"
 msgstr ""
 
-#: options.php:367, options.php:372, options.php:380
+#: options.php:390, options.php:395, options.php:403
 msgid "Forms"
 msgstr ""
 
-#: options.php:395
+#: options.php:418
 msgid "New Form"
 msgstr ""
 
-#: options.php:400
+#: options.php:423
 msgid "Fields"
 msgstr ""
 
-#: options.php:402
+#: options.php:425
 msgid "This will remove the field and all the submission data associated with it. Are you sure?"
 msgstr ""
 
-#: options.php:408
+#: options.php:431
 msgid "New Field"
 msgstr ""
 
-#: options.php:418
+#: options.php:441
 msgid "Single Line Text"
 msgstr ""
 
-#: options.php:422
+#: options.php:445
 msgid "Paragraph Text"
 msgstr ""
 
-#: options.php:426
+#: options.php:449
 msgid "Number"
 msgstr ""
 
-#: options.php:430
+#: options.php:453
 msgid "Date"
 msgstr ""
 
-#: options.php:434
+#: options.php:457
 msgid "Time"
 msgstr ""
 
-#: options.php:438
+#: options.php:461
 msgid "Email Address"
 msgstr ""
 
-#: options.php:451
+#: options.php:474
 msgid "Show in admin?"
 msgstr ""
 
-#: options.php:457
+#: options.php:480
 msgid "Forward to Email?"
 msgstr ""
 
-#: options.php:476, options.php:481
+#: options.php:499, options.php:504
 msgid "Advanced"
 msgstr ""
 
-#: options.php:489
+#: options.php:512
 msgid "Export"
 msgstr ""
 

@@ -4,7 +4,7 @@ Donate link:
 Tags: support, chat, contact form, callback, social
 Requires at least: 4.8
 Tested up to: 5.7
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 Requires PHP: 5.6.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -169,15 +169,33 @@ Yes! And you can upgrade to the pro version to unlock more possibilities.
 
 == Changelog ==
 
-= 1.3.1 - 2021-03-06 =
-Fix: Some grammatical errors in readme.txt
+= 1.3.2 =
 
-= 1.3 - 2021-03-05 =
-New: Add translation for 12 languages
+**Release Date:** 2021/03/07
 
-= 1.2 - 2021-02-20 =
-New: Add **Email** item type
-New: Add **Behaviour** options for the bubble
+- New: Add an option to change start chat button text & icon
+
+
+= 1.3.1 =
+
+**Release Date:** 2021/03/06
+
+- Fix: Some grammatical errors in readme.txt
+
+
+= 1.3 =
+
+**Release Date:** 2021/03/05
+
+- New: Add translation for 12 languages
+
+
+= 1.2 =
+
+**Release Date:** 2021/02/20
+
+- New: Add **Email** item type
+- New: Add **Behaviour** options for the bubble
 
 == Upgrade Notice ==
 

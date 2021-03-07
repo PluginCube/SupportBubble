@@ -28,6 +28,7 @@
                 color: #fff;
                 border-radius: 50px;
                 float: left;
+                margin: 0;
                 margin-right: 15px;
 
                 img {
@@ -166,13 +167,22 @@
                 text-decoration: none;
                 font-size: 15px;
                 color: #fff;
-                background: rgb(79, 206, 93);
-                padding: 8px 14px;
+                background: #4fce5d;
                 width: 100%;
                 float: left;
                 text-align: center;
-                font-weight: bold;
+                font-weight: 700;
                 border-radius: 50px;
+                display: flex;
+                height: 38px;
+                justify-content: center;
+                align-items: center;
+
+                :global(svg) {
+                    width: 18px;
+                    margin-right: 6px;
+                    fill: currentColor;
+                }
             }
         }
     }
@@ -202,7 +212,9 @@
         <a
             href="https://api.whatsapp.com/send?phone={options.phone}"
             target="_blank"
-            style="background-color:{options.color};">Start Chat</a
+            style="background-color:{options.color};">
+            {@html options.icon}
+            {options.btn_text}</a
         >
     </footer>
 </div>

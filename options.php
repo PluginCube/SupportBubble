@@ -273,6 +273,27 @@ $options->add('field', [
             'default' => __('Typically replies within a day', 'supportbubble'),
         ],
         [
+            'id' => 'btn_icon',
+            'type' => 'icon',
+            'title' => __('Button Icon', 'supportbubble'),
+            'condition' => '["messenger", "whatsapp"].includes(data.type)',
+            'default' => 'ri-messenger-fill',
+        ],
+        [
+            'id' => 'btn_text',
+            'type' => 'text',
+            'title' => __('Button Text', 'supportbubble'),
+            'condition' => '["messenger", "whatsapp"].includes(data.type)',
+            'default' => __('Start Chat', 'supportbubble'),
+        ],
+        [
+            'id' => 'caption',
+            'type' => 'text',
+            'title' => __('Caption', 'supportbubble'),
+            'condition' => '["messenger", "whatsapp"].includes(data.type)',
+            'default' => __('Typically replies within a day', 'supportbubble'),
+        ],
+        [
             'id' => 'phone',
             'type' => 'text',
             'title' => __('Phone Number', 'supportbubble'),
@@ -350,6 +371,8 @@ $options->add('field', [
             "url" => "facebook.com",
             "user_name" => "PluginCube",
             "welcome_message" => __("Hi there 👋 <br> \nHow can I help you?", 'supportbubble'),
+            'btn_icon' => 'ri-messenger-fill',
+            'btn_text' => __('Start Chat', 'supportbubble'),
             "_id" => "_imn3s"
 
         ]
